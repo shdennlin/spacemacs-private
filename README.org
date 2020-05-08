@@ -1,0 +1,11 @@
+* My personal Spacemacs configuration 
+Hacking jounry begins start from 2020
+It was written for Emacs 26.3+ on Windows 10 Pro 18363.78+
+
+** How to use
+   
+
+
+
+
+* Happy Hacking
