@@ -63,6 +63,13 @@ values."
              python-test-runner '(nose pytest)
              python-backend 'anaconda
              )
+     (latex :variables
+            latex-build-command "LaTeX"
+            latex-enable-magic t
+            latex-enable-folding t
+            latex-enable-magic t
+            magic-latex-enable-inline-image t
+            )
      Shawn
      )
    ;; List of additional packages that will be installed without being
@@ -331,7 +338,8 @@ values."
   you should place your code here."
   (global-company-mode)
   (setq powerline-default-separator 'arrow-fade)
-  (setenv "WORKON_HOME" "c:/Users/Shawn/anaconda3/envs")
+  (setenv "WORKON_HOME" "~/anaconda3/envs/")
+  (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
 
 
