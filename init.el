@@ -70,6 +70,9 @@ values."
             latex-enable-magic t
             magic-latex-enable-inline-image t
             )
+     html
+     php
+     jekyll
      Shawn
      )
    ;; List of additional packages that will be installed without being
