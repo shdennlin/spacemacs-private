@@ -378,6 +378,7 @@ values."
   (global-company-mode)
   (setq powerline-default-separator 'arrow-fade)
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
+  (setenv "WORKON_HOME" "~/anaconda3/envs/")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

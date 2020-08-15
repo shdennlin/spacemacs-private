@@ -22,5 +22,15 @@
               (regexp-quote sym))))
         regexp-history)
   (call-interactively 'occur))
+
 (global-set-key (kbd "M-s o") 'occur-dwim)
+
 (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
+
+(defun show-markdown-dwim ()
+  (interactive)
+  (call-interactively 'spacemacs/evil-insert-line-below)
+  (call-interactively 'evil-join)
+  )
+
+(spacemacs/set-leader-keys "or" 'show-markdown-dwim)
