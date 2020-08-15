@@ -9,6 +9,6 @@
 ;;
 ;;; License: GPLv3
 
-;; (global-linum-mode)
-
-;; (global-company-mode)
+(add-hook 'python-mode-hook 'spacemacs/toggle-relative-line-numbers)
+(add-hook 'ace-pinyin-mode 'spacemacs/toggle-relative-line-numbers)
+(add-hook 'ein:markdown-mode-hook 'spacemacs/toggle-relative-line-numbers)

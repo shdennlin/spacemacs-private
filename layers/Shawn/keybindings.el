@@ -23,3 +23,4 @@
         regexp-history)
   (call-interactively 'occur))
 (global-set-key (kbd "M-s o") 'occur-dwim)
+(spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)

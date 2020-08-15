@@ -35,49 +35,61 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     helm
-     (auto-completion :variables
-                      auto-completion-tab-key-behavior 'complete
-                      auto-completion-complete-with-key-sequence "kj"
-                      auto-completion-complete-with-key-sequence-delay 0.1)
-     (better-defaults :variables better-defaults-move-to-end-of-code-first t)
-     emacs-lisp
-     git
-     markdown
-     (org :variables
-          org-enable-github-support t
-          org-enable-org-journal-support t
-          )
-     (shell :variables
-            shell-default-height 30
-            shell-default-position 'bottom)
 
      ;; spell-checking
      ;; syntax-checking
-     ;; version-control
-     ivy
-     ibuffer
-     ipython-notebook
-     ;; (spacemacs-language :variables set-google-translate-target-language "zh-TW")
-     neotree
-     imenu-list
-     docker
 
+     ;; =========== emacs GUI ===========
+     (better-defaults :variables better-defaults-move-to-end-of-code-first t)
+     (shell :variables
+            shell-default-height 30
+            shell-default-position 'bottom)
+     ibuffer
+     helm
+     (chinese :variables
+              chinese-conv-backend "cconv"
+              chinese-enable-youdao-dict t
+              ;; chinese-use-fcitx5 t
+              ;; chinese-enable-fcitx t
+              ;; chinese-fcitx-use-dbus t
+              )
+
+     ;; =========== code layer ===========
      (python :variables
              python-test-runner '(nose pytest)
-             python-backend 'anaconda
-             )
+             python-backend 'anaconda)
      (latex :variables
             latex-build-command "LaTeX"
             latex-enable-magic t
             latex-enable-folding t
             latex-enable-magic t
-            magic-latex-enable-inline-image t
-            )
+            magic-latex-enable-inline-image t)
+     (org :variables
+          org-enable-github-support t
+          org-enable-org-journal-support t)
+     go
+     rust
      html
      php
+     emacs-lisp
+     markdown
+     ipython-notebook
+
+     ;; =========== code Plugin ===========
+     (auto-completion :variables
+                      auto-completion-tab-key-behavior 'complete
+                      auto-completion-complete-with-key-sequence "kj"
+                      auto-completion-complete-with-key-sequence-delay 0.1)
      jekyll
      yaml
+     neotree
+     imenu-list
+     git
+
+     ;; =========== uncategorized ===========
+     ivy
+     docker
+
      Shawn
      )
    ;; List of additional packages that will be installed without being
@@ -166,11 +178,11 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("consolas"
+   dotspacemacs-default-font '("Consolas"
                                :size 18
                                :weight normal
                                :width normal
-                               :powerline-scale 1.0)
+                               :powerline-scale 0.7)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
@@ -335,6 +347,10 @@ values."
 
   (setq tramp-ssh-controlmaster-options
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
+
+  ;; (dolist (charset '(kana han symbol cjk-misc bopomofo))
+  ;;   (set-fontset-font (frame-parameter nil 'font)
+  ;;                     charset (font-spec :family "Microsoft Yahei" :size 16)))
   )
 
 (defun dotspacemacs/user-config ()
@@ -344,13 +360,24 @@ values."
   This is the place where most of your configurations should be done. Unless it is
   explicitly specified that a variable should be set before a package is loaded,
   you should place your code here."
+
+  ;; 中文字體配置
+  (dolist (charset '(kana han symbol cjk-misc bopomofo))
+    (set-fontset-font (frame-parameter nil 'font)
+                      charset (font-spec :family "Source Han Mono"
+                                         ;; :size 16
+                                         ))
+    (setq face-font-rescale-alist '(("Source Han Mono" . 1.14)))
+    )
+  ;; (spacemacs//set-monospaced-font  "Consolas" "Source Han Mono" 18 20)
+
+
+  (global-pangu-spacing-mode 0)
+  (set (make-local-variable 'pangu-spacing-real-insert-separtor) nil)
+
   (global-company-mode)
   (setq powerline-default-separator 'arrow-fade)
-  (setenv "WORKON_HOME" "~/anaconda3/envs/")
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
-
-
-
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
