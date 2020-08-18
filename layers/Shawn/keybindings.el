@@ -31,6 +31,8 @@
   (interactive)
   (call-interactively 'spacemacs/evil-insert-line-below)
   (call-interactively 'evil-join)
+  (call-interactively 'ein:worksheet-toggle-cell-type-km)
+  (call-interactively 'ein:worksheet-goto-next-input-km)
   )
 
 (spacemacs/set-leader-keys "or" 'show-markdown-dwim)
