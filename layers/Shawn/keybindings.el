@@ -23,16 +23,31 @@
         regexp-history)
   (call-interactively 'occur))
 
-(global-set-key (kbd "M-s o") 'occur-dwim)
+(spacemacs/set-leader-keys "oo" 'occur-dwim)
+;; (global-set-key (kbd "M-s o") 'occur-dwim)
 
 (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
 
 (defun show-markdown-dwim ()
   (interactive)
+  ;; (call-interactively 'ein:worksheet-toggle-cell-type-km)
   (call-interactively 'spacemacs/evil-insert-line-below)
   (call-interactively 'evil-join)
-  (call-interactively 'ein:worksheet-toggle-cell-type-km)
   (call-interactively 'ein:worksheet-goto-next-input-km)
   )
-
 (spacemacs/set-leader-keys "or" 'show-markdown-dwim)
+
+
+(defun toggle-relative-line-numbers-in-ein ()
+  (interactive)
+  (call-interactively 'spacemacs/toggle-relative-line-numbers-on)
+  (call-interactively 'ein:worksheet-goto-next-input-km)
+  (print "a")
+
+  (call-interactively 'spacemacs/toggle-relative-line-numbers-on)
+  (call-interactively 'ein:worksheet-goto-next-input-km)
+  (print "b")
+
+  ;; (call-interactively 'spacemacs/toggle-relative-line-numbers-on)
+  )
+(spacemacs/set-leader-keys "ol" 'toggle-relative-line-numbers-in-ein)
