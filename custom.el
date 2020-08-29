@@ -9,7 +9,7 @@
  (cond
   ((string-equal system-type "windows-nt")
    (progn
-     '(ein:jupyter-server-command "~/../../anaconda3/envs/tf-gpu/bin/jupyter")
+     '(ein:jupyter-server-command "~/../../anaconda3/envs/tf-gpu/Scripts/jupyter")
      ))
   ((string-equal system-type "darwin") ;  macOS
    (progn

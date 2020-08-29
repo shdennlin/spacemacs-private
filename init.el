@@ -388,7 +388,7 @@ values."
   (cond
    ((string-equal system-type "windows-nt")
     (progn
-      (setenv "WORKON_HOME" "~/anaconda3/envs/")
+      (setenv "WORKON_HOME" "~/../../anaconda3/envs/")
       ))
    ((string-equal system-type "darwin") ;  macOS
     (progn
