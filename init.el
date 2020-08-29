@@ -36,8 +36,6 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
 
-     ;; spell-checking
-     ;; syntax-checking
 
      ;; =========== emacs GUI ===========
      (better-defaults :variables better-defaults-move-to-end-of-code-first t)
@@ -85,6 +83,9 @@ values."
      neotree
      imenu-list
      git
+     version-control
+     spell-checking
+     syntax-checking
 
      ;; =========== uncategorized ===========
      ivy
@@ -96,13 +97,16 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(
+                                      magit
+                                      treepy
+                                      ghub
+                                      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '(
                                     vi-tilde-fringe
-                                    ;; spaceline
                                     )
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -371,7 +375,8 @@ values."
     )
   ;; (spacemacs//set-monospaced-font  "Consolas" "Source Han Mono" 18 20)
 
-
+  (global-git-commit-mode t)
+  (global-flycheck-mode t)
   (global-pangu-spacing-mode 0)
   (set (make-local-variable 'pangu-spacing-real-insert-separtor) nil)
 
