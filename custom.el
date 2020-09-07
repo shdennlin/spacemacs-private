@@ -4,7 +4,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ein:output-area-inlined-images t)
- ;; '(ein:jupyter-server-command "/home/shawn/anaconda3/envs/tf-gpu/bin/jupyter")
 
  (cond
   ((string-equal system-type "windows-nt")
@@ -18,7 +17,6 @@
    (progn
      '(ein:jupyter-server-command "/home/shawn/anaconda3/envs/tf-gpu/bin/jupyter")
      )))
-
 
  '(package-selected-packages
    (quote

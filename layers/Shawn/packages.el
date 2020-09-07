@@ -31,24 +31,13 @@
 
 (defconst Shawn-packages
   '(
-    ;; youdao-dictionary
     company
     elpy
-    ;; company-anaconda
-    ;; (company-anaconda :toggle (configuration-layer/package-usedp 'company))
     evil-escape
     ipython-notebook
-    ;; google-translate
     )
   )
 
-;; (defun Shawn/init-youdao-dictionary()
-;;   (use-package youdao-dictionary
-;;     :defer t
-;;     :init
-;;     (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
-;;     )
-;;   )
 
 (defun Shawn/init-elpy()
   (use-package elpy
@@ -64,8 +53,20 @@
   )
 
 (defun Shawn/post-init-ipython-notebook ()
+  (cond
+   ((string-equal system-type "windows-nt")
+    (progn
+      (setq jupyter-server-command "~/../../anaconda3/envs/tf-gpu/Scripts/jupyter")
+      ))
+   ((string-equal system-type "darwin") ;  macOS
+    (progn
+      ))
+   ((string-equal system-type "gnu/linux")
+    (progn
+      (setq jupyter-server-command "/home/shawn/anaconda3/envs/tf-gpu/bin/jupyter")
+      )))
+
   (setq output-area-inlined-images t)
-  (setq elpy-rpc-virtualenv-path "/home/shawn/anaconda3/envs/tf-gpu")
   )
 
 ;; Add the relevant packages to the layer
@@ -79,12 +80,8 @@
     ;; enable dabbrev-expand in company completion https://emacs-china.org/t/topic/6381
     (setq company-dabbrev-char-regexp "[\\.0-9a-z-_'/]")
 
-    (setq company-minimum-prefix-length 1
-          company-idle-delay 0.08)
-
     (when (configuration-layer/package-usedp 'company)
       (spacemacs|add-company-backends :modes shell-script-mode makefile-bsdmake-mode sh-mode lua-mode nxml-mode conf-unix-mode json-mode graphviz-dot-mode js2-mode js-mode))
 
   ))
-
 ;;; packages.el ends here

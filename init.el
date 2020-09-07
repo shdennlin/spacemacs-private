@@ -76,8 +76,14 @@ values."
      ;; =========== code Plugin ===========
      (auto-completion :variables
                       auto-completion-tab-key-behavior 'complete
-                      auto-completion-complete-with-key-sequence "kj"
-                      auto-completion-complete-with-key-sequence-delay 0.1)
+                      auto-completion-complete-with-key-sequence-delay 0.08
+                      auto-completion-minimum-prefix-length 1
+                      ;; auto-completion-enable-snippets-in-popup t
+                      ;; auto-completion-enable-help-tooltip t
+                      auto-completion-enable-sort-by-usage t
+                      auto-completion-use-company-box nil
+                      )
+
      jekyll
      yaml
      neotree
