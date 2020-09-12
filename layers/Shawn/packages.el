@@ -1,3 +1,10 @@
+;;  __        __             __   ___
+;; |__)  /\  /  ` |__/  /\  / _` |__
+;; |    /~~\ \__, |  \ /~~\ \__> |___
+;;                      __   ___        ___      ___
+;; |\/|  /\  |\ |  /\  / _` |__   |\/| |__  |\ |  |
+;; |  | /~~\ | \| /~~\ \__> |___  |  | |___ | \|  |
+
 ;;; packages.el --- Shawn layer packages file for Spacemacs.
 ;;
 ;; Copyright (c) 2012-2018 Sylvain Benner & Contributors
@@ -38,6 +45,7 @@
     )
   )
 
+;(require 'vline)
 
 (defun Shawn/init-elpy()
   (use-package elpy
