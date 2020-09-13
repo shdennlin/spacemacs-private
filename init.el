@@ -107,7 +107,6 @@ values."
                                       magit
                                       treepy
                                       ghub
-                                      vline
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -386,9 +385,10 @@ values."
   (global-git-commit-mode t)
   (global-flycheck-mode t)
   (global-pangu-spacing-mode 0)
+  (global-company-mode)
+
   (set (make-local-variable 'pangu-spacing-real-insert-separtor) nil)
 
-  (global-company-mode)
   (setq powerline-default-separator 'arrow-fade)
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 

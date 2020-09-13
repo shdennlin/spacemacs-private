@@ -42,6 +42,7 @@
     elpy
     evil-escape
     ipython-notebook
+    (vline :location local)
     )
   )
 
@@ -92,4 +93,17 @@
       (spacemacs|add-company-backends :modes shell-script-mode makefile-bsdmake-mode sh-mode lua-mode nxml-mode conf-unix-mode json-mode graphviz-dot-mode js2-mode js-mode))
 
   ))
+
+(defun Shawn/init-vline ()
+  (use-package vline
+    :init
+    (spacemacs/set-leader-keys
+      "otc" #'vline-mode
+      "otC" #'vline-global-mode)
+    :config
+    ;; if you want to change color, you can use below to get color ==>>
+    ;; (face-attribute hl-line-face :background)
+    (set-face-background vline-face "#44475a")
+    ))
+
 ;;; packages.el ends here
