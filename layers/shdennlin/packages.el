@@ -1,15 +1,8 @@
-;;  __        __             __   ___
-;; |__)  /\  /  ` |__/  /\  / _` |__
-;; |    /~~\ \__, |  \ /~~\ \__> |___
-;;                      __   ___        ___      ___
-;; |\/|  /\  |\ |  /\  / _` |__   |\/| |__  |\ |  |
-;; |  | /~~\ | \| /~~\ \__> |___  |  | |___ | \|  |
-
-;;; packages.el --- Shawn layer packages file for Spacemacs.
+;;; packages.el --- shdennlin layer packages file for Spacemacs.
 ;;
 ;; Copyright (c) 2012-2018 Sylvain Benner & Contributors
 ;;
-;; Author:  <Shawn@SHAWN-NB>
+;; Author:  <shdennlin@SHAWN-NB>
 ;; URL: https://github.com/syl20bnr/spacemacs
 ;;
 ;; This file is not part of GNU Emacs.
@@ -25,18 +18,18 @@
 ;;
 ;;
 ;; Briefly, each package to be installed or configured by this layer should be
-;; added to `Shawn-packages'. Then, for each package PACKAGE:
+;; added to `shdennlin-packages'. Then, for each package PACKAGE:
 ;;
 ;; - If PACKAGE is not referenced by any other Spacemacs layer, define a
-;;   function `Shawn/init-PACKAGE' to load and initialize the package.
+;;   function `shdennlin/init-PACKAGE' to load and initialize the package.
 
 ;; - Otherwise, PACKAGE is already referenced by another Spacemacs layer, so
-;;   define the functions `Shawn/pre-init-PACKAGE' and/or
-;;   `Shawn/post-init-PACKAGE' to customize the package as it is loaded.
+;;   define the functions `shdennlin/pre-init-PACKAGE' and/or
+;;   `shdennlin/post-init-PACKAGE' to customize the package as it is loaded.
 
 ;;; Code:
 
-(defconst Shawn-packages
+(defconst shdennlin-packages
   '(
     company
     elpy
@@ -48,7 +41,7 @@
 
 ;(require 'vline)
 
-(defun Shawn/init-elpy()
+(defun shdennlin/init-elpy()
   (use-package elpy
     :ensure t
     :init
@@ -56,12 +49,12 @@
     )
   )
 
-(defun Shawn/post-init-evil-escape ()
+(defun shdennlin/post-init-evil-escape ()
   (setq evil-escape-key-sequence "jk")
   (setq evil-escape-delay 0.2)
   )
 
-(defun Shawn/post-init-ipython-notebook ()
+(defun shdennlin/post-init-ipython-notebook ()
   (cond
    ((string-equal system-type "windows-nt")
     (progn
@@ -83,7 +76,7 @@
       '(company
         (company-anaconda :toggle (configuration-layer/package-usedp 'company))))
 
-(defun Shawn/post-init-company ()
+(defun shdennlin/post-init-company ()
   (progn
     (setq company-dabbrev-code-other-buffers 'all)
     ;; enable dabbrev-expand in company completion https://emacs-china.org/t/topic/6381
@@ -94,12 +87,8 @@
 
   ))
 
-(defun Shawn/init-vline ()
+(defun shdennlin/init-vline ()
   (use-package vline
-    :init
-    (spacemacs/set-leader-keys
-      "otc" #'vline-mode
-      "otC" #'vline-global-mode)
     :config
     ;; if you want to change color, you can use below to get color ==>>
     ;; (face-attribute hl-line-face :background)

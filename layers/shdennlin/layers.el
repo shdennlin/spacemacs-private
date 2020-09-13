@@ -10,3 +10,6 @@
 ;;; License: GPLv3
 
 
+(configuration-layer/declare-layers '(
+                                      ;; shdennlin-programming
+                                      ))
