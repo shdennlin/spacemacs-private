@@ -51,3 +51,7 @@
   ;; (call-interactively 'spacemacs/toggle-relative-line-numbers-on)
   )
 (spacemacs/set-leader-keys "ol" 'toggle-relative-line-numbers-in-ein)
+
+(defun connect-remote ()
+  (interactive)
+  (dired "/ssh:pi@192.168.12.5:/home/pi/"))
