@@ -12,10 +12,5 @@
 
 (setq shdennlin-programming-packages
       '(
-        company
-        elpy
-        evil-escape
-        ipython-notebook
-        (vline :location local)
         ))
 

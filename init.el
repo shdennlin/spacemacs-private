@@ -181,7 +181,9 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(dracula
+   dotspacemacs-themes '(
+                         dracula
+                         nord
                          spacemacs-dark
                          spacemacs-light)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
@@ -408,6 +410,7 @@ values."
   (setq tramp-default-method "ssh")
   (setq tramp-auto-save-directory "~/tmp/tramp/")
   (setq tramp-chunksize 2000)
+  (setq nord-region-highlight "snowstorm")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
