@@ -72,6 +72,7 @@ values."
      emacs-lisp
      markdown
      ipython-notebook
+     octave
 
      ;; =========== code Plugin ===========
      (auto-completion :variables
