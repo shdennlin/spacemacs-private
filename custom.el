@@ -3,6 +3,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+
+ ;; '(ein:jupyter-server-command "/home/shawn/anaconda3/envs/tf-gpu/bin/jupyter")
  '(ein:output-area-inlined-images t)
  '(ein:jupyter-server-command "~/../../anaconda3/envs/tf-gpu/Scripts/jupyter")
  '(package-selected-packages
@@ -13,5 +15,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ml/hhuge ((t (:height 1.7))))
+ '(ml/huge ((t (:height 1.55))))
+ '(ml/title ((t (:inherit font-lock-function-name-face :height 1.3))))
  '(show-paren-match ((t (:background "red" :foreground "#8be9fd" :weight bold)))))
 
