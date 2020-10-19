@@ -174,7 +174,7 @@ values."
    ;; List sizes may be nil, in which case
    ;; `spacemacs-buffer-startup-lists-length' takes effect.
    dotspacemacs-startup-lists '((recents . 8)
-                                (projects . 7))
+                                (projects . 20))
    ;; True if the home buffer should respond to resize events.
    dotspacemacs-startup-buffer-responsive t
    ;; Default major mode of the scratch buffer (default `text-mode')
@@ -395,23 +395,24 @@ values."
   (setq powerline-default-separator 'arrow-fade)
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
-  (cond
-   ((string-equal system-type "windows-nt")
-    (progn
-      (setenv "WORKON_HOME" "~/../../anaconda3/envs/")
-      ))
-   ((string-equal system-type "darwin") ;  macOS
-    (progn
-      ))
-   ((string-equal system-type "gnu/linux")
-    (progn
-      (setenv "WORKON_HOME" "~/anaconda3/envs/")
-      )))
+
+  (cond ((eq system-type 'windows-nt)
+         (setenv "WORKON_HOME" "~/../../anaconda3/envs/")
+         (add-to-list 'exec-path "C:/msys64/mingw64/bin/")
+         (setq ispell-program-name "aspell")
+         (setq ispell-personal-dictionary "c:/msys64/mingw64/lib/aspell-0.60/en_GB")
+         )
+        ((eq system-type 'gnu/linux)
+         (setenv "WORKON_HOME" "~/anaconda3/envs/")
+         )
+        ((eq system-type 'darwin)
+         ))
 
   (setq tramp-default-method "ssh")
   (setq tramp-auto-save-directory "~/tmp/tramp/")
   (setq tramp-chunksize 2000)
   (setq nord-region-highlight "snowstorm")
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
