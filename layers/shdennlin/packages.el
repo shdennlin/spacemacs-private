@@ -35,6 +35,7 @@
     elpy
     evil-escape
     ipython-notebook
+    org
     (vline :location local)
     )
   )
@@ -53,6 +54,7 @@
   (setq evil-escape-key-sequence "jk")
   (setq evil-escape-delay 0.2)
   )
+
 
 (defun shdennlin/post-init-ipython-notebook ()
   (cond
@@ -95,5 +97,10 @@
     (set-face-background vline-face "#44475a")
     ))
 
+
+(defun shdennlin/post-init-org()
+  (setq system-time-locale "C") ;; let date language be English
+  (setq org-startup-indented t)
+  )
 
 ;;; packages.el ends here

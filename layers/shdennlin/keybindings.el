@@ -9,7 +9,7 @@
 ;;
 ;;; License: GPLv3
 
-(spacemacs/set-leader-keys "oo" 'occur-dwim)
+(spacemacs/set-leader-keys "oc" 'occur-dwim)
 (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
 (spacemacs/set-leader-keys "or" 'show-markdown-dwim)
 (spacemacs/set-leader-keys "ol" 'toggle-relative-line-numbers-in-ein)
@@ -17,3 +17,8 @@
 (spacemacs/declare-prefix "ot" "Toggle")
 (spacemacs/set-leader-keys "otc" 'vline-mode)
 (spacemacs/set-leader-keys "otC" 'vline-global-mode)
+
+
+(spacemacs/declare-prefix "oo" "org-mode")
+(spacemacs/set-leader-keys "oot" 'org-start-template)
+
