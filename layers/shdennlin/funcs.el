@@ -49,7 +49,7 @@
 (define-skeleton org-start-template
   "Header info for a emacs-org file."
   "Title:"
-  "#+TITLE:\n"
+  "#+TITLE:\t\n"
   "#+AUTHOR:\tShawn Dennis Lin\n"
   "#+EMAIL:\tShawnDennisLin@gmail.com\n"
   "#+DATE:\t" '(org-time-stamp-inactive) "\n"
