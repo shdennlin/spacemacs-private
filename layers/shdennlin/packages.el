@@ -101,6 +101,15 @@
 (defun shdennlin/post-init-org()
   (setq system-time-locale "C") ;; let date language be English
   (setq org-startup-indented t)
+  (setq org-emphasis-alist
+    (quote
+     (("*" bold)
+      ("/" italic)
+      ("_" underline)
+      ("=" org-code verbatim)
+      ("~" org-code verbatim)
+      ("+"
+       (:strike-through t)))))
   )
 
 ;;; packages.el ends here

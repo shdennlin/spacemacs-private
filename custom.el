@@ -3,15 +3,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-
- (cond ((eq system-type 'windows-nt)
-        '(ein:jupyter-server-command "~/../../anaconda3/envs/tf-gpu/Scripts/jupyter")
-        )
-       ((eq system-type 'gnu/linux)
-        '(ein:jupyter-server-command "/home/shawn/anaconda3/envs/tf-gpu/bin/jupyter")
-        )
-       ((eq system-type 'darwin)
-        ))
+ '(ein:jupyter-server-command "~/../../anaconda3/envs/tf-gpu/Scripts/jupyter")
  '(ein:output-area-inlined-images t)
  '(package-selected-packages
    (quote
