@@ -22,3 +22,4 @@
 (spacemacs/declare-prefix "oo" "org-mode")
 (spacemacs/set-leader-keys "oot" 'org-start-template)
 
+(define-key evil-normal-state-map (kbd "<RET>") 'spacemacs/evil-search-clear-highlight)

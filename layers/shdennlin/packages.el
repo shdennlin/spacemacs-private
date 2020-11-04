@@ -110,6 +110,7 @@
       ("~" org-code verbatim)
       ("+"
        (:strike-through t)))))
+  (setq org-edit-src-content-indentation 0)
   )
 
 ;;; packages.el ends here

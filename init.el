@@ -36,12 +36,12 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
 
-
      ;; =========== emacs GUI ===========
      (better-defaults :variables better-defaults-move-to-end-of-code-first t)
      (shell :variables
-            shell-default-height 30
-            shell-default-position 'bottom)
+            shell-default-height 40
+            shell-default-position 'bottom
+            shell-default-shell 'shell )
      ibuffer
      helm
      (chinese :variables
@@ -73,6 +73,7 @@ values."
      markdown
      ipython-notebook
      octave
+     ruby
 
      ;; =========== code Plugin ===========
      (auto-completion :variables
@@ -377,7 +378,7 @@ values."
   explicitly specified that a variable should be set before a package is loaded,
   you should place your code here."
 
-  ;; 中文字體配置
+  ;; 中文字體配置 Chinese fonts configuration
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
     (set-fontset-font (frame-parameter nil 'font)
                       charset (font-spec :family "Source Han Mono"
