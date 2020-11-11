@@ -65,6 +65,7 @@ values."
      (org :variables
           org-enable-github-support t
           org-enable-org-journal-support t)
+     pandoc
      go
      rust
      html
@@ -364,10 +365,6 @@ values."
   (setq tramp-ssh-controlmaster-options
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
   (setq-default git-enable-magit-svn-plugin t)
-
-  ;; (dolist (charset '(kana han symbol cjk-misc bopomofo))
-  ;;   (set-fontset-font (frame-parameter nil 'font)
-  ;;                     charset (font-spec :family "Microsoft Yahei" :size 16)))
   )
 
 (defun dotspacemacs/user-config ()
