@@ -64,7 +64,9 @@ values."
             magic-latex-enable-inline-image t)
      (org :variables
           org-enable-github-support t
-          org-enable-org-journal-support t)
+          org-enable-org-journal-support t
+          org-enable-hugo-support t)
+
      pandoc
      go
      rust
@@ -87,7 +89,7 @@ values."
                       auto-completion-use-company-box nil
                       )
 
-     jekyll
+     ;; jekyll
      yaml
      neotree
      imenu-list
@@ -95,6 +97,7 @@ values."
      version-control
      spell-checking
      syntax-checking
+     prodigy
 
      ;; =========== uncategorized ===========
      ivy
@@ -110,6 +113,7 @@ values."
                                       magit
                                       treepy
                                       ghub
+                                      easy-hugo
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -395,15 +399,34 @@ values."
   (setq powerline-default-separator 'arrow-fade)
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
-
   (cond ((eq system-type 'windows-nt)
          (setenv "WORKON_HOME" "~/../../anaconda3/envs/")
          (add-to-list 'exec-path "C:/msys64/mingw64/bin/")
          (setq ispell-program-name "aspell")
          (setq ispell-personal-dictionary "c:/msys64/mingw64/lib/aspell-0.60/en_GB")
+
+         (prodigy-define-service
+          :name "Hugo Personal Blog"
+          :command "hugo"
+          :args '("server" "-t" "toha" "-w")
+          :cwd "d:/shdennlin.github.io/"
+          :tags '(personal)
+          :stop-signal 'sigkill
+          :kill-process-buffer-on-stop t
+          :url "http://localhost:1313/posts")
          )
         ((eq system-type 'gnu/linux)
          (setenv "WORKON_HOME" "~/anaconda3/envs/")
+
+         (prodigy-define-service
+           :name "Hugo Personal Blog"
+           :command "hugo"
+           :args '("server" "-t" "toha" "-w")
+           :cwd "~/DATA/shdennlin.github.io/"
+           :tags '(personal)
+           :stop-signal 'sigkill
+           :kill-process-buffer-on-stop t
+           :url "http://localhost:1313/posts")
          )
         ((eq system-type 'darwin)
          ))
