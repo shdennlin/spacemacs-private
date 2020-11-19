@@ -58,18 +58,18 @@
 
 
 (defun shdennlin/post-init-ipython-notebook ()
-  (cond
-   ((string-equal system-type "windows-nt")
-    (progn
-      (setq jupyter-server-command "~/../../anaconda3/envs/tf-gpu/Scripts/jupyter")
-      ))
-   ((string-equal system-type "darwin") ;  macOS
-    (progn
-      ))
-   ((string-equal system-type "gnu/linux")
-    (progn
-      (setq jupyter-server-command "/home/shawn/anaconda3/envs/tf-gpu/bin/jupyter")
-      )))
+  ;; (cond
+  ;;  ((string-equal system-type "windows-nt")
+  ;;   (progn
+  ;;     (setq jupyter-server-command "~/../../anaconda3/envs/tf-gpu/Scripts/jupyter")
+  ;;     ))
+  ;;  ((string-equal system-type "darwin") ;  macOS
+  ;;   (progn
+  ;;     ))
+  ;;  ((string-equal system-type "gnu/linux")
+  ;;   (progn
+  ;;     (setq jupyter-server-command "/home/shawn/anaconda3/envs/tf-gpu/bin/jupyter")
+  ;;     )))
 
   (setq output-area-inlined-images t)
   )
@@ -115,15 +115,17 @@
   )
 
 (defun shdennlin/post-init-shell()
-  (cond ((eq system-type 'windows-nt)
-         (setq explicit-shell-file-name "C:/Windows/System32/bash.exe")
-         (setq shell-file-name "bash")
-         (setq explicit-bash.exe-args '("--noediting" "--login" "-i"))
-         (setq shell-file-name explicit-shell-file-name)
-         )
-        ((eq system-type 'gnu/linux)
-         )
-        ((eq system-type 'darwin)
-         ))
+  ;; bug: execute python can't file python.exe path
+  ;;
+  ;; (cond ((eq system-type 'windows-nt)
+  ;;        (setq explicit-shell-file-name "C:/Windows/System32/bash.exe")
+  ;;        (setq shell-file-name "bash")
+  ;;        (setq explicit-bash.exe-args '("--noediting" "--login" "-i"))
+  ;;        (setq shell-file-name explicit-shell-file-name)
+  ;;        )
+  ;;       ((eq system-type 'gnu/linux)
+  ;;        )
+  ;;       ((eq system-type 'darwin)
+  ;;        ))
 )
 ;;; packages.el ends here

@@ -3,7 +3,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ein:jupyter-server-command "~/../../anaconda3/envs/tf-gpu/Scripts/jupyter")
+ ;; '(ein:jupyter-server-command "~/../../anaconda3/envs/tf-gpu/Scripts/jupyter")
  '(ein:output-area-inlined-images t)
  '(package-selected-packages
    (quote
