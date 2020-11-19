@@ -36,6 +36,7 @@
     evil-escape
     ipython-notebook
     org
+    shell
     (vline :location local)
     )
   )
@@ -113,4 +114,16 @@
   (setq org-edit-src-content-indentation 0)
   )
 
+(defun shdennlin/post-init-shell()
+  (cond ((eq system-type 'windows-nt)
+         (setq explicit-shell-file-name "C:/Windows/System32/bash.exe")
+         (setq shell-file-name "bash")
+         (setq explicit-bash.exe-args '("--noediting" "--login" "-i"))
+         (setq shell-file-name explicit-shell-file-name)
+         )
+        ((eq system-type 'gnu/linux)
+         )
+        ((eq system-type 'darwin)
+         ))
+)
 ;;; packages.el ends here
