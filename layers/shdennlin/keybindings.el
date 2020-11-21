@@ -18,12 +18,14 @@
 (spacemacs/set-leader-keys "otc" 'vline-mode)
 (spacemacs/set-leader-keys "otC" 'vline-global-mode)
 
-
 (spacemacs/declare-prefix "oo" "org-mode")
 (spacemacs/set-leader-keys "oot" 'org-start-template)
 (spacemacs/declare-prefix "ooh" "Hugo")
-(spacemacs/set-leader-keys "oot" 'org-start-template)
 (spacemacs/set-leader-keys "oohs" 'org-hugo-start-template)
 (spacemacs/set-leader-keys "oohi" 'org-hugo-_index-template)
+
+(spacemacs/set-leader-keys "oh" 'easy-hugo)
+
+
 
 (define-key evil-normal-state-map (kbd "<RET>") 'spacemacs/evil-search-clear-highlight)
