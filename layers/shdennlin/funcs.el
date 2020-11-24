@@ -60,6 +60,7 @@
   "Header info for a emacs-org file."
   "Title:"
   "#+STARTUP: content\n"
+  "#+OPTIONS: \\n:t\n"
   "#+TITLE:\t\n"
   "#+AUTHOR:\tShawn Dennis Lin\n"
   "#+EMAIL:\tShawnDennisLin@gmail.com\n"
