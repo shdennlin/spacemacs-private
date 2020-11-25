@@ -36,49 +36,10 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
 
-     ;; =========== emacs GUI ===========
-     (better-defaults :variables better-defaults-move-to-end-of-code-first t)
-     (shell :variables
-            shell-default-height 40
-            shell-default-position 'bottom
-            shell-default-shell 'shell )
-     ibuffer
-     helm
-     (chinese :variables
-              chinese-conv-backend "cconv"
-              chinese-enable-youdao-dict t
-              ;; chinese-use-fcitx5 t
-              ;; chinese-enable-fcitx t
-              ;; chinese-fcitx-use-dbus t
-              )
-
-     ;; =========== code layer ===========
-     (python :variables
-             python-test-runner '(nose pytest)
-             python-backend 'anaconda)
-     (latex :variables
-            latex-build-command "LaTeX"
-            latex-enable-magic t
-            latex-enable-folding t
-            latex-enable-magic t
-            magic-latex-enable-inline-image t)
-     (org :variables
-          org-enable-github-support t
-          org-enable-org-journal-support t
-          org-enable-hugo-support t)
-
-     pandoc
-     go
-     rust
-     html
-     php
-     emacs-lisp
-     markdown
-     ipython-notebook
-     octave
-     ruby
-
-     ;; =========== code Plugin ===========
+     ;; =========== Checkers ===========
+     spell-checking
+     syntax-checking
+     ;; =========== Completion ===========
      (auto-completion :variables
                       auto-completion-tab-key-behavior 'complete
                       auto-completion-complete-with-key-sequence-delay 0.08
@@ -88,21 +49,63 @@ values."
                       auto-completion-enable-sort-by-usage t
                       auto-completion-use-company-box nil
                       )
-
-     ;; jekyll
-     yaml
+     helm
+     ivy
+     ;; =========== Emacs ===========
+     (better-defaults :variables better-defaults-move-to-end-of-code-first t)
+     ibuffer
+     (org :variables
+          org-enable-github-support t
+          org-enable-org-journal-support t
+          org-enable-hugo-support t)
+     ;; =========== Fun ===========
+     emoji
+     ;; =========== Filetree ===========
      neotree
-     imenu-list
+     ;; =========== International support ===========
+     (chinese :variables
+              chinese-conv-backend "cconv"
+              chinese-enable-youdao-dict t
+              ;; chinese-use-fcitx5 t
+              ;; chinese-enable-fcitx t
+              ;; chinese-fcitx-use-dbus t
+              )
+     ;; =========== Programming and markup languages ===========
+     csv
+     emacs-lisp
+     go
+     html
+     ipython-notebook
+     java
+     javascript
+     (latex :variables
+            latex-build-command "LaTeX"
+            latex-enable-magic t
+            latex-enable-folding t
+            latex-enable-magic t
+            magic-latex-enable-inline-image t)
+     markdown
+     octave
+     php
+     (python :variables
+             python-test-runner '(nose pytest)
+             python-backend 'anaconda)
+     ruby
+     rust
+     yaml
+     ;; =========== Source control ===========
      git
      version-control
-     spell-checking
-     syntax-checking
-     prodigy
-
-     ;; =========== uncategorized ===========
-     ivy
+     ;; =========== Tools ===========
      docker
-
+     imenu-list
+     pandoc
+     prodigy
+     (shell :variables
+            shell-default-height 40
+            shell-default-position 'bottom
+            shell-default-shell 'shell )
+     ;; =========== Custom Layer ===========
      shdennlin
      )
    ;; List of additional packages that will be installed without being
