@@ -105,6 +105,8 @@ values."
             shell-default-height 40
             shell-default-position 'bottom
             shell-default-shell 'shell )
+     ;; =========== Web services ===========
+     search-engine
      ;; =========== Custom Layer ===========
      shdennlin
      )
@@ -444,7 +446,6 @@ values."
   (setq-default default-buffer-file-coding-system 'utf-8-unix)
   (set-default-coding-systems 'utf-8-unix)
   (prefer-coding-system 'utf-8-unix)
-
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

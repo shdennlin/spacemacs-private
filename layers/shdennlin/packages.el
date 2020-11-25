@@ -39,6 +39,7 @@
     shell
     (vline :location local)
     easy-hugo
+    search-engine
     )
   )
 
@@ -144,5 +145,9 @@
   (setq easy-hugo-previewtime "300")
   )
 
-
+(defun shdennlin/post-init-search-engine()
+  (setq browse-url-browser-function 'browse-url-generic
+        engine/browser-function 'browse-url-generic
+        browse-url-generic-program "google-chrome")
+  )
 ;;; packages.el ends here
