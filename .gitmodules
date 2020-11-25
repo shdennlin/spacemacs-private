@@ -1,0 +1,3 @@
+[submodule "doc/emacs-document"]
+	path = doc/emacs-document
+	url = https://github.com/lujun9972/emacs-document.git
