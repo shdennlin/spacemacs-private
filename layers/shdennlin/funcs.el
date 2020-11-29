@@ -94,3 +94,14 @@
   "#+HUGO_SECTION: /posts/\n"
   "#+hugo_menu: :menu sidebar :name  :identifier :parent :weight auto\n"
   )
+
+(defun org-hugo-instert-section-path()
+  ;; insert path to org-file which use to write blog and backend is hugo
+  ;; org-file location is equal to markdown file
+  (interactive)
+  (let*
+      ((perpath (spacemacs/projectile-copy-directory-path))
+       (path (string-trim-left perpath "content")))
+    (kill-line)
+    (insert path)
+    ))
