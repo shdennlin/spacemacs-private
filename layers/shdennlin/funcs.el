@@ -62,6 +62,7 @@
   "#+STARTUP: content\n"
   "#+OPTIONS: \\n:t\n"
   "#+TITLE:\t\n"
+  "#+EXPORT_FILE_NAME:\t\n"
   "#+AUTHOR:\tShawn Dennis Lin\n"
   "#+EMAIL:\tShawnDennisLin@gmail.com\n"
   "#+DATE:\t" '(org-time-stamp-inactive) "\n"

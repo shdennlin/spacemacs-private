@@ -40,6 +40,7 @@
     (vline :location local)
     easy-hugo
     search-engine
+    prodigy
     )
   )
 
@@ -150,4 +151,16 @@
         engine/browser-function 'browse-url-generic
         browse-url-generic-program "google-chrome")
   )
+
+(defun shdennlin/post-init-prodigy()
+  (prodigy-define-service
+    :name "Hugo Personal Blog"
+    :command "hugo"
+    :args '("server" "-t" "toha" "-w")
+    :cwd "~/shdennlin.github.io/"
+    :tags '(personal)
+    :stop-signal 'sigkill
+    :kill-process-buffer-on-stop t
+    :url "http://localhost:1313/posts")
+ )
 ;;; packages.el ends here
