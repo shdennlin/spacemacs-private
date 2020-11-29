@@ -46,6 +46,42 @@
   (interactive)
   (dired "/ssh:pi@192.168.12.5:/home/pi/"))
 
+(defun org-hugo-instert-file-name-init()
+  "insert file-name to org-file which use to write blog and backend is hugo
+
+org-file location must to as same as markdown file"
+  (interactive)
+  (let*
+      ((perpath (spacemacs/copy-buffer-name))
+       (path (string-trim-right perpath ".org"))
+       (path (string-trim-left path ".")))
+    (insert path)
+    ))
+
+(defun org-hugo-instert-section-path-init()
+  "insert path to org-file which use to write blog and backend is hugo
+
+org-file location must to as same as markdown file"
+  (interactive)
+  (let*
+      ((perpath (spacemacs/projectile-copy-directory-path))
+       (path (string-trim-left perpath "content")))
+    (insert path)
+    ))
+
+(defun org-hugo-instert-section-path()
+  "insert path to org-file which use to write blog and backend is hugo
+
+org-file location must to as same as markdown file"
+  (interactive)
+  (let*
+      ((perpath (spacemacs/projectile-copy-directory-path))
+       (path (string-trim-left perpath "content")))
+    (kill-line)
+    (insert path)
+    (message path)
+    ))
+
 (define-skeleton org-start-template
   "Header info for a emacs-org file."
   "Title:"
@@ -62,7 +98,7 @@
   "#+STARTUP: content\n"
   "#+OPTIONS: \\n:t\n"
   "#+TITLE:\t\n"
-  "#+EXPORT_FILE_NAME:\t\n"
+  "#+EXPORT_FILE_NAME:\t" '(org-hugo-instert-file-name-init) "\n"
   "#+AUTHOR:\tShawn Dennis Lin\n"
   "#+EMAIL:\tShawnDennisLin@gmail.com\n"
   "#+DATE:\t" '(org-time-stamp-inactive) "\n"
@@ -74,7 +110,7 @@
   "#+PROPERTY: header-args :eval no\n"
   "\n"
   "#+HUGO_BASE_DIR: ~/shdennlin.github.io\n"
-  "#+HUGO_SECTION: /posts/\n"
+  "#+HUGO_SECTION: " '(org-hugo-instert-section-path-init) "\n"
   "\n"
   "#+hugo_menu: :menu sidebar :name  :identifier  :parent :weight auto\n"
   "#+HUGO_CATEGORIES: \n"
@@ -94,14 +130,3 @@
   "#+HUGO_SECTION: /posts/\n"
   "#+hugo_menu: :menu sidebar :name  :identifier :parent :weight auto\n"
   )
-
-(defun org-hugo-instert-section-path()
-  ;; insert path to org-file which use to write blog and backend is hugo
-  ;; org-file location is equal to markdown file
-  (interactive)
-  (let*
-      ((perpath (spacemacs/projectile-copy-directory-path))
-       (path (string-trim-left perpath "content")))
-    (kill-line)
-    (insert path)
-    ))
