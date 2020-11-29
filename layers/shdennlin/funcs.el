@@ -73,7 +73,7 @@
   "#+SEQ_TODO: TODO DRAFT DONE\n"
   "#+PROPERTY: header-args :eval no\n"
   "\n"
-  "#+HUGO_BASE_DIR: \n"
+  "#+HUGO_BASE_DIR: ~/shdennlin.github.io\n"
   "#+HUGO_SECTION: /posts/\n"
   "\n"
   "#+hugo_menu: :menu sidebar :name  :identifier  :parent :weight auto\n"
@@ -90,7 +90,7 @@
   "Header info for a emacs-org file."
   "Title:"
   "#+TITLE:\t\n"
-  "#+HUGO_BASE_DIR: \n"
+  "#+HUGO_BASE_DIR: ~/shdennlin.github.io"
   "#+HUGO_SECTION: /posts/\n"
   "#+hugo_menu: :menu sidebar :name  :identifier :parent :weight auto\n"
   )
