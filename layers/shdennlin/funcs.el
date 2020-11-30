@@ -32,7 +32,6 @@
   (call-interactively 'ein:worksheet-goto-next-input-km)
   )
 
-
 (defun toggle-relative-line-numbers-in-ein ()
   (interactive)
   (call-interactively 'spacemacs/toggle-relative-line-numbers-on)
@@ -46,7 +45,17 @@
   (interactive)
   (dired "/ssh:pi@192.168.12.5:/home/pi/"))
 
-(defun org-hugo-instert-file-name-init()
+(define-skeleton org-start-template
+  "Header info for a emacs-org file."
+  "Title:"
+  "#+STARTUP: content\n"
+  "#+TITLE:\t\n"
+  "#+AUTHOR:\tShawn Dennis Lin\n"
+  "#+EMAIL:\tShawnDennisLin@gmail.com\n"
+  "#+DATE:\t" '(org-time-stamp-inactive) "\n"
+  )
+
+(defun hugo-org-instert-file-name-func()
   "insert file-name to org-file which use to write blog and backend is hugo
 
 org-file location must to as same as markdown file"
@@ -58,7 +67,7 @@ org-file location must to as same as markdown file"
     (insert path)
     ))
 
-(defun org-hugo-instert-section-path-init()
+(defun hugo-org-instert-section-path-func()
   "insert path to org-file which use to write blog and backend is hugo
 
 org-file location must to as same as markdown file"
@@ -69,7 +78,7 @@ org-file location must to as same as markdown file"
     (insert path)
     ))
 
-(defun org-hugo-instert-section-path()
+(defun hugo-org-instert-section-path()
   "insert path to org-file which use to write blog and backend is hugo
 
 org-file location must to as same as markdown file"
@@ -82,23 +91,13 @@ org-file location must to as same as markdown file"
     (message path)
     ))
 
-(define-skeleton org-start-template
-  "Header info for a emacs-org file."
-  "Title:"
-  "#+STARTUP: content\n"
-  "#+TITLE:\t\n"
-  "#+AUTHOR:\tShawn Dennis Lin\n"
-  "#+EMAIL:\tShawnDennisLin@gmail.com\n"
-  "#+DATE:\t" '(org-time-stamp-inactive) "\n"
-  )
-
-(define-skeleton org-hugo-start-template
+(define-skeleton hugo-content-org-start-template
   "Header info for a emacs-org file."
   "Title:"
   "#+STARTUP: content\n"
   "#+OPTIONS: \\n:t\n"
   "#+TITLE:\t\n"
-  "#+EXPORT_FILE_NAME:\t" '(org-hugo-instert-file-name-init) "\n"
+  "#+EXPORT_FILE_NAME:\t" '(hugo-org-instert-file-name-func) "\n"
   "#+AUTHOR:\tShawn Dennis Lin\n"
   "#+EMAIL:\tShawnDennisLin@gmail.com\n"
   "#+DATE:\t" '(org-time-stamp-inactive) "\n"
@@ -110,7 +109,7 @@ org-file location must to as same as markdown file"
   "#+PROPERTY: header-args :eval no\n"
   "\n"
   "#+HUGO_BASE_DIR: ~/shdennlin.github.io\n"
-  "#+HUGO_SECTION: " '(org-hugo-instert-section-path-init) "\n"
+  "#+HUGO_SECTION: " '(hugo-org-instert-section-path-func) "\n"
   "\n"
   "#+hugo_menu: :menu sidebar :name  :identifier  :parent :weight auto\n"
   "#+HUGO_CATEGORIES: \n"
@@ -122,11 +121,17 @@ org-file location must to as same as markdown file"
   "#+HUGO: more\n"
   )
 
-(define-skeleton org-hugo-_index-template
-  "Header info for a emacs-org file."
+(define-skeleton hugo-content-index_md-template
+  "template in _index.md for Hugo"
   "Title:"
-  "#+TITLE:\t\n"
-  "#+HUGO_BASE_DIR: ~/shdennlin.github.io"
-  "#+HUGO_SECTION: /posts/\n"
-  "#+hugo_menu: :menu sidebar :name  :identifier :parent :weight auto\n"
+  "+++\n"
+  "title = \"\"\n"
+  "draft = false\n"
+  "[menu.sidebar]\n"
+  "  weight = \"auto\"\n"
+  "  identifier = \"\"\n"
+  "  name = \"\"\n"
+  "  parent = \"\"\n"
+  "+++"
   )
+

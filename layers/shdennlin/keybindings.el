@@ -20,11 +20,11 @@
 
 (spacemacs/declare-prefix "oo" "org-mode")
 (spacemacs/set-leader-keys "oot" 'org-start-template)
-(spacemacs/declare-prefix "ooh" "Hugo")
-(spacemacs/set-leader-keys "oohs" 'org-hugo-start-template)
-(spacemacs/set-leader-keys "oohi" 'org-hugo-_index-template)
-(spacemacs/set-leader-keys "oohp" 'org-hugo-instert-section-path)
 
-(spacemacs/set-leader-keys "oh" 'easy-hugo)
+(spacemacs/declare-prefix "oh" "Hugo")
+(spacemacs/set-leader-keys "ohs" 'hugo-content-org-start-template)
+(spacemacs/set-leader-keys "ohi" 'hugo-content-index_md-template)
+(spacemacs/set-leader-keys "ohp" 'hugo-org-instert-section-path)
+(spacemacs/set-leader-keys "ohe" 'easy-hugo)
 
 (define-key evil-normal-state-map (kbd "<RET>") 'spacemacs/evil-search-clear-highlight)

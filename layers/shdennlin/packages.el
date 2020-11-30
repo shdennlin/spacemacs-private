@@ -133,16 +133,9 @@
   )
 
 (defun shdennlin/post-init-easy-hugo()
-  (cond ((eq system-type 'windows-nt)
-         (setq easy-hugo-basedir "d:/shdennlin.github.io/")
-         )
-        ((eq system-type 'gnu/linux)
-         )
-        ((eq system-type 'darwin)
-         ))
-
-  (setq easy-hugo-url "https://shdennlin.github.io")
+  (setq easy-hugo-basedir "~/shdennlin.github.io/")
   (setq easy-hugo-postdir "content/posts")
+  (setq easy-hugo-url "https://shdennlin.github.io")
   (setq easy-hugo-previewtime "300")
   )
 
