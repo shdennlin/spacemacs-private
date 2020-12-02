@@ -134,3 +134,19 @@ org-file location must to as same as markdown file"
   "  parent = \"\"\n"
   "+++"
   )
+
+(defun hugo-copy-service-url-with-current-post()
+  (interactive)
+  (let*
+      ((ipv4_address (substring (shell-command-to-string "hostname -I | cut -d' ' -f 1") 0 -1))
+       (full_path (spacemacs/projectile-copy-directory-path))
+       (section_path (string-trim-left full_path "content"))
+       (file_name (spacemacs/copy-buffer-name))
+       (file_name (string-trim-right file_name ".org"))
+       (file_name (string-trim-left file_name "."))
+       (full_path (concat "http://" ipv4_address ":51000" section_path file_name))
+       )
+    (kill-new full_path)
+    (message full_path)
+    )
+  )

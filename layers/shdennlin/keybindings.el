@@ -25,6 +25,7 @@
 (spacemacs/set-leader-keys "ohs" 'hugo-content-org-start-template)
 (spacemacs/set-leader-keys "ohi" 'hugo-content-index_md-template)
 (spacemacs/set-leader-keys "ohp" 'hugo-org-instert-section-path)
+(spacemacs/set-leader-keys "ohu" 'hugo-copy-service-url-with-current-post)
 (spacemacs/set-leader-keys "ohe" 'easy-hugo)
 
 (define-key evil-normal-state-map (kbd "<RET>") 'spacemacs/evil-search-clear-highlight)

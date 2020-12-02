@@ -169,7 +169,6 @@
     :tags '(personal)
     :stop-signal 'sigkill
     :kill-process-buffer-on-stop t
-    ;; :url (kill-new "http://10.101.4.52:51000/posts"))
     :url (concat "http://" my_computer_ipv4_address ":51000/posts"))
  )
 ;;; packages.el ends here
