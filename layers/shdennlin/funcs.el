@@ -134,4 +134,3 @@ org-file location must to as same as markdown file"
   "  parent = \"\"\n"
   "+++"
   )
-

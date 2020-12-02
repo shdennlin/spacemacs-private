@@ -146,6 +146,11 @@
   )
 
 (defun shdennlin/post-init-prodigy()
+  (setq my_computer_ipv4_address
+        (substring
+         (shell-command-to-string "hostname -I | cut -d' ' -f 1")
+         0 -1))
+
   (prodigy-define-service
     :name "Hugo Personal Blog"
     :command "hugo"
@@ -155,5 +160,18 @@
     :stop-signal 'sigkill
     :kill-process-buffer-on-stop t
     :url "http://localhost:1313/posts")
+
+  (prodigy-define-service
+    :name "Hugo Personal Blog(WSL)"
+    :command "hugo"
+    :args (list "server" "-t" "toha" "-w" "--bind" my_computer_ipv4_address (concat "--baseURL=http://" my_computer_ipv4_address) "-D" "-p" "51000")
+    :cwd "~/shdennlin.github.io/"
+    :tags '(personal)
+    :stop-signal 'sigkill
+    :kill-process-buffer-on-stop t
+    ;; :url (kill-new "http://10.101.4.52:51000/posts"))
+    :url (concat "http://" my_computer_ipv4_address ":51000/posts"))
  )
 ;;; packages.el ends here
+
+
