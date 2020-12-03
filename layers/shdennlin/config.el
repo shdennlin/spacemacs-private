@@ -1,3 +1,4 @@
+; -*- lexical-binding: t -*-
 ;;; config.el --- Better Emacs Defaults Layer configuration variables File
 ;;
 ;; Copyright (c) 2012-2018 Sylvain Benner & Contributors
@@ -26,3 +27,13 @@
     ))
 (setq save-abbrevs 'silently)
 (setq abbrev-file-name "~/.emacs_abbrev.el")
+
+;; (if (spacemacs/system-is-mswindows)
+;;     (setq
+;;      org-agenda-dir "d:/org-notes"
+;;      deft-dir "d:/org-notes"
+;;      blog-admin-dir "d:/zilongshanren.com")
+;;   (setq
+;;    org-agenda-dir "~/org-notes"
+;;    deft-dir "~/org-notes"
+;;    blog-admin-dir "~/zilongshanren.com"))
