@@ -24,7 +24,7 @@
   (setq
    org-agenda-dir "d:/org-notes"
    deft-dir "d:/org-notes"
-   blog-admin-dir "d:/shdennlin.github.io"))
+   blog-admin-dir "~/shdennlin.github.io"))
  ((spacemacs/system-is-linux)
   (setq
    org-agenda-dir "~/org-notes"
