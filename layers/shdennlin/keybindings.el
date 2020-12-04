@@ -27,3 +27,9 @@
 (spacemacs/set-leader-keys "ohu" 'hugo-copy-service-url-with-current-post)
 
 (define-key evil-normal-state-map (kbd "<RET>") 'spacemacs/evil-search-clear-highlight)
+
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "M-n") nil)
+  (define-key company-active-map (kbd "M-p") nil)
+  (define-key company-active-map (kbd "C-n") #'company-select-next)
+  (define-key company-active-map (kbd "C-p") #'company-select-previous))

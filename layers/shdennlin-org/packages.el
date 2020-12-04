@@ -18,18 +18,29 @@
   )
 
 (defun shdennlin-org/post-init-org ()
-  (setq system-time-locale "C") ;; let date language be English
-  (setq org-startup-indented t)
-  (setq org-emphasis-alist
-        (quote
-         (("*" bold)
-          ("/" italic)
-          ("_" underline)
-          ("=" org-code verbatim)
-          ("~" org-code verbatim)
-          ("+"
-           (:strike-through t)))))
-  (setq org-edit-src-content-indentation 0)
+  (progn
+    (setq system-time-locale "C") ;; let date language be English
+    (setq org-startup-indented t)
+    (setq org-emphasis-alist
+          (quote
+           (("*" bold)
+            ("/" italic)
+            ("_" underline)
+            ("=" org-code verbatim)
+            ("~" org-code verbatim)
+            ("+" (:strike-through t)))))
+    (setq org-edit-src-content-indentation 0)
+
+    ;; org-capture-templates
+    ;; http://www.howardism.org/Technical/Emacs/journaling-org.html
+    (setq org-capture-templates
+          '(
+            ("j" "Journal Entry"
+             entry (file+datetree "~/journal.org")
+             "* %?"
+             :empty-lines 1)
+            ))
+    )
   )
 
 ;;; packages.el ends here
