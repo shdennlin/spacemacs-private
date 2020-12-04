@@ -1,9 +1,9 @@
 ; -*- lexical-binding: t -*-
-;;; config.el --- zilongshanren Layer packages File for Spacemacs
+;;; config.el --- shdennlin-org Layer packages File for Spacemacs
 ;;
-;; Copyright (c) 2014-2016 shdennlin
+;; Copyright (c) 2019-2020 shdennlin
 ;;
-;; Author: shdennlin <guanghui8827@gmail.com>
+;; Author: shdennlin <ShawnDennisLin@gmail.com>
 ;; URL: https://github.com/shdennlin/spacemacs-private
 ;;
 ;; This file is not part of GNU Emacs.

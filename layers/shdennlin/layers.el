@@ -11,5 +11,9 @@
 ;;; License: GPLv3
 
 (configuration-layer/declare-layers '(
+                                      shdennlin-better-defaults
+                                      shdennlin-misc
                                       shdennlin-org
+                                      shdennlin-programming
+                                      shdennlin-ui
                                       ))

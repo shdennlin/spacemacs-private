@@ -1,25 +1,23 @@
 ; -*- lexical-binding: t -*-
 ;;; packages.el --- shdennlin-org layer packages file for Spacemacs.
 ;;
-;; Copyright (c) 2019-202 shdennlin
+;; Copyright (c) 2019-2020 shdennlin
 ;;
-;; Author: Shawn Dennis Lin <ShawnDennisLin@gmail.com>
+;; Author: shdennlin <ShawnDennisLin@gmail.com>
 ;; URL: https://github.com/shdennlin/spacemacs-private
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
 ;;; License: GPLv3
 
-;;; Code:
-
 (defconst shdennlin-org-packages
   '(
-    (org :location built-in)
+    org
     ;; org-pomodoro
     )
   )
 
-(defun shdennlin/post-init-org()
+(defun shdennlin-org/post-init-org ()
   (setq system-time-locale "C") ;; let date language be English
   (setq org-startup-indented t)
   (setq org-emphasis-alist
@@ -33,3 +31,5 @@
            (:strike-through t)))))
   (setq org-edit-src-content-indentation 0)
   )
+
+;;; packages.el ends here
