@@ -27,3 +27,26 @@
     ))
 (setq save-abbrevs 'silently)
 (setq abbrev-file-name "~/.emacs_abbrev.el")
+
+
+(defvar org-agenda-dir ""
+  "gtd org files location")
+
+(defvar deft-dir ""
+  "deft org files locaiton")
+
+(defvar blog-admin-dir ""
+  "blog-admin files location")
+
+(cond
+ ((spacemacs/system-is-mswindows)
+  (setq
+   org-agenda-dir "d:/org-notes"
+   deft-dir "d:/org-notes"
+   blog-admin-dir "d:/shdennlin.github.io"))
+ ((spacemacs/system-is-linux)
+  (setq
+   org-agenda-dir "~/org-notes"
+   deft-dir "~/org-notes"
+   blog-admin-dir "~/shdennlin.github.io"))
+ )
