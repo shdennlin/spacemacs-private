@@ -10,25 +10,6 @@
 ;;
 ;;; License: GPLv3
 
-(add-hook 'python-mode-hook 'spacemacs/toggle-relative-line-numbers)
-(add-hook 'ace-pinyin-mode 'spacemacs/toggle-relative-line-numbers)
-(add-hook 'ein:markdown-mode-hook 'spacemacs/toggle-relative-line-numbers)
-
-(setq-default abbrev-mode t)
-(define-abbrev-table 'global-abbrev-table
-  '(
-    ("zme"   "shdennlin")
-    ("zmm"   "ShawnDennisLin@gmail.com")
-    ("zmu"   "http://shdennlin.githug.io")
-
-    ;; emacs regex
-    ("zd"    "\\([0-9]+?\\)")
-    ("zstr"  "\\([^\"]+?\\)\"")
-    ))
-(setq save-abbrevs 'silently)
-(setq abbrev-file-name "~/.emacs_abbrev.el")
-
-
 (defvar org-agenda-dir ""
   "gtd org files location")
 
