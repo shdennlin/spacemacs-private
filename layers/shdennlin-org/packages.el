@@ -12,15 +12,25 @@
 
 (defconst shdennlin-org-packages
   '(
-    org
+    (org :location built-in)
+    org-superstar
     ;; org-pomodoro
     )
   )
+
+(defun shdennlin-org/post-init-org-superstar ()
+  (progn
+    (setq org-superstar-headline-bullets-list '("☰" "☷" "☯" "☭"))
+    ))
 
 (defun shdennlin-org/post-init-org ()
   (progn
     (setq system-time-locale "C") ;; let date language be English
     (setq org-startup-indented t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+    ;; org-mode Appearance Beautification
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     (setq org-emphasis-alist
           (quote
            (("*" bold)
@@ -30,7 +40,6 @@
             ("~" org-code verbatim)
             ("+" (:strike-through t)))))
     (setq org-edit-src-content-indentation 0)
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     ;; org-capture
@@ -92,7 +101,19 @@
              ((stuck "") ;; review stuck projects as designated by org-stuck-projects
               (tags-todo "PROJECT") ;; review all projects (assuming you use todo keywords to designate projects)
               ))))
-    )
-  )
+
+
+    (with-eval-after-load 'org
+      (progn
+        (set-face-attribute 'org-level-2 nil :foreground "#F4F975")
+        (set-face-attribute 'org-level-3 nil :foreground "#87B2E3")
+        (set-face-attribute 'org-level-4 nil :foreground "#80E851")
+        (set-face-attribute 'org-level-5 nil :foreground "#FFC44B")
+        (set-face-attribute 'org-level-6 nil :foreground "#E67AAE")
+        (set-face-attribute 'org-level-7 nil :foreground "#B9D8B3")
+        (set-face-attribute 'org-level-8 nil :foreground "#8D80EC")
+        ))
+  ))
+
 
 ;;; packages.el ends here
