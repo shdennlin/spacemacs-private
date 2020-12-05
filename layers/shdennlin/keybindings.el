@@ -10,7 +10,7 @@
 ;;
 ;;; License: GPLv3
 
-(spacemacs/set-leader-keys "oc" 'occur-dwim)
+(spacemacs/set-leader-keys "od" 'occur-dwim)
 (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
 
 (spacemacs/declare-prefix "ot" "Toggle")
@@ -19,6 +19,7 @@
 
 (spacemacs/declare-prefix "oo" "org-mode")
 (spacemacs/set-leader-keys "oot" 'org-start-template)
+(spacemacs/set-leader-keys "oc" 'org-capture)
 
 (spacemacs/declare-prefix "oh" "Hugo")
 (spacemacs/set-leader-keys "ohs" 'hugo-content-org-start-template)

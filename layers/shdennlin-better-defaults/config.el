@@ -9,3 +9,6 @@
 ;; This file is not part of GNU Emacs.
 ;;
 ;;; License: GPLv3
+
+
+(show-paren-mode t)

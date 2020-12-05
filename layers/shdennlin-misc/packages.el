@@ -19,8 +19,8 @@
   )
 
 (defun shdennlin-misc/post-init-evil-escape ()
-  (setq evil-escape-key-sequence "jk")
-  (setq evil-escape-delay 0.2)
+  (setq-default evil-escape-key-sequence "jk")
+  (setq-default evil-escape-delay 0.2)
   )
 
 (defun shdennlin-misc/post-init-prodigy()

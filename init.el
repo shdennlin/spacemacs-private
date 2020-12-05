@@ -207,7 +207,7 @@ values."
                                :size 18
                                :weight normal
                                :width normal
-                               :powerline-scale 0.7)
+                               :powerline-scale 0.6)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
@@ -400,7 +400,9 @@ values."
 
   (set (make-local-variable 'pangu-spacing-real-insert-separtor) nil)
 
-  (setq powerline-default-separator 'arrow-fade)
+  ;; Powerline separators
+  (setq powerline-default-separator 'bar)
+
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
   (cond ((eq system-type 'windows-nt)
