@@ -61,14 +61,37 @@
     ;;   )
 
     ;; org-capture-templates
+    ;; the %i would copy the selected text into the template
     ;; http://www.howardism.org/Technical/Emacs/journaling-org.html
     (setq org-capture-templates
           '(
-            ("j" "Journal Entry"
-             entry (file+datetree "~/journal.org")
+            ("j" "Journal Entry" entry
+             (file+datetree org-agenda-file-journal)
              "* %?"
              :empty-lines 1)
+            ("t" "Todo" entry
+             (file+headline org-agenda-file-gtd "Workspace")
+             "* TODO [#B] %?\n  %i%^T"
+             :empty-lines 1)
             ))
+
+
+    ;;An entry without a cookie is treated just like priority ' B '.
+    ;;So when create new task, they are default 重要且紧急
+    (setq org-agenda-custom-commands
+          '(
+            ("w" . "任务安排")
+            ("wa" "重要且紧急的任务" tags-todo "+PRIORITY=\"A\"")
+            ("wb" "重要且不紧急的任务" tags-todo "-Weekly-Monthly-Daily+PRIORITY=\"B\"")
+            ("wc" "不重要且紧急的任务" tags-todo "+PRIORITY=\"C\"")
+            ("b" "Blog" tags-todo "BLOG")
+            ("p" . "项目安排")
+            ("pw" tags-todo "PROJECT+WORK+CATEGORY=\"work\"")
+            ("pl" tags-todo "PROJECT+DREAM+CATEGORY=\"shdennlin\"")
+            ("W" "Weekly Review"
+             ((stuck "") ;; review stuck projects as designated by org-stuck-projects
+              (tags-todo "PROJECT") ;; review all projects (assuming you use todo keywords to designate projects)
+              ))))
     )
   )
 
