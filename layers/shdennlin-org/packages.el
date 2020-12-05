@@ -46,14 +46,13 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
     ;; define the org-agenda refile targets
-    (setq org-agenda-file-note         (expand-file-name "notes.org"     org-agenda-dir))
     (setq org-agenda-file-gtd          (expand-file-name "gtd.org"       org-agenda-dir))
-    (setq org-agenda-file-work         (expand-file-name "work.org"      org-agenda-dir))
     (setq org-agenda-file-journal      (expand-file-name "journal.org"   org-agenda-dir))
+    (setq org-agenda-file-note         (expand-file-name "notes.org"     org-agenda-dir))
     (setq org-agenda-file-code-snippet (expand-file-name "snippet.org"   org-agenda-dir))
+    (setq org-agenda-file-work         (expand-file-name "work.org"      org-agenda-dir))
 
     (setq org-default-notes-file       (expand-file-name "gtd.org"       org-agenda-dir))
-    (setq org-agenda-file-blogposts    (expand-file-name "all-posts.org" org-agenda-dir))
     (setq org-agenda-files             (list org-agenda-dir))
 
     ;; C-n for the next org agenda item
@@ -74,27 +73,40 @@
     ;; http://www.howardism.org/Technical/Emacs/journaling-org.html
     (setq org-capture-templates
           '(
-            ("j" "Journal Entry" entry
-             (file+datetree org-agenda-file-journal)
-             "* %?"
-             :empty-lines 1)
-            ("t" "Todo" entry
-             (file+headline org-agenda-file-gtd "Workspace")
-             "* TODO [#B] %?\n  %i%^T"
-             :empty-lines 1)
+            ("t" "Todo"            entry (file+headline org-agenda-file-gtd     "Workspace")
+             "* TODO [#B] %?\n  %i%^T" :empty-lines 1)
+            ("b" "Blog Ideas"      entry (file+headline org-agenda-file-note    "Blog Ideas")
+             "* TODO [#B] %?\n  %i\n %U" :empty-lines 1)
+            ("j" "Journal Entry"   entry (file+datetree org-agenda-file-journal)
+             "* %?" :empty-lines 1)
+            ("n" "notes"           entry (file+headline org-agenda-file-note    "Quick notes")
+             "* %?\n  %i\n %U" :empty-lines 1)
+            ("s" "Code Snippet"    entry (file          org-agenda-file-code-snippet)
+             "* %?\t%^g\n#+BEGIN_SRC %^{language}\n\n#+END_SRC")
+            ("w" "work"            entry (file+headline org-agenda-file-work    "Work")
+             "* TODO [#A] %?\n  %i\n %^T" :empty-lines 1)
+            ("x" "Web Collections" entry (file+headline org-agenda-file-note    "Web")
+             "* %U %:annotation\n\n%:initial\n\n%?")
+            ("f" "Firefox"         entry (file+headline org-agenda-file-note    "Quick notes")
+             "* TODO [#C] %?\n %i\n %U" :empty-lines 1)
+            ("l" "links"           entry (file+headline org-agenda-file-note    "Quick notes")
+             "* TODO [#C] %?\n  %i\n %a \n %U" :empty-lines 1)
+            ("p" "Protocol"        entry (file+headline org-agenda-file-note    "Inbox")
+             "* %^{Title}\nSource: %u, %c\n #+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\   n\n%?")
+	          ("L" "Protocol Link"   entry (file+headline org-agenda-file-note    "Inbox")
+             "* %? [[%:link][%:description]] \nCaptured On: %U")
             ))
-
 
     ;;An entry without a cookie is treated just like priority ' B '.
     ;;So when create new task, they are default 重要且紧急
     (setq org-agenda-custom-commands
           '(
-            ("w" . "任务安排")
-            ("wa" "重要且紧急的任务" tags-todo "+PRIORITY=\"A\"")
-            ("wb" "重要且不紧急的任务" tags-todo "-Weekly-Monthly-Daily+PRIORITY=\"B\"")
-            ("wc" "不重要且紧急的任务" tags-todo "+PRIORITY=\"C\"")
+            ("w" . "任務安排")
+            ("wa" "重要&緊急任務" tags-todo "+PRIORITY=\"A\"")
+            ("wb" "重要&不緊急任務" tags-todo "-Weekly-Monthly-Daily+PRIORITY=\"B\"")
+            ("wc" "不重要&緊急任務" tags-todo "+PRIORITY=\"C\"")
             ("b" "Blog" tags-todo "BLOG")
-            ("p" . "项目安排")
+            ("p" . "項目安排")
             ("pw" tags-todo "PROJECT+WORK+CATEGORY=\"work\"")
             ("pl" tags-todo "PROJECT+DREAM+CATEGORY=\"shdennlin\"")
             ("W" "Weekly Review"
