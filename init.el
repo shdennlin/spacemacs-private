@@ -99,7 +99,7 @@ values."
      ;; =========== Tools ===========
      docker
      imenu-list
-     pandoc
+     ;; pandoc
      prodigy
      (shell :variables
             shell-default-height 40

@@ -24,108 +24,108 @@
     ))
 
 (defun shdennlin-org/post-init-org ()
-  (progn
-    (setq system-time-locale "C") ;; let date language be English
-    (setq org-startup-indented t)
+  (with-eval-after-load 'org
+    (progn
+      (setq system-time-locale "C") ;; let date language be English
+      (setq org-startup-indented t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-    ;; org-mode Appearance Beautification
+      ;; org-mode Appearance Beautification
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-    (setq org-emphasis-alist
-          (quote
-           (("*" bold)
-            ("/" italic)
-            ("_" underline)
-            ("=" org-code verbatim)
-            ("~" org-code verbatim)
-            ("+" (:strike-through t)))))
-    (setq org-edit-src-content-indentation 0)
+      (setq org-emphasis-alist
+            (quote
+             (("*" bold)
+              ("/" italic)
+              ("_" underline)
+              ("=" org-code verbatim)
+              ("~" org-code verbatim)
+              ("+" (:strike-through t)))))
+      (setq org-edit-src-content-indentation 0)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-    ;; org-capture
+      ;; org-capture
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-    ;; define the org-agenda refile targets
-    (setq org-agenda-file-gtd          (expand-file-name "gtd.org"       org-agenda-dir))
-    (setq org-agenda-file-journal      (expand-file-name "journal.org"   org-agenda-dir))
-    (setq org-agenda-file-note         (expand-file-name "notes.org"     org-agenda-dir))
-    (setq org-agenda-file-code-snippet (expand-file-name "snippet.org"   org-agenda-dir))
-    (setq org-agenda-file-work         (expand-file-name "work.org"      org-agenda-dir))
+      ;; define the org-agenda refile targets
+      (setq org-agenda-file-gtd          (expand-file-name "gtd.org"       org-agenda-dir))
+      (setq org-agenda-file-journal      (expand-file-name "journal.org"   org-agenda-dir))
+      (setq org-agenda-file-note         (expand-file-name "notes.org"     org-agenda-dir))
+      (setq org-agenda-file-code-snippet (expand-file-name "snippet.org"   org-agenda-dir))
+      (setq org-agenda-file-work         (expand-file-name "work.org"      org-agenda-dir))
 
-    (setq org-default-notes-file       (expand-file-name "gtd.org"       org-agenda-dir))
-    (setq org-agenda-files             (list org-agenda-dir))
+      (setq org-default-notes-file       (expand-file-name "gtd.org"       org-agenda-dir))
+      (setq org-agenda-files             (list org-agenda-dir))
 
-    ;; C-n for the next org agenda item
-    ;; (define-key org-agenda-mode-map (kbd "C-p") 'org-agenda-previous-item)
+      ;; C-n for the next org agenda item
+      ;; (define-key org-agenda-mode-map (kbd "C-p") 'org-agenda-previous-item)
 
-    ;; (with-eval-after-load 'org-agenda
-    ;;   (define-key org-agenda-mode-map (kbd "P") 'org-pomodoro)
-    ;;   (spacemacs/set-leader-keys-for-major-mode 'org-agenda-mode
-    ;;     "." 'spacemacs/org-agenda-transient-state/body)
-    ;;   (spacemacs/set-leader-keys-for-major-mode 'org-agenda-mode
-    ;;     "p" 'org-agenda-priority)
-    ;;   ;; 默认显示节假日
-    ;;   (setq org-agenda-include-diary t)
-    ;;   )
+      ;; (with-eval-after-load 'org-agenda
+      ;;   (define-key org-agenda-mode-map (kbd "P") 'org-pomodoro)
+      ;;   (spacemacs/set-leader-keys-for-major-mode 'org-agenda-mode
+      ;;     "." 'spacemacs/org-agenda-transient-state/body)
+      ;;   (spacemacs/set-leader-keys-for-major-mode 'org-agenda-mode
+      ;;     "p" 'org-agenda-priority)
+      ;;   ;; 默认显示节假日
+      ;;   (setq org-agenda-include-diary t)
+      ;;   )
 
-    ;; org-capture-templates
-    ;; the %i would copy the selected text into the template
-    ;; http://www.howardism.org/Technical/Emacs/journaling-org.html
-    (setq org-capture-templates
-          '(
-            ("t" "Todo"            entry (file+headline org-agenda-file-gtd     "Workspace")
-             "* TODO [#B] %?\n  %i%^T" :empty-lines 1)
-            ("b" "Blog Ideas"      entry (file+headline org-agenda-file-note    "Blog Ideas")
-             "* TODO [#B] %?\n  %i\n %U" :empty-lines 1)
-            ("j" "Journal Entry"   entry (file+datetree org-agenda-file-journal)
-             "* %?" :empty-lines 1)
-            ("n" "notes"           entry (file+headline org-agenda-file-note    "Quick notes")
-             "* %?\n  %i\n %U" :empty-lines 1)
-            ("s" "Code Snippet"    entry (file          org-agenda-file-code-snippet)
-             "* %?\t%^g\n#+BEGIN_SRC %^{language}\n\n#+END_SRC")
-            ("w" "work"            entry (file+headline org-agenda-file-work    "Work")
-             "* TODO [#A] %?\n  %i\n %^T" :empty-lines 1)
-            ("x" "Web Collections" entry (file+headline org-agenda-file-note    "Web")
-             "* %U %:annotation\n\n%:initial\n\n%?")
-            ("f" "Firefox"         entry (file+headline org-agenda-file-note    "Quick notes")
-             "* TODO [#C] %?\n %i\n %U" :empty-lines 1)
-            ("l" "links"           entry (file+headline org-agenda-file-note    "Quick notes")
-             "* TODO [#C] %?\n  %i\n %a \n %U" :empty-lines 1)
-            ("p" "Protocol"        entry (file+headline org-agenda-file-note    "Inbox")
-             "* %^{Title}\nSource: %u, %c\n #+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\   n\n%?")
-	          ("L" "Protocol Link"   entry (file+headline org-agenda-file-note    "Inbox")
-             "* %? [[%:link][%:description]] \nCaptured On: %U")
-            ))
+      ;; org-capture-templates
+      ;; the %i would copy the selected text into the template
+      ;; http://www.howardism.org/Technical/Emacs/journaling-org.html
+      (setq org-capture-templates
+            '(
+              ("t" "Todo"            entry (file+headline org-agenda-file-gtd     "Workspace")
+               "* TODO [#B] %?\n  %i\n %U"       :empty-lines 1)
+              ("b" "Blog Ideas"      entry (file+headline org-agenda-file-note    "Blog Ideas")
+               "* TODO [#B] %?\n  %i\n %U"       :empty-lines 1)
+              ("j" "Journal Entry"   entry (file+datetree org-agenda-file-journal)
+               "* %?"                            :empty-lines 1)
+              ("n" "notes"           entry (file+headline org-agenda-file-note    "Quick notes")
+               "* %?\n  %i\n %U"                 :empty-lines 1)
+              ("s" "Code Snippet"    entry (file          org-agenda-file-code-snippet)
+               "* %?\t%^g\n#+BEGIN_SRC %^{language}\n\n#+END_SRC")
+              ("w" "work"            entry (file+headline org-agenda-file-work    "Work")
+               "* TODO [#A] %?\n  %i\n %U"       :empty-lines 1)
+              ("x" "Web Collections" entry (file+headline org-agenda-file-note    "Web")
+               "* %U %:annotation\n\n%:initial\n\n%?")
+              ("f" "Firefox"         entry (file+headline org-agenda-file-note    "Quick notes")
+               "* TODO [#C] %?\n %i\n %U"        :empty-lines 1)
+              ("l" "links"           entry (file+headline org-agenda-file-note    "Quick notes")
+               "* TODO [#C] %?\n  %i\n %a \n %U" :empty-lines 1)
+              ("p" "Protocol"        entry (file+headline org-agenda-file-note    "Inbox")
+               "* %^{Title}\nSource: %u, %c\n #+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?")
+              ("L" "Protocol Link"   entry (file+headline org-agenda-file-note    "Inbox")
+               "* %? [[%:link][%:description]] \nCaptured On: %U")
+              ))
 
-    ;;An entry without a cookie is treated just like priority ' B '.
-    ;;So when create new task, they are default 重要且紧急
-    (setq org-agenda-custom-commands
-          '(
-            ("w" . "任務安排")
-            ("wa" "重要&緊急任務" tags-todo "+PRIORITY=\"A\"")
-            ("wb" "重要&不緊急任務" tags-todo "-Weekly-Monthly-Daily+PRIORITY=\"B\"")
-            ("wc" "不重要&緊急任務" tags-todo "+PRIORITY=\"C\"")
-            ("b" "Blog" tags-todo "BLOG")
-            ("p" . "項目安排")
-            ("pw" tags-todo "PROJECT+WORK+CATEGORY=\"work\"")
-            ("pl" tags-todo "PROJECT+DREAM+CATEGORY=\"shdennlin\"")
-            ("W" "Weekly Review"
-             ((stuck "") ;; review stuck projects as designated by org-stuck-projects
-              (tags-todo "PROJECT") ;; review all projects (assuming you use todo keywords to designate projects)
-              ))))
+      ;;An entry without a cookie is treated just like priority ' B '.
+      ;;So when create new task, they are default 重要且紧急
+      (setq org-agenda-custom-commands
+            '(
+              ("w" . "任務安排")
+              ("wa" "重要&緊急任務" tags-todo "+PRIORITY=\"A\"")
+              ("wb" "重要&不緊急任務" tags-todo "-Weekly-Monthly-Daily+PRIORITY=\"B\"")
+              ("wc" "不重要&緊急任務" tags-todo "+PRIORITY=\"C\"")
+              ("b" "Blog" tags-todo "BLOG")
+              ("p" . "項目安排")
+              ("pw" tags-todo "PROJECT+WORK+CATEGORY=\"work\"")
+              ("pl" tags-todo "PROJECT+DREAM+CATEGORY=\"shdennlin\"")
+              ("W" "Weekly Review"
+               ((stuck "") ;; review stuck projects as designated by org-stuck-projects
+                (tags-todo "PROJECT") ;; review all projects (assuming you use todo keywords to designate projects)
+                ))))
 
+      (with-eval-after-load 'org
+        (progn
+          ;; (set-face-attribute 'org-level-2 nil :foreground "#F4F975")
+          ;; (set-face-attribute 'org-level-3 nil :foreground "#87B2E3")
+          ;; (set-face-attribute 'org-level-4 nil :foreground "#80E851")
 
-    (with-eval-after-load 'org
-      (progn
-        (set-face-attribute 'org-level-2 nil :foreground "#F4F975")
-        (set-face-attribute 'org-level-3 nil :foreground "#87B2E3")
-        (set-face-attribute 'org-level-4 nil :foreground "#80E851")
-        (set-face-attribute 'org-level-5 nil :foreground "#FFC44B")
-        (set-face-attribute 'org-level-6 nil :foreground "#E67AAE")
-        (set-face-attribute 'org-level-7 nil :foreground "#B9D8B3")
-        (set-face-attribute 'org-level-8 nil :foreground "#8D80EC")
-        ))
-  ))
+          ;; (set-face-attribute 'org-level-6 nil :foreground "#E67AAE")
+          ;; (set-face-attribute 'org-level-7 nil :foreground "#B9D8B3")
+          ;; (set-face-attribute 'org-level-8 nil :foreground "#8D80EC")
+          ))
+      )))
 
 
 ;;; packages.el ends here
