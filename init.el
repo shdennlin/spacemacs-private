@@ -182,10 +182,10 @@ values."
    ;; `recents' `bookmarks' `projects' `agenda' `todos'."
    ;; List sizes may be nil, in which case
    ;; `spacemacs-buffer-startup-lists-length' takes effect.
-   dotspacemacs-startup-lists '((projects . 20)
+   dotspacemacs-startup-lists '((agenda . 20)
+                                (projects . 20)
                                 (recents . 8)
                                 (bookmarks . 10)
-                                (agenda . 10)
                                 (todos . 10))
    ;; True if the home buffer should respond to resize events.
    dotspacemacs-startup-buffer-responsive t
