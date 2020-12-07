@@ -42,6 +42,13 @@
               ("+" (:strike-through t)))))
       (setq org-edit-src-content-indentation 0)
 
+      ;; (setq org-todo-keywords
+      ;;       ('((sequence "TODO(t)" "STARTED(s)" "|" "DONE(d!/!)")
+      ;;          (sequence "WAITING(w@/!)" "SOMEDAY(S)" "|" "CANCELLED(c@/!)" "MEETING(m)" "PHONE(p)"))))
+      ;; (setq org-todo-keywords
+      ;;       '((sequence "TODO(t)" "ONGOING(o)" "MAYBE(m)" "WAIT(w)" "DELEGATED(d)" "|"
+      ;;                   "DONE(f)" "CANCELLED(c)" "STUCK(s)")))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
       ;; org-capture
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -50,6 +57,7 @@
       (setq org-agenda-file-gtd          (expand-file-name "gtd.org"       org-agenda-dir))
       (setq org-agenda-file-journal      (expand-file-name "journal.org"   org-agenda-dir))
       (setq org-agenda-file-note         (expand-file-name "notes.org"     org-agenda-dir))
+      (setq org-agenda-file-emacs        (expand-file-name "emacs.org"     org-agenda-dir))
       (setq org-agenda-file-code-snippet (expand-file-name "snippet.org"   org-agenda-dir))
       (setq org-agenda-file-work         (expand-file-name "work.org"      org-agenda-dir))
 
@@ -79,13 +87,15 @@
               ("b" "Blog Ideas"      entry (file+headline org-agenda-file-note    "Blog Ideas")
                "* TODO [#B] %?\n%i\n%U"       :empty-lines 1)
               ("j" "Journal Entry"   entry (file+datetree org-agenda-file-journal)
-               "* %?"                            :empty-lines 1)
+               "* %?"                         :empty-lines 1)
+              ("e" "Emacs"           entry (file+headline org-agenda-file-emacs   "Hacking Emacs")
+               "* TODO [#B] %?\n%i\n%U"       :empty-lines 1)
               ("n" "notes"           entry (file+headline org-agenda-file-note    "Quick notes")
                "* %?\n%i\n%U"                 :empty-lines 1)
               ("s" "Code Snippet"    entry (file          org-agenda-file-code-snippet)
                "* %?\t%^g\n#+BEGIN_SRC %^{language}\n\n#+END_SRC")
               ("w" "work"            entry (file+headline org-agenda-file-work    "Work")
-               "* TODO [#A] %?\n  %i\n %U"       :empty-lines 1)
+               "* TODO [#A] %?\n  %i\n %U"    :empty-lines 1)
               ("x" "Web Collections" entry (file+headline org-agenda-file-note    "Web")
                "* %U %:annotation\n\n%:initial\n\n%?")
               ("f" "Firefox"         entry (file+headline org-agenda-file-note    "Quick notes")
