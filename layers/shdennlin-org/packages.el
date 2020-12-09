@@ -49,6 +49,43 @@
       ;;       '((sequence "TODO(t)" "ONGOING(o)" "MAYBE(m)" "WAIT(w)" "DELEGATED(d)" "|"
       ;;                   "DONE(f)" "CANCELLED(c)" "STUCK(s)")))
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+      ;; MobileOrg
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+      (defvar org-directory "" "location of your Org files on your local system")
+      (defvar org-mobile-inbox-for-pull "" "name of the file where new notes will be stored")
+      (defvar org-mobile-directory "" "blog-admin")
+
+      (cond
+       ((spacemacs/system-is-mswindows)
+        (setq
+         org-directory "d:/org-notes"
+         org-mobile-inbox-for-pull "d:/org-notes/flagged.org"
+         org-mobile-directory "d:/Dropbox/Apps/MobileOrg")
+        (defcustom org-mobile-checksum-binary
+          (or
+           ;; https://doyakin.com/emacs/win-mobile-org-%E8%A8%AD%E5%AE%9A%E3%83%A1%E3%83%A2/
+           ;; (executable-find "d:/org-notes/WinMD5.exe")
+           (executable-find "d:/org-notes/tools/fciv.exe")
+           (executable-find "shasum")
+           (executable-find "sha1sum")
+           (executable-find "md5sum")
+           (executable-find "md5"))
+          "Executable used for computing checksums of agenda files."
+          :group 'org-mobile
+          :type 'string)
+        )
+       ((spacemacs/system-is-linux)
+        (setq
+         org-directory "~/org-notes"
+         org-mobile-inbox-for-pull "~/org-notes/flagged.org"
+         org-mobile-directory ""
+         ))
+       )
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
       ;; org-capture
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

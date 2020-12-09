@@ -386,10 +386,8 @@ values."
   ;; 中文字體配置 Chinese fonts configuration
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
     (set-fontset-font (frame-parameter nil 'font)
-                      charset (font-spec :family "Source Han Mono"
-                                         ;; :size 16
-                                         ))
-    (setq face-font-rescale-alist '(("Source Han Mono" . 1.14)))
+                      charset (font-spec :family "等距更紗黑體 Slab TC"))
+    (setq face-font-rescale-alist '(("等距更紗黑體 Slab TC" . 1.12)))
     )
   ;; (spacemacs//set-monospaced-font  "Consolas" "Source Han Mono" 18 20)
 

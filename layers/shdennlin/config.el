@@ -10,14 +10,13 @@
 ;;
 ;;; License: GPLv3
 
-(defvar org-agenda-dir ""
-  "gtd org files location")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; org-capture
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defvar deft-dir ""
-  "deft org files locaiton")
-
-(defvar blog-admin-dir ""
-  "blog-admin files location")
+(defvar org-agenda-dir "" "gtd org files location")
+(defvar deft-dir "" "deft org files locaiton")
+(defvar blog-admin-dir "" "blog-admin files location")
 
 (cond
  ((spacemacs/system-is-mswindows)
@@ -31,3 +30,4 @@
    deft-dir "~/org-notes"
    blog-admin-dir "~/shdennlin.github.io"))
  )
+

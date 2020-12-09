@@ -27,6 +27,10 @@
 (spacemacs/set-leader-keys "ohp" 'hugo-org-instert-section-path)
 (spacemacs/set-leader-keys "ohu" 'hugo-copy-service-url-with-current-post)
 
+(spacemacs/declare-prefix "om" "MobileOrg")
+(spacemacs/set-leader-keys "omp" 'org-mobile-push)
+(spacemacs/set-leader-keys "omf" 'org-mobile-pull)
+
 (define-key evil-normal-state-map (kbd "<RET>") 'spacemacs/evil-search-clear-highlight)
 
 (with-eval-after-load 'company
