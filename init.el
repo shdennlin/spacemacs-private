@@ -385,10 +385,11 @@ values."
 
   ;; 中文字體配置 Chinese fonts configuration
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
-    (set-fontset-font (frame-parameter nil 'font)
-                      charset (font-spec :family "等距更紗黑體 Slab TC"))
-    (setq face-font-rescale-alist '(("等距更紗黑體 Slab TC" . 1.12)))
-    )
+    (cond ((getenv "DISPLAY")
+           (set-fontset-font (frame-parameter nil 'font)
+                             charset (font-spec :family "Sarasa Mono Slab TC"))
+           (setq face-font-rescale-alist '(("Sarasa Mono Slab TC" . 1.12)))
+           )))
   ;; (spacemacs//set-monospaced-font  "Consolas" "Source Han Mono" 18 20)
 
   (global-git-commit-mode t)
