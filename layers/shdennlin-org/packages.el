@@ -14,7 +14,7 @@
   '(
     (org :location built-in)
     org-superstar
-    ;; org-pomodoro
+    org-pomodoro
     )
   )
 
@@ -90,6 +90,13 @@
       ;; org-capture
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+      ;; org-columns-default-format
+      ;; (setq org-columns-default-format
+      ;;       "%25ITEM %TODO %3PRIORITY %TIMESTAMP")
+      ;; (add-to-list 'org-agenda-custom-commands
+      ;;              '("t" "List of all TODO entries" alltodo ""
+      ;;                ((org-agenda-view-columns-initially t))))
+
       ;; define the org-agenda refile targets
       (setq org-agenda-file-gtd          (expand-file-name "gtd.org"       org-agenda-dir))
       (setq org-agenda-file-journal      (expand-file-name "journal.org"   org-agenda-dir))
@@ -97,7 +104,6 @@
       (setq org-agenda-file-emacs        (expand-file-name "emacs.org"     org-agenda-dir))
       (setq org-agenda-file-code-snippet (expand-file-name "snippet.org"   org-agenda-dir))
       (setq org-agenda-file-work         (expand-file-name "work.org"      org-agenda-dir))
-
       (setq org-default-notes-file       (expand-file-name "gtd.org"       org-agenda-dir))
       (setq org-agenda-files             (list org-agenda-dir))
 
@@ -132,13 +138,13 @@
               ("s" "Code Snippet"    entry (file          org-agenda-file-code-snippet)
                "* %?\t%^g\n#+BEGIN_SRC %^{language}\n\n#+END_SRC")
               ("w" "work"            entry (file+headline org-agenda-file-work    "Work")
-               "* TODO [#A] %?\n  %i\n %U"    :empty-lines 1)
+               "* TODO [#A] %?\n%i\n%U"    :empty-lines 1)
               ("x" "Web Collections" entry (file+headline org-agenda-file-note    "Web")
                "* %U %:annotation\n\n%:initial\n\n%?")
               ("f" "Firefox"         entry (file+headline org-agenda-file-note    "Quick notes")
                "* TODO [#C] %?\n%i\n%U"        :empty-lines 1)
               ("l" "links"           entry (file+headline org-agenda-file-note    "Quick notes")
-               "* TODO [#C] %?\n%i\n %a \n %U" :empty-lines 1)
+               "* TODO [#C] %?\n%i\n%a\n%U" :empty-lines 1)
               ("p" "Protocol"        entry (file+headline org-agenda-file-note    "Inbox")
                "* %^{Title}\nSource: %u, %c\n #+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?")
               ("L" "Protocol Link"   entry (file+headline org-agenda-file-note    "Inbox")
@@ -164,15 +170,15 @@
 
       (with-eval-after-load 'org
         (progn
-          ;; (set-face-attribute 'org-level-2 nil :foreground "#F4F975")
-          ;; (set-face-attribute 'org-level-3 nil :foreground "#87B2E3")
-          ;; (set-face-attribute 'org-level-4 nil :foreground "#80E851")
-
-          ;; (set-face-attribute 'org-level-6 nil :foreground "#E67AAE")
-          ;; (set-face-attribute 'org-level-7 nil :foreground "#B9D8B3")
-          ;; (set-face-attribute 'org-level-8 nil :foreground "#8D80EC")
           ))
       )))
 
+
+(defun shdennlin-org/post-init-org-pomodoro ()
+  (setq org-pomodoro-format "P~%s")
+  (setq org-pomodoro-long-break-format "LB~%s")
+  (setq org-pomodoro-short-break-format "SB~%s")
+  (setq org-pomodoro-manual-break t)
+  )
 
 ;;; packages.el ends here
