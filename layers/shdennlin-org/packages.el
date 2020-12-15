@@ -101,6 +101,7 @@
       (setq org-agenda-file-gtd          (expand-file-name "gtd.org"       org-agenda-dir))
       (setq org-agenda-file-journal      (expand-file-name "journal.org"   org-agenda-dir))
       (setq org-agenda-file-note         (expand-file-name "notes.org"     org-agenda-dir))
+      (setq org-agenda-file-blog         (expand-file-name "blog.org"      org-agenda-dir))
       (setq org-agenda-file-emacs        (expand-file-name "emacs.org"     org-agenda-dir))
       (setq org-agenda-file-code-snippet (expand-file-name "snippet.org"   org-agenda-dir))
       (setq org-agenda-file-work         (expand-file-name "work.org"      org-agenda-dir))
@@ -127,7 +128,7 @@
             '(
               ("t" "Todo"            entry (file+headline org-agenda-file-gtd     "Workspace")
                "* TODO [#B] %?\n%i\n%U"       :empty-lines 1)
-              ("b" "Blog Ideas"      entry (file+headline org-agenda-file-note    "Blog Ideas")
+              ("b" "Blog Ideas"      entry (file+headline org-agenda-file-blog    "Blog Ideas")
                "* TODO [#B] %?\n%i\n%U"       :empty-lines 1)
               ("j" "Journal Entry"   entry (file+datetree org-agenda-file-journal)
                "* %?"                         :empty-lines 1)
