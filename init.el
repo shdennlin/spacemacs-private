@@ -385,7 +385,7 @@ values."
 
   ;; 中文字體配置 Chinese fonts configuration
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
-    (cond ((getenv "DISPLAY")
+    (cond ((display-graphic-p)
            (set-fontset-font (frame-parameter nil 'font)
                              charset (font-spec :family "Sarasa Mono Slab TC"))
            (setq face-font-rescale-alist '(("Sarasa Mono Slab TC" . 1.12)))
