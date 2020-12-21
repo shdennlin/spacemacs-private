@@ -13,3 +13,10 @@
 (defun connect-remote ()
   (interactive)
   (dired "/ssh:pi@192.168.12.5:/home/pi/"))
+
+(defun shdennlin-save-org-notes-all-file ()
+  (interactive)
+  (spacemacs/find-file-split (concat org-agenda-dir "/."))
+  (projectile-save-project-buffers)
+  (spacemacs/delete-window)
+  )

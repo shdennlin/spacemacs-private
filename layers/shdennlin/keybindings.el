@@ -13,23 +13,26 @@
 (spacemacs/set-leader-keys "od" 'occur-dwim)
 (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
 
-(spacemacs/declare-prefix "ot" "Toggle")
+(spacemacs/declare-prefix  "ot"  "Toggle")
 (spacemacs/set-leader-keys "otc" 'vline-mode)
 (spacemacs/set-leader-keys "otC" 'vline-global-mode)
 
-(spacemacs/declare-prefix "oo" "org-mode")
+(spacemacs/declare-prefix  "oo"  "org-mode")
 (spacemacs/set-leader-keys "oot" 'org-start-template)
-(spacemacs/set-leader-keys "oc" 'org-capture)
+(spacemacs/set-leader-keys "oc"  'org-capture)
 
-(spacemacs/declare-prefix "oh" "Hugo")
+(spacemacs/declare-prefix  "oh"  "Hugo")
 (spacemacs/set-leader-keys "ohs" 'hugo-content-org-start-template)
 (spacemacs/set-leader-keys "ohi" 'hugo-content-index_md-template)
 (spacemacs/set-leader-keys "ohp" 'hugo-org-instert-section-path)
 (spacemacs/set-leader-keys "ohu" 'hugo-copy-service-url-with-current-post)
 
-(spacemacs/declare-prefix "om" "MobileOrg")
+(spacemacs/declare-prefix  "om"  "MobileOrg")
 (spacemacs/set-leader-keys "omp" 'org-mobile-push)
 (spacemacs/set-leader-keys "omf" 'org-mobile-pull)
+
+(spacemacs/declare-prefix  "os"  "save")
+(spacemacs/set-leader-keys "oso" 'shdennlin-save-org-notes-all-file)
 
 (define-key evil-normal-state-map (kbd "<RET>") 'spacemacs/evil-search-clear-highlight)
 
