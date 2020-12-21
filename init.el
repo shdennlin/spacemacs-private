@@ -182,11 +182,9 @@ values."
    ;; `recents' `bookmarks' `projects' `agenda' `todos'."
    ;; List sizes may be nil, in which case
    ;; `spacemacs-buffer-startup-lists-length' takes effect.
-   dotspacemacs-startup-lists '((agenda . 20)
-                                (projects . 20)
-                                (recents . 8)
+   dotspacemacs-startup-lists '((projects . 20)
                                 (bookmarks . 10)
-                                (todos . 10))
+                                (recents . 15))
    ;; True if the home buffer should respond to resize events.
    dotspacemacs-startup-buffer-responsive t
    ;; Default major mode of the scratch buffer (default `text-mode')

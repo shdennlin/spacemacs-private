@@ -90,24 +90,6 @@
       ;; org-capture
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-      ;; org-columns-default-format
-      ;; (setq org-columns-default-format
-      ;;       "%25ITEM %TODO %3PRIORITY %TIMESTAMP")
-      ;; (add-to-list 'org-agenda-custom-commands
-      ;;              '("t" "List of all TODO entries" alltodo ""
-      ;;                ((org-agenda-view-columns-initially t))))
-
-      ;; define the org-agenda refile targets
-      (setq org-agenda-file-gtd          (expand-file-name "gtd.org"       org-agenda-dir))
-      (setq org-agenda-file-journal      (expand-file-name "journal.org"   org-agenda-dir))
-      (setq org-agenda-file-note         (expand-file-name "notes.org"     org-agenda-dir))
-      (setq org-agenda-file-blog         (expand-file-name "blog.org"      org-agenda-dir))
-      (setq org-agenda-file-emacs        (expand-file-name "emacs.org"     org-agenda-dir))
-      (setq org-agenda-file-code-snippet (expand-file-name "snippet.org"   org-agenda-dir))
-      (setq org-agenda-file-work         (expand-file-name "work.org"      org-agenda-dir))
-      (setq org-default-notes-file       (expand-file-name "gtd.org"       org-agenda-dir))
-      (setq org-agenda-files             (list org-agenda-dir))
-
       ;; C-n for the next org agenda item
       ;; (define-key org-agenda-mode-map (kbd "C-p") 'org-agenda-previous-item)
 
@@ -120,29 +102,49 @@
       ;;   ;; 默认显示节假日
       ;;   (setq org-agenda-include-diary t)
       ;;   )
+      ;; org-columns-default-format
+      ;; (setq org-columns-default-format
+      ;;       "%25ITEM %TODO %3PRIORITY %TIMESTAMP")
+      ;; (add-to-list 'org-agenda-custom-commands
+      ;;              '("t" "List of all TODO entries" alltodo ""
+      ;;                ((org-agenda-view-columns-initially t))))
+
+      ;; define the org-agenda refile targets
+      (setq org-agenda-file-gtd          (expand-file-name "gtd.org"          org-agenda-dir))
+      (setq org-agenda-file-journal      (expand-file-name "journal.org"      org-agenda-dir))
+      (setq org-agenda-file-note         (expand-file-name "notes.org"        org-agenda-dir))
+      (setq org-agenda-file-blog         (expand-file-name "blog.org"         org-agenda-dir))
+      (setq org-agenda-file-emacs        (expand-file-name "emacs.org"        org-agenda-dir))
+      (setq org-agenda-file-code-snippet (expand-file-name "snippet.org"      org-agenda-dir))
+      (setq org-agenda-file-work         (expand-file-name "work.org"         org-agenda-dir))
+      (setq org-agenda-file-side-project (expand-file-name "side-project.org" org-agenda-dir))
+      (setq org-default-notes-file       (expand-file-name "gtd.org"          org-agenda-dir))
+      (setq org-agenda-files             (list org-agenda-dir))
 
       ;; org-capture-templates
       ;; the %i would copy the selected text into the template
       ;; http://www.howardism.org/Technical/Emacs/journaling-org.html
       (setq org-capture-templates
             '(
-              ("w" "work"            entry (file+headline org-agenda-file-work    "Work")
+              ("t" "Todo"            entry (file+headline org-agenda-file-gtd           "Workspace")
+               "* TODO [#B] %?\n%i\n%U"       :empty-lines 1)
+              ("w" "work"            entry (file+headline org-agenda-file-work          "Work")
                "* TODO [#A] %?\n%i\n%U"       :empty-lines 1)
-              ("t" "Todo"            entry (file+headline org-agenda-file-gtd     "Workspace")
+              ("p" "Side-Project"    entry (file+headline org-agenda-file-side-project  "Side-Project")
                "* TODO [#B] %?\n%i\n%U"       :empty-lines 1)
-              ("b" "Blog Ideas"      entry (file+headline org-agenda-file-blog    "Blog Ideas")
+              ("b" "Blog Ideas"      entry (file+headline org-agenda-file-blog          "Blog Ideas")
                "* TODO [#B] %?\n%i\n%U"       :empty-lines 1)
-              ("e" "Emacs"           entry (file+headline org-agenda-file-emacs   "Hacking Emacs")
+              ("e" "Emacs"           entry (file+headline org-agenda-file-emacs         "Hacking Emacs")
                "* TODO [#B] %?\n%i\n%U"       :empty-lines 1)
-              ("n" "notes"           entry (file+headline org-agenda-file-note    "Quick notes")
+              ("n" "notes"           entry (file+headline org-agenda-file-note          "Quick notes")
                "* %?\n%i\n%U"                 :empty-lines 1)
-              ("f" "Firefox"         entry (file+headline org-agenda-file-note    "Quick notes")
+              ("f" "Firefox"         entry (file+headline org-agenda-file-note          "Quick notes")
                "* TODO [#C] %?\n%i\n%U"       :empty-lines 1)
               ("s" "Code Snippet"    entry (file          org-agenda-file-code-snippet)
                "* %?\t%^g\n#+BEGIN_SRC %^{language}\n\n#+END_SRC")
               ("j" "Journal Entry"   entry (file+datetree org-agenda-file-journal)
                "* %?"                         :empty-lines 1)
-              ("t" "TszYou"          entry (file+headline org-agenda-file-note    "TszYou")
+              ("y" "TszYou"          entry (file+headline org-agenda-file-note          "TszYou")
                "* TODO [#A] %?\n%i\n%U"       :empty-lines 1)
               ;; ("p" "Protocol"        entry (file+headline org-agenda-file-note    "Inbox")
               ;;  "* %^{Title}\nSource: %u, %c\n #+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?")
