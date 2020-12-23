@@ -15,6 +15,7 @@
     evil-escape
     prodigy
     search-engine
+    tabs
     )
   )
 
@@ -56,4 +57,12 @@
         browse-url-generic-program "google-chrome")
   )
 
+(defun shdennlin-misc/post-init-tabs()
+  (setq centaur-tabs-style "bar"
+	      centaur-tabs-set-icons t
+	      centaur-tabs-set-modified-marker t
+	      centaur-tabs-show-navigation-buttons t
+	      centaur-tabs-set-bar 'under
+	      x-underline-at-descent-line t)
+  )
 ;;; packages.el ends here

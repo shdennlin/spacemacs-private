@@ -58,6 +58,7 @@ values."
           org-enable-github-support t
           org-enable-org-journal-support t
           org-enable-hugo-support t)
+     tabs
      ;; =========== Fun ===========
      emoji
      ;; =========== Filetree ===========
