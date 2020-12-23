@@ -15,6 +15,7 @@
     (org :location built-in)
     org-superstar
     org-pomodoro
+    org-gcal
     )
   )
 
@@ -174,12 +175,15 @@
           ))
       )))
 
-
 (defun shdennlin-org/post-init-org-pomodoro ()
   (setq org-pomodoro-format "P~%s")
   (setq org-pomodoro-long-break-format "LB~%s")
   (setq org-pomodoro-short-break-format "SB~%s")
   (setq org-pomodoro-manual-break t)
+  )
+
+(defun shdennlin-org/post-init-org-gcal ()
+
   )
 
 ;;; packages.el ends here
