@@ -183,7 +183,11 @@
   )
 
 (defun shdennlin-org/post-init-org-gcal ()
-
+  (setq org-gcal-client-id shdennlin-org-gcal-client-id
+        org-gcal-client-secret shdennlin-org-gcal-client-secret
+        org-gcal-fetch-file-alist '(("shawndennislin@gmail.com" .  org-agenda-file-work)
+                                    ("shawndennislin@gmail.com" .  org-agenda-file-note))
+        )
   )
 
 ;;; packages.el ends here

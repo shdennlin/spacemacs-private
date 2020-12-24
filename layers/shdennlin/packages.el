@@ -12,16 +12,11 @@
 
 (defconst shdennlin-packages
   '(
-    (shdennlin-account :location local)
+    (shdennlin-privacy :location local)
     ))
 
-(message "shdennlin-test-pre")
-
-(defun shdennlin/post-init-shdennlin-account ()
-  (use-package shdennlin-account
-    :ensure t
-    :init (message "Load shdennlin-account info")
-    (error "Load shdennlin-account info error")
+(defun shdennlin/init-shdennlin-privacy ()
+  "Initialize shdennlin-account"
+  (use-package shdennlin-privacy
+    :init
     ))
-
-(message "shdennlin-test-end")
