@@ -182,12 +182,17 @@
   (setq org-pomodoro-manual-break t)
   )
 
-(defun shdennlin-org/post-init-org-gcal ()
-  (setq org-gcal-client-id shdennlin-org-gcal-client-id
-        org-gcal-client-secret shdennlin-org-gcal-client-secret
-        org-gcal-fetch-file-alist '(("shawndennislin@gmail.com" .  org-agenda-file-work)
-                                    ("shawndennislin@gmail.com" .  org-agenda-file-note))
-        )
+(defun shdennlin-org/init-org-gcal ()
+  (with-eval-after-load 'org-gcal
+    (progn
+      (setq org-gcal-client-id shdennlin-org-gcal-client-id
+            org-gcal-client-secret shdennlin-org-gcal-client-secret
+            org-gcal-fetch-file-alist `(("shawndennislin@gmail.com" . ,org-agenda-file-work)
+                                        ("shawndennislin@gmail.com" . ,org-agenda-file-gtd)
+                                        ("shawndennislin@gmail.com" . ,org-agenda-file-gtd)
+                                        ))
+      )
+    )
   )
 
 ;;; packages.el ends here

@@ -31,6 +31,12 @@
 (spacemacs/set-leader-keys "omp" 'org-mobile-push)
 (spacemacs/set-leader-keys "omf" 'org-mobile-pull)
 
+(spacemacs/declare-prefix  "og"  "org-gcal")
+(spacemacs/set-leader-keys "ogs" 'org-gcal-sync)
+(spacemacs/set-leader-keys "ogd" 'org-gcal-delete-at-point)
+(spacemacs/set-leader-keys "ogp" 'org-gcal-post-at-point)
+
+
 (spacemacs/declare-prefix  "os"  "save")
 (spacemacs/set-leader-keys "oso" 'shdennlin-save-org-notes-all-file)
 
