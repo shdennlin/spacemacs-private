@@ -58,7 +58,7 @@ values."
           org-enable-github-support t
           org-enable-org-journal-support t
           org-enable-hugo-support t)
-     tabs
+     ;; tabs
      ;; =========== Fun ===========
      emoji
      ;; =========== Filetree ===========
@@ -117,6 +117,7 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
                                       org-gcal
+                                      ;; shackle
                                       ;; magit
                                       ;; treepy
                                       ;; ghub

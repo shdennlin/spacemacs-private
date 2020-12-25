@@ -16,6 +16,7 @@
     org-superstar
     org-pomodoro
     org-gcal
+    org-agenda
     )
   )
 
@@ -43,13 +44,24 @@
               ("+" (:strike-through t)))))
       (setq org-edit-src-content-indentation 0)
 
-      ;; (setq org-todo-keywords
-      ;;       ('((sequence "TODO(t)" "STARTED(s)" "|" "DONE(d!/!)")
-      ;;          (sequence "WAITING(w@/!)" "SOMEDAY(S)" "|" "CANCELLED(c@/!)" "MEETING(m)" "PHONE(p)"))))
-      ;; (setq org-todo-keywords
-      ;;       '((sequence "TODO(t)" "ONGOING(o)" "MAYBE(m)" "WAIT(w)" "DELEGATED(d)" "|"
-      ;;                   "DONE(f)" "CANCELLED(c)" "STUCK(s)")))
+      (setq org-todo-keywords
+            '((sequence "TODO(t)" "ONGOING(o)" "WAIT(w)" "DELEGATED(g@)" "|"
+                        "DONE(d!/!)" "CANCELED(c@/!)" "POSTPONED(p@/!)" "STUCK(s@/!)")))
+      (setq org-use-fast-todo-selection t)
 
+      (setq org-todo-keyword-faces
+            ;; '(("TODO" . (:foreground "#ff39a3" :weight bold))
+            '(("TODO" . (:foreground "#ff39a3" :weight bold))
+              ("ONGOING" . "pink")
+              ("WAIT" . "yellow")
+              ;; ("DELEGATED" . "#BA68C8")
+              ("DELEGATED" . "deepskyblue")
+
+              ("DONE" . "green")
+              ("CANCELED" . "#7C7C75")
+              ("POSTPONED" . "mediumpurple")
+              ("STUCK" . "chocolate")
+              ))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
       ;; MobileOrg
@@ -111,14 +123,15 @@
       ;;                ((org-agenda-view-columns-initially t))))
 
       ;; define the org-agenda refile targets
+      (setq org-agenda-file-scheduled    (expand-file-name "scheduled.org"    org-agenda-dir))
       (setq org-agenda-file-gtd          (expand-file-name "gtd.org"          org-agenda-dir))
-      (setq org-agenda-file-journal      (expand-file-name "journal.org"      org-agenda-dir))
+      (setq org-agenda-file-work         (expand-file-name "work.org"         org-agenda-dir))
+      (setq org-agenda-file-side-project (expand-file-name "side-project.org" org-agenda-dir))
       (setq org-agenda-file-note         (expand-file-name "notes.org"        org-agenda-dir))
       (setq org-agenda-file-blog         (expand-file-name "blog.org"         org-agenda-dir))
       (setq org-agenda-file-emacs        (expand-file-name "emacs.org"        org-agenda-dir))
       (setq org-agenda-file-code-snippet (expand-file-name "snippet.org"      org-agenda-dir))
-      (setq org-agenda-file-work         (expand-file-name "work.org"         org-agenda-dir))
-      (setq org-agenda-file-side-project (expand-file-name "side-project.org" org-agenda-dir))
+      (setq org-agenda-file-journal      (expand-file-name "journal.org"      org-agenda-dir))
       (setq org-default-notes-file       (expand-file-name "gtd.org"          org-agenda-dir))
       (setq org-agenda-files             (list org-agenda-dir))
 
@@ -127,10 +140,14 @@
       ;; http://www.howardism.org/Technical/Emacs/journaling-org.html
       (setq org-capture-templates
             '(
+              ("s" "Scheduled"       entry (file+headline org-agenda-file-scheduled     "Scheduled")
+               "* %?\nSCHEDULED: %^t\n%U"     :empty-lines 1)
               ("t" "Todo"            entry (file+headline org-agenda-file-gtd           "Workspace")
                "* TODO [#B] %?\n%i\n%U"       :empty-lines 1)
               ("w" "work"            entry (file+headline org-agenda-file-work          "Work")
                "* TODO [#A] %?\n%i\n%U"       :empty-lines 1)
+              ("c" "Code Snippet"    entry (file          org-agenda-file-code-snippet)
+               "** %?\t%^g\n#+BEGIN_SRC %^{language}\n\n#+END_SRC")
               ("p" "Side-Project"    entry (file+headline org-agenda-file-side-project  "Side-Project")
                "* TODO [#B] %?\n%i\n%U"       :empty-lines 1)
               ("b" "Blog Ideas"      entry (file+headline org-agenda-file-blog          "Blog Ideas")
@@ -139,14 +156,10 @@
                "* TODO [#B] %?\n%i\n%U"       :empty-lines 1)
               ("n" "notes"           entry (file+headline org-agenda-file-note          "Quick notes")
                "* %?\n%i\n%U"                 :empty-lines 1)
-              ("f" "Firefox"         entry (file+headline org-agenda-file-note          "Quick notes")
-               "* TODO [#C] %?\n%i\n%U"       :empty-lines 1)
-              ("s" "Code Snippet"    entry (file          org-agenda-file-code-snippet)
-               "* %?\t%^g\n#+BEGIN_SRC %^{language}\n\n#+END_SRC")
               ("j" "Journal Entry"   entry (file+datetree org-agenda-file-journal)
-               "* %?"                         :empty-lines 1)
+               "* %?\n** Keep\n** Problem\n** Try"                         :empty-lines 1)
               ("y" "TszYou"          entry (file+headline org-agenda-file-note          "TszYou")
-               "* TODO [#A] %?\n%i\n%U"       :empty-lines 1)
+               "* TODO [#A] %?\t:TszYou:\n%i\n%U"       :empty-lines 1)
               ;; ("p" "Protocol"        entry (file+headline org-agenda-file-note    "Inbox")
               ;;  "* %^{Title}\nSource: %u, %c\n #+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?")
               ;; ("L" "Protocol Link"   entry (file+headline org-agenda-file-note    "Inbox")
@@ -193,6 +206,10 @@
                                         ))
       )
     )
+  )
+
+(defun shdennlin-org/post-init-org-agenda ()
+  (setq org-agenda-window-setup 'current-window)
   )
 
 ;;; packages.el ends here
