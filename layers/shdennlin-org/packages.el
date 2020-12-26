@@ -140,8 +140,8 @@
       ;; http://www.howardism.org/Technical/Emacs/journaling-org.html
       (setq org-capture-templates
             '(
-              ("s" "Scheduled"       entry (file+headline org-agenda-file-scheduled     "Scheduled")
-               "* %?\nSCHEDULED: %^t\n%U"     :empty-lines 1)
+              ("s" "Scheduled"       entry (file          org-agenda-file-scheduled)
+               "* %?\n:PROPERTIES:\n:calendar-id: shawndennislin@gmail.com\n:END:\n:org-gcal:\n%^t\n:END:\n%U")
               ("t" "Todo"            entry (file+headline org-agenda-file-gtd           "Workspace")
                "* TODO [#B] %?\n%i\n%U"       :empty-lines 1)
               ("w" "work"            entry (file+headline org-agenda-file-work          "Work")
@@ -200,10 +200,8 @@
     (progn
       (setq org-gcal-client-id shdennlin-org-gcal-client-id
             org-gcal-client-secret shdennlin-org-gcal-client-secret
-            org-gcal-fetch-file-alist `(("shawndennislin@gmail.com" . ,org-agenda-file-work)
-                                        ("shawndennislin@gmail.com" . ,org-agenda-file-gtd)
-                                        ("shawndennislin@gmail.com" . ,org-agenda-file-gtd)
-                                        ))
+            org-gcal-fetch-file-alist `(("shawndennislin@gmail.com" . ,org-agenda-file-scheduled))
+            org-gcal-recurring-events-mode 'nested)
       )
     )
   )
