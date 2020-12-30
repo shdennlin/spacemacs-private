@@ -19,6 +19,9 @@
 
 (spacemacs/declare-prefix  "oo"  "org-mode")
 (spacemacs/set-leader-keys "oot" 'org-start-template)
+(spacemacs/set-leader-keys "oos" 'shdennlin-save-org-notes-all-file)
+(spacemacs/set-leader-keys "ooj" 'shdennlin-journal-picture)
+(spacemacs/set-leader-keys "ooi" 'shdennlin-journal-insert-picture)
 (spacemacs/set-leader-keys "oc"  'org-capture)
 
 (spacemacs/declare-prefix  "oh"  "Hugo")
@@ -35,10 +38,6 @@
 (spacemacs/set-leader-keys "ogs" 'org-gcal-sync)
 (spacemacs/set-leader-keys "ogd" 'org-gcal-delete-at-point)
 (spacemacs/set-leader-keys "ogp" 'org-gcal-post-at-point)
-
-
-(spacemacs/declare-prefix  "os"  "save")
-(spacemacs/set-leader-keys "oso" 'shdennlin-save-org-notes-all-file)
 
 (define-key evil-normal-state-map (kbd "<RET>") 'spacemacs/evil-search-clear-highlight)
 

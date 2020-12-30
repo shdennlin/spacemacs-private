@@ -394,10 +394,14 @@ values."
            )))
   ;; (spacemacs//set-monospaced-font  "Consolas" "Source Han Mono" 18 20)
 
+  ;; global mode
   (global-git-commit-mode t)
   (global-flycheck-mode t)
   (global-pangu-spacing-mode 0)
   (global-company-mode)
+  (spacemacs/toggle-display-time-on)
+  (spacemacs/toggle-mode-line-major-mode-off)
+
 
   (set (make-local-variable 'pangu-spacing-real-insert-separtor) nil)
 
@@ -418,6 +422,7 @@ values."
         ((eq system-type 'darwin)
          ))
 
+  ;; tramp
   (setq tramp-default-method "ssh")
   (setq tramp-auto-save-directory "~/tmp/tramp/")
   (setq tramp-chunksize 2000)
