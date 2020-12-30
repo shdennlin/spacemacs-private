@@ -158,7 +158,7 @@
               ("n" "notes"           entry (file+headline org-agenda-file-note          "Quick notes")
                "* %?\n%i\n%U"                 :empty-lines 1)
               ("j" "Journal Entry"   entry (file+datetree org-agenda-file-journal)
-               "* %?\n** Keep\n** Problem\n** Try"                         :empty-lines 1)
+               "* %?\n* Keep\n* Problem\n* Try\n* Plan" :empty-lines 1)
               ("y" "TszYou"          entry (file+headline org-agenda-file-note          "TszYou")
                "* TODO [#A] %?\t:TszYou:\n%i\n%U"       :empty-lines 1)
               ;; ("p" "Protocol"        entry (file+headline org-agenda-file-note    "Inbox")
