@@ -19,3 +19,4 @@
   (add-to-list 'ispell-skip-region-alist '("^#\\+BEGIN_SRC" . "^#\\+END_SRC")))
 
 (add-hook 'org-mode-hook #'shdennlin/org-ispell)
+(add-hook 'org-mode-hook 'org-table-sticky-header-mode)

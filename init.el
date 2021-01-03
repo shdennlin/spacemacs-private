@@ -98,6 +98,9 @@ values."
      ;; =========== Source control ===========
      git
      version-control
+     ;; =========== themes ===========
+     (colors :variables
+             colors-enable-nyan-cat-progress-bar (display-graphic-p))
      ;; =========== Tools ===========
      docker
      imenu-list
@@ -118,6 +121,7 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
                                       org-gcal
+                                      org-table-sticky-header
                                       ;; shackle
                                       ;; magit
                                       ;; treepy
@@ -400,8 +404,12 @@ values."
   (global-flycheck-mode t)
   (global-pangu-spacing-mode 0)
   (global-company-mode)
+
+  ;;toggle mode
   (spacemacs/toggle-display-time-on)
   (spacemacs/toggle-mode-line-major-mode-off)
+  (spacemacs/toggle-mode-line-minor-modes-off)
+  (spacemacs/toggle-mode-line-version-control-off)
 
   ;; DO function when start emacs.
   (org-gcal-sync)
@@ -411,6 +419,7 @@ values."
 
   ;; Powerline separators
   (setq powerline-default-separator 'bar)
+
 
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
