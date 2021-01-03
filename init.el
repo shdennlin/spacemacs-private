@@ -57,7 +57,8 @@ values."
      (org :variables
           org-enable-github-support t
           org-enable-org-journal-support t
-          org-enable-hugo-support t)
+          org-enable-hugo-support t
+          org-enable-sticky-header t)
      ;; tabs
      ;; =========== Fun ===========
      emoji
@@ -401,6 +402,9 @@ values."
   (global-company-mode)
   (spacemacs/toggle-display-time-on)
   (spacemacs/toggle-mode-line-major-mode-off)
+
+  ;; DO function when start emacs.
+  (org-gcal-sync)
 
 
   (set (make-local-variable 'pangu-spacing-real-insert-separtor) nil)

@@ -45,60 +45,61 @@
               ("+" (:strike-through t)))))
       (setq org-edit-src-content-indentation 0)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+      ;; MobileOrg
+      ;; if you use org-gcal, you doesn't need MobileOrg, because the ID of
+      ;; =:PROPERTIES:= will repeat
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+      ;; (defvar org-directory "" "location of your Org files on your local system")
+      ;; (defvar org-mobile-inbox-for-pull "" "name of the file where new notes will be stored")
+      ;; (defvar org-mobile-directory "" "blog-admin")
+
+      ;; (cond
+      ;;  ((spacemacs/system-is-mswindows)
+      ;;   (setq
+      ;;    org-directory "d:/org-notes"
+      ;;    org-mobile-inbox-for-pull "d:/org-notes/flagged.org"
+      ;;    org-mobile-directory "d:/Dropbox/Apps/MobileOrg")
+      ;;   (defcustom org-mobile-checksum-binary
+      ;;     (or
+      ;;      ;; https://doyakin.com/emacs/win-mobile-org-%E8%A8%AD%E5%AE%9A%E3%83%A1%E3%83%A2/
+      ;;      ;; (executable-find "d:/org-notes/WinMD5.exe")
+      ;;      (executable-find "d:/org-notes/tools/fciv.exe")
+      ;;      (executable-find "shasum")
+      ;;      (executable-find "sha1sum")
+      ;;      (executable-find "md5sum")
+      ;;      (executable-find "md5"))
+      ;;     "Executable used for computing checksums of agenda files."
+      ;;     :group 'org-mobile
+      ;;     :type 'string)
+      ;;   )
+      ;;  ((spacemacs/system-is-linux)
+      ;;   (setq
+      ;;    org-directory "~/org-notes"
+      ;;    org-mobile-inbox-for-pull "~/org-notes/flagged.org"
+      ;;    org-mobile-directory ""
+      ;;    ))
+      ;;  )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+      ;; todo-keyword
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
       (setq org-todo-keywords
-            '((sequence "TODO(t)" "ONGOING(o)" "WAIT(w)" "DELEGATED(g@)" "|"
-                        "DONE(d!/!)" "CANCELED(c@/!)" "POSTPONED(p@/!)" "STUCK(s@/!)")))
+            '((sequence "TODO(t)" "ONGOING(o)" "WAIT(w@/!)" "POSTPONED(p@/!)" "STUCK(s@/@)" "DELEGATED(g@/@)" "|"
+                        "DONE(d!/!)" "CANCELED(c@/!)")))
       (setq org-use-fast-todo-selection t)
 
       (setq org-todo-keyword-faces
-            ;; '(("TODO" . (:foreground "#ff39a3" :weight bold))
             '(("TODO" . (:foreground "#ff39a3" :weight bold))
               ("ONGOING" . "pink")
               ("WAIT" . "yellow")
-              ;; ("DELEGATED" . "#BA68C8")
+              ("POSTPONED" . "mediumpurple")
+              ("STUCK" . "chocolate")
               ("DELEGATED" . "deepskyblue")
 
               ("DONE" . "green")
               ("CANCELED" . "#7C7C75")
-              ("POSTPONED" . "mediumpurple")
-              ("STUCK" . "chocolate")
               ))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-      ;; MobileOrg
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-      (defvar org-directory "" "location of your Org files on your local system")
-      (defvar org-mobile-inbox-for-pull "" "name of the file where new notes will be stored")
-      (defvar org-mobile-directory "" "blog-admin")
-
-      (cond
-       ((spacemacs/system-is-mswindows)
-        (setq
-         org-directory "d:/org-notes"
-         org-mobile-inbox-for-pull "d:/org-notes/flagged.org"
-         org-mobile-directory "d:/Dropbox/Apps/MobileOrg")
-        (defcustom org-mobile-checksum-binary
-          (or
-           ;; https://doyakin.com/emacs/win-mobile-org-%E8%A8%AD%E5%AE%9A%E3%83%A1%E3%83%A2/
-           ;; (executable-find "d:/org-notes/WinMD5.exe")
-           (executable-find "d:/org-notes/tools/fciv.exe")
-           (executable-find "shasum")
-           (executable-find "sha1sum")
-           (executable-find "md5sum")
-           (executable-find "md5"))
-          "Executable used for computing checksums of agenda files."
-          :group 'org-mobile
-          :type 'string)
-        )
-       ((spacemacs/system-is-linux)
-        (setq
-         org-directory "~/org-notes"
-         org-mobile-inbox-for-pull "~/org-notes/flagged.org"
-         org-mobile-directory ""
-         ))
-       )
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
       ;; org-capture
@@ -142,7 +143,7 @@
       (setq org-capture-templates
             '(
               ("s" "Scheduled"       entry (file          org-agenda-file-scheduled)
-               "* %?\n:PROPERTIES:\n:calendar-id: shawndennislin@gmail.com\n:END:\n:org-gcal:\n%^t\n:END:\n%U")
+               "* %?\n:PROPERTIES:\n:calendar-id: shawndennislin@gmail.com\n:END:\n:org-gcal:\n%^t\n:END:")
               ("t" "Todo"            entry (file+headline org-agenda-file-gtd           "Workspace")
                "* TODO [#B] %?\n%i\n%U"       :empty-lines 1)
               ("w" "work"            entry (file+headline org-agenda-file-work          "Work")
@@ -184,9 +185,6 @@
                 (tags-todo "PROJECT") ;; review all projects (assuming you use todo keywords to designate projects)
                 ))))
 
-      (with-eval-after-load 'org
-        (progn
-          ))
       )))
 
 (defun shdennlin-org/post-init-org-pomodoro ()
