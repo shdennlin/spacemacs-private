@@ -33,12 +33,12 @@
   (prodigy-define-service
     :name "Hugo Personal Blog"
     :command "hugo"
-    :args '("server" "-t" "toha" "-w")
+    :args '("server" "-t" "toha" "-w" "-p" "51000")
     :cwd "~/shdennlin.github.io/"
     :tags '(personal)
     :stop-signal 'sigkill
     :kill-process-buffer-on-stop t
-    :url "http://localhost:1313/posts")
+    :url "http://localhost:51000/posts")
 
   (prodigy-define-service
     :name "Hugo Personal Blog(WSL)"
