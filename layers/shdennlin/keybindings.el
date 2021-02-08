@@ -39,6 +39,9 @@
 (spacemacs/set-leader-keys "ogd" 'org-gcal-delete-at-point)
 (spacemacs/set-leader-keys "ogp" 'org-gcal-post-at-point)
 
+(spacemacs/declare-prefix  "ov"  "vc")
+(spacemacs/set-leader-keys "ovu" 'git-config-insert-user)
+
 (define-key evil-normal-state-map (kbd "<RET>") 'spacemacs/evil-search-clear-highlight)
 
 (with-eval-after-load 'company

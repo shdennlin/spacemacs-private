@@ -9,3 +9,12 @@
 ;; This file is not part of GNU Emacs.
 ;;
 ;;; License: GPLv3
+
+(define-skeleton git-config-insert-user
+  "add git config [user]"
+  "insert [user]"
+  "[user]\n"
+	"\temail = shawndennislin@gmail.com\n"
+	"\tname = Shawn Dennis Lin\n"
+	"\tusername = shdennlin"
+  )
