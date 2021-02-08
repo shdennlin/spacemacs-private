@@ -63,7 +63,9 @@ values."
      ;; =========== Fun ===========
      emoji
      ;; =========== Filetree ===========
-     neotree
+     (treemacs :variables
+               treemacs-use-follow-mode 'tag
+               treemacs-use-all-the-icons-theme t)
      ;; =========== International support ===========
      (chinese :variables
               chinese-conv-backend "cconv"
@@ -336,7 +338,11 @@ values."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers 'relative
+   dotspacemacs-line-numbers '(
+                               :relative t
+                               :enabled-for-modes dired-mode prog-mode fundamental-mode text-mode
+                               ;; :size-limit-kb 1000
+                               )
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil
@@ -379,6 +385,7 @@ values."
   (setq tramp-ssh-controlmaster-options
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
   (setq-default git-enable-magit-svn-plugin t)
+
   )
 
 (defun dotspacemacs/user-config ()
@@ -394,8 +401,10 @@ values."
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
     (cond ((display-graphic-p)
            (set-fontset-font (frame-parameter nil 'font)
-                             charset (font-spec :family "等距更紗黑體 Slab TC"))
-           (setq face-font-rescale-alist '(("等距更紗黑體 Slab TC" . 1.12)))
+           ;;                   charset (font-spec :family "等距更紗黑體 Slab TC"))
+           ;; (setq face-font-rescale-alist '(("等距更紗黑體 Slab TC" . 1.12)))
+                             charset (font-spec :family "jf open 粉圓 1.1"))
+           (setq face-font-rescale-alist '(("jf open 粉圓 1.1" . 1.12)))
            )))
   ;; (spacemacs//set-monospaced-font  "Consolas" "Source Han Mono" 18 20)
 
@@ -414,14 +423,11 @@ values."
   ;; DO function when start emacs.
   (org-gcal-sync)
 
-
   (set (make-local-variable 'pangu-spacing-real-insert-separtor) nil)
 
-  ;; Powerline separators
-  (setq powerline-default-separator 'bar)
-
-
+  ;; hook
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
+  ;; (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 
   (cond ((eq system-type 'windows-nt)
          (setenv "WORKON_HOME" "~/../../anaconda3/envs/")
@@ -450,6 +456,14 @@ values."
   (setq default-terminal-coding-system 'utf-8-unix)
   (prefer-coding-system 'utf-8-unix)
 
+
+  ;; set variable
+  (setq powerline-default-separator 'bar)
+
+  ;; (setq dotspacemacs-mode-line-theme '(all-the-icons :separator none))
+  ;; (use-package spaceline-all-the-icons
+  ;;   :after spaceline
+  ;;   :config (spaceline-all-the-icons-theme))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
