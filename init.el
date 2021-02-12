@@ -60,13 +60,13 @@ values."
           org-enable-hugo-support t
           org-enable-sticky-header t)
      ;; tabs
-     ;; =========== Fun ===========
-     emoji
      ;; =========== Filetree ===========
      (treemacs :variables
                treemacs-use-follow-mode 'tag
                treemacs-use-all-the-icons-theme t)
-     ;; =========== International support ===========
+     ;; =========== Fun ===========
+     emoji
+     ;; =========== Internationalization ===========
      (chinese :variables
               chinese-conv-backend "cconv"
               chinese-enable-youdao-dict t
@@ -74,6 +74,8 @@ values."
               ;; chinese-enable-fcitx t
               ;; chinese-fcitx-use-dbus t
               )
+     ;; =========== Miscellaneous ===========
+     (multiple-cursors :variables multiple-cursors-backend 'evil-mc)
      ;; =========== Programming and markup languages ===========
      csv
      emacs-lisp
@@ -111,7 +113,8 @@ values."
      (shell :variables
             shell-default-height 40
             shell-default-position 'bottom
-            shell-default-shell 'shell )
+            ;; shell-default-shell 'shell
+            )
      ;; =========== Web services ===========
      search-engine
      ;; =========== Custom Layer ===========
