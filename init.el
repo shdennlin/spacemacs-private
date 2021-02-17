@@ -75,14 +75,14 @@ values."
               ;; chinese-fcitx-use-dbus t
               )
      ;; =========== Miscellaneous ===========
-     (multiple-cursors :variables multiple-cursors-backend 'evil-mc)
+     ;; (multiple-cursors :variables multiple-cursors-backend 'evil-mc)
      ;; =========== Programming and markup languages ===========
      csv
      emacs-lisp
      go
      html
      ipython-notebook
-     java
+     (java :variables java-backend 'meghanada)
      javascript
      (latex :variables
             latex-build-command "LaTeX"
@@ -108,6 +108,7 @@ values."
      ;; =========== Tools ===========
      docker
      imenu-list
+     lsp
      ;; pandoc
      prodigy
      (shell :variables
@@ -343,7 +344,7 @@ values."
    ;; (default nil)
    dotspacemacs-line-numbers '(
                                :relative t
-                               :enabled-for-modes dired-mode prog-mode fundamental-mode text-mode
+                               :enabled-for-modes dired-mode prog-mode fundamental-mode text-mode org-agenda-mode
                                ;; :size-limit-kb 1000
                                )
    ;; Code folding method. Possible values are `evil' and `origami'.
@@ -433,7 +434,12 @@ values."
   ;; (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 
   (cond ((eq system-type 'windows-nt)
-         (setenv "WORKON_HOME" "~/../../anaconda3/envs/")
+         ;; workon home
+         ;; (setenv "WORKON_HOME" "C:/ProgramData/Anaconda3/envs/")
+         (setenv "WORKON_HOME" "C:/Users/shdennlin/.conda/envs/")
+         ;; (setenv "WORKON_HOME" "~/../../.conda/envs/")
+         (pyvenv-mode 1)
+
          (add-to-list 'exec-path "C:/msys64/mingw64/bin/")
          (setq ispell-program-name "aspell")
          (setq ispell-personal-dictionary "c:/msys64/mingw64/lib/aspell-0.60/en_GB")

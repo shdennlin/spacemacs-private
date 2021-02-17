@@ -22,7 +22,7 @@
 
 (defun shdennlin-org/post-init-org-superstar ()
   (progn
-    (setq org-superstar-headline-bullets-list '("☰" "☷" "☯" "☭"))
+    ;; (setq org-superstar-headline-bullets-list '("☰" "☷" "☯" "☭"))
     ))
 
 (defun shdennlin-org/post-init-org ()
@@ -101,6 +101,10 @@
               ("CANCELED" . "#7C7C75")
               ))
 
+      (setq org-stuck-projects
+            ;; '("+LEVEL=2/-DONE" ("TODO" "NEXT" "NEXTACTION") nil ""))
+            '("TODO={.+}/-DONE" nil nil "SCHEDULED:\\|DEADLINE:"))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
       ;; org-capture
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -147,7 +151,7 @@
               ("t" "Todo"            entry (file+headline org-agenda-file-gtd           "Workspace")
                "* TODO [#B] %?\n%i\n%U"       :empty-lines 1)
               ("w" "work"            entry (file+headline org-agenda-file-work          "Work")
-               "* TODO [#A] %?\n%i\n%U"       :empty-lines 1)
+               "* TODO [#A] %?\t:work:\n%i\n%U"  :empty-lines 1)
               ("c" "Code Snippet"    entry (file          org-agenda-file-code-snippet)
                "** %?\t%^g\n#+BEGIN_SRC %^{language}\n\n#+END_SRC")
               ("p" "Side-Project"    entry (file+headline org-agenda-file-side-project  "Side-Project")
@@ -172,18 +176,22 @@
       ;;So when create new task, they are default 重要且紧急
       (setq org-agenda-custom-commands
             '(
-              ("w" . "任務安排")
-              ("wa" "重要&緊急任務" tags-todo "+PRIORITY=\"A\"")
-              ("wb" "重要&不緊急任務" tags-todo "-Weekly-Monthly-Daily+PRIORITY=\"B\"")
-              ("wc" "不重要&緊急任務" tags-todo "+PRIORITY=\"C\"")
-              ("b" "Blog" tags-todo "BLOG")
-              ("p" . "項目安排")
-              ("pw" tags-todo "PROJECT+WORK+CATEGORY=\"work\"")
-              ("pl" tags-todo "PROJECT+DREAM+CATEGORY=\"shdennlin\"")
-              ("W" "Weekly Review"
+              ("w" . "task ...")
+              ("ww"  " work"      tags-todo "+work")
+              ("wa"  " IMPT● URG" tags-todo "+PRIORITY=\"A\"")
+              ("wb"  " IMPT●-URG" tags-todo "-Weekly-Monthly-Daily+PRIORITY=\"B\"")
+              ("wc"  "-IMPT●-URG" tags-todo "+PRIORITY=\"C\"")
+              ("b"   "Blog"       tags-todo "BLOG")
+              ;; ("p" . "project arrangement")
+              ;; ("pw" tags-todo "PROJECT+WORK+CATEGORY=\"work\"")
+              ;; ("pl" tags-todo "PROJECT+DREAM+CATEGORY=\"shdennlin\"")
+              ("W"   "Weekly Review"
                ((stuck "") ;; review stuck projects as designated by org-stuck-projects
                 (tags-todo "PROJECT") ;; review all projects (assuming you use todo keywords to designate projects)
-                ))))
+                ))
+              ("o" . "else ...")
+              ("os"  "study for"  tags-todo "+study")
+              ))
 
       )))
 
