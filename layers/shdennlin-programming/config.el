@@ -14,3 +14,7 @@
 (setq python-packages
       '(company
         (company-anaconda :toggle (configuration-layer/package-usedp 'company))))
+
+(add-hook 'java-mode-hook #'lsp)
+;; (add-hook 'lsp-mode-hook #'lsp-lens-mode)
+;; (add-hook 'java-mode-hook #'lsp-java-boot-lens-mode)

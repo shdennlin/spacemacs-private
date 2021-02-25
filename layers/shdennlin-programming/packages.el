@@ -14,6 +14,7 @@
   '(
     company
     ipython-notebook
+    java
     )
   )
 
@@ -34,6 +35,11 @@
   (setq output-area-inlined-images t)
   )
 
+(defun shdennlin-programming/post-init-java ()
+  (progn
+    (setq lsp-java-java-path "C:/Program Files/Java/jdk-15.0.2/bin/java")
+    (setq lsp-java-workspace-dir "D:/work/java/01_emacs_test")
+    ))
 
 (defun shdennlin-programming/post-init-company ()
   (progn

@@ -39,10 +39,17 @@
 (spacemacs/set-leader-keys "ogd" 'org-gcal-delete-at-point)
 (spacemacs/set-leader-keys "ogp" 'org-gcal-post-at-point)
 
+(spacemacs/set-leader-keys "ou" 'shdennlin-open-UsefulURL)
+
 (spacemacs/declare-prefix  "ov"  "vc")
 (spacemacs/set-leader-keys "ovu" 'git-config-insert-user)
 
 (define-key evil-normal-state-map (kbd "<RET>") 'spacemacs/evil-search-clear-highlight)
+
+(define-key evil-normal-state-map (kbd "zk") 'evil-collection-unimpaired-insert-newline-above)
+(define-key evil-normal-state-map (kbd "zj") 'evil-collection-unimpaired-insert-newline-below)
+
+
 
 (with-eval-after-load 'company
   (define-key company-active-map (kbd "M-n") nil)

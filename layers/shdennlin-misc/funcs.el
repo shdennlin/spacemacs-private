@@ -13,3 +13,8 @@
 (defun connect-remote ()
   (interactive)
   (dired "/ssh:pi@192.168.12.5:/home/pi/"))
+
+(defun shdennlin-open-UsefulURL ()
+  (interactive)
+  (spacemacs/find-file-split (concat org-agenda-dir "/UsefulURL.org"))
+  )
