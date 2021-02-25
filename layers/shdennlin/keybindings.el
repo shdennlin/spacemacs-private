@@ -46,9 +46,8 @@
 
 (define-key evil-normal-state-map (kbd "<RET>") 'spacemacs/evil-search-clear-highlight)
 
-(define-key evil-normal-state-map (kbd "zk") 'evil-collection-unimpaired-insert-newline-above)
-(define-key evil-normal-state-map (kbd "zj") 'evil-collection-unimpaired-insert-newline-below)
-
+(define-key evil-normal-state-map (kbd "zk") 'evil-unimpaired/insert-space-above)
+(define-key evil-normal-state-map (kbd "zj") 'evil-unimpaired/insert-space-below)
 
 
 (with-eval-after-load 'company

@@ -29,5 +29,10 @@
    org-agenda-dir "~/org-notes"
    deft-dir "~/org-notes"
    blog-admin-dir "~/shdennlin.github.io"))
+ ((spacemacs/system-is-mac)
+  (setq
+   org-agenda-dir "~/org-notes"
+   deft-dir "~/org-notes"
+   blog-admin-dir "~/shdennlin.github.io"))
  )
 
