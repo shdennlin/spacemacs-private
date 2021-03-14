@@ -137,6 +137,8 @@ values."
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '(
+                                    phpcbf
+                                    php-auto-yasnippets
                                     )
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -413,7 +415,7 @@ values."
   ;; (spacemacs//set-monospaced-font  "Consolas" "Source Han Mono" 18 20)
 
   ;; global mode
-  (global-git-commit-mode t)
+  ;; (global-git-commit-mode t)
   (global-flycheck-mode t)
   (global-pangu-spacing-mode 0)
   (global-company-mode)
