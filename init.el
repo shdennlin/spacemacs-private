@@ -128,6 +128,7 @@ values."
    dotspacemacs-additional-packages '(
                                       org-gcal
                                       org-table-sticky-header
+                                      anki-editor
                                       ;; shackle
                                       ;; magit
                                       ;; treepy
