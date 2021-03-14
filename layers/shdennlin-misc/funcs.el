@@ -18,3 +18,13 @@
   (interactive)
   (spacemacs/find-file-split (concat org-agenda-dir "/UsefulURL.org"))
   )
+
+(defun shdennlin-open-anki ()
+  (interactive)
+  (spacemacs/counsel-find-file (concat org-agenda-dir "/anki/"))
+  )
+
+(defun shdennlin-open-wiki ()
+  (interactive)
+  (spacemacs/counsel-find-file wiki-dir)
+  )

@@ -15,24 +15,30 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defvar org-agenda-dir "" "gtd org files location")
-(defvar deft-dir "" "deft org files locaiton")
+(defvar deft-dir "" "deft org files location")
 (defvar blog-admin-dir "" "blog-admin files location")
+(defvar wiki-dir "" "personal wiki files location")
 
 (cond
  ((spacemacs/system-is-mswindows)
   (setq
    org-agenda-dir "d:/org-notes"
    deft-dir "d:/org-notes"
-   blog-admin-dir "~/shdennlin.github.io"))
+   blog-admin-dir "~/shdennlin.github.io"
+   wiki-dir "d:/shdennlin-wiki/wiki-note"
+   ))
  ((spacemacs/system-is-linux)
   (setq
    org-agenda-dir "~/org-notes"
    deft-dir "~/org-notes"
-   blog-admin-dir "~/shdennlin.github.io"))
+   blog-admin-dir "~/shdennlin.github.io"
+   wiki-dir "~/shdennlin-wiki/wiki-note"
+   ))
  ((spacemacs/system-is-mac)
   (setq
    org-agenda-dir "~/org-notes"
    deft-dir "~/org-notes"
-   blog-admin-dir "~/shdennlin.github.io"))
+   blog-admin-dir "~/shdennlin.github.io"
+   wiki-dir "~/shdennlin-wiki/wiki-note"
+   ))
  )
-
