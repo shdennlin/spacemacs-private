@@ -43,6 +43,8 @@
 (spacemacs/set-leader-keys "oqu" 'shdennlin-open-UsefulURL)
 (spacemacs/set-leader-keys "oqa" 'shdennlin-open-anki)
 (spacemacs/set-leader-keys "oqw" 'shdennlin-open-wiki)
+(spacemacs/set-leader-keys "oqb" 'shdennlin-open-blog)
+(spacemacs/set-leader-keys "oqk" 'shdennlin-open-work)
 
 (spacemacs/declare-prefix  "ov"  "vc")
 (spacemacs/set-leader-keys "ovu" 'git-config-insert-user)

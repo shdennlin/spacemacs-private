@@ -14,9 +14,14 @@
   (interactive)
   (dired "/ssh:pi@192.168.12.5:/home/pi/"))
 
+(defun shdennlin-open-blog ()
+  (interactive)
+  (spacemacs/counsel-find-file (concat blog-admin-dir "/content/posts/"))
+  )
+
 (defun shdennlin-open-UsefulURL ()
   (interactive)
-  (spacemacs/find-file-split (concat org-agenda-dir "/UsefulURL.org"))
+  (find-file (concat org-agenda-dir "/UsefulURL.org"))
   )
 
 (defun shdennlin-open-anki ()
@@ -27,4 +32,10 @@
 (defun shdennlin-open-wiki ()
   (interactive)
   (spacemacs/counsel-find-file wiki-dir)
+  )
+
+(defun shdennlin-open-work ()
+  (interactive)
+  ;; (spacemacs/counsel-find-file (concat work-dir "/work-note.org"))
+  (find-file (concat work-dir "/work-note.org"))
   )

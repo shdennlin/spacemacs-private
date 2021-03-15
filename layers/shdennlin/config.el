@@ -18,6 +18,7 @@
 (defvar deft-dir "" "deft org files location")
 (defvar blog-admin-dir "" "blog-admin files location")
 (defvar wiki-dir "" "personal wiki files location")
+(defvar work-dir "" "personal work note location")
 
 (cond
  ((spacemacs/system-is-mswindows)
@@ -26,6 +27,7 @@
    deft-dir "d:/org-notes"
    blog-admin-dir "~/shdennlin.github.io"
    wiki-dir "d:/shdennlin-wiki/wiki-note"
+   work-dir "d:/work"
    ))
  ((spacemacs/system-is-linux)
   (setq
@@ -33,6 +35,7 @@
    deft-dir "~/org-notes"
    blog-admin-dir "~/shdennlin.github.io"
    wiki-dir "~/shdennlin-wiki/wiki-note"
+   work-dir "~/work"
    ))
  ((spacemacs/system-is-mac)
   (setq
@@ -40,5 +43,6 @@
    deft-dir "~/org-notes"
    blog-admin-dir "~/shdennlin.github.io"
    wiki-dir "~/shdennlin-wiki/wiki-note"
+   work-dir "~/work"
    ))
  )
