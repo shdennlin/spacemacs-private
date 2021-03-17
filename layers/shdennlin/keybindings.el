@@ -41,6 +41,7 @@
 
 (spacemacs/declare-prefix  "oq"  "quick-file")
 (spacemacs/set-leader-keys "oqu" 'shdennlin-open-UsefulURL)
+(spacemacs/set-leader-keys "oqo" 'shdennlin-open-org-note)
 (spacemacs/set-leader-keys "oqa" 'shdennlin-open-anki)
 (spacemacs/set-leader-keys "oqw" 'shdennlin-open-wiki)
 (spacemacs/set-leader-keys "oqb" 'shdennlin-open-blog)

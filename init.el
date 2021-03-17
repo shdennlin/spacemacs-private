@@ -112,9 +112,9 @@ values."
      ;; pandoc
      prodigy
      (shell :variables
-            shell-default-height 40
+            shell-default-height 50
             shell-default-position 'bottom
-            ;; shell-default-shell 'shell
+            shell-default-shell 'shell
             )
      ;; =========== Web services ===========
      search-engine

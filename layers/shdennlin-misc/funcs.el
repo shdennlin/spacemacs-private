@@ -19,6 +19,11 @@
   (spacemacs/counsel-find-file (concat blog-admin-dir "/content/posts/"))
   )
 
+(defun shdennlin-open-org-note ()
+  (interactive)
+  (spacemacs/counsel-find-file org-agenda-dir)
+  )
+
 (defun shdennlin-open-UsefulURL ()
   (interactive)
   (find-file (concat org-agenda-dir "/UsefulURL.org"))
