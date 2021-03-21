@@ -405,14 +405,27 @@ values."
 
   ;; 中文字體配置 Chinese fonts configuration
   ;; "Sarasa Mono Slab TC" or "等距更紗黑體 Slab TC"
-  (dolist (charset '(kana han symbol cjk-misc bopomofo))
-    (cond ((display-graphic-p)
-           (set-fontset-font (frame-parameter nil 'font)
-           ;;                   charset (font-spec :family "等距更紗黑體 Slab TC"))
-           ;; (setq face-font-rescale-alist '(("等距更紗黑體 Slab TC" . 1.12)))
-                             charset (font-spec :family "jf open 粉圓 1.1"))
-           (setq face-font-rescale-alist '(("jf open 粉圓 1.1" . 1.12)))
-           )))
+  ;; "jf-openhuninn-1.1" or "jf open 粉圓 1.1"
+  (cond
+   ((spacemacs/system-is-mswindows)
+    (dolist (charset '(kana han symbol cjk-misc bopomofo))
+      (cond ((display-graphic-p)
+             (set-fontset-font (frame-parameter nil 'font)
+                               charset (font-spec :family "jf open 粉圓 1.1"))
+             (setq face-font-rescale-alist '(("jf open 粉圓 1.1" . 1.12)))
+             )))
+    )
+   ((spacemacs/system-is-linux)
+    (dolist (charset '(kana han symbol cjk-misc bopomofo))
+      (cond ((display-graphic-p)
+             (set-fontset-font (frame-parameter nil 'font)
+                               charset (font-spec :family "jf-openhuninn-1.1"))
+             (setq face-font-rescale-alist '(("jf-openhuninn-1.1" . 1.12)))
+             )))
+    )
+   ((spacemacs/system-is-mac)
+    )
+   )
   ;; (spacemacs//set-monospaced-font  "Consolas" "Source Han Mono" 18 20)
 
   ;; global mode
