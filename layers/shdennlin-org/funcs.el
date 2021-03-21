@@ -145,3 +145,13 @@ org-file location must to as same as markdown file"
                                   (format-time-string "%Y-%m-%d-%A"))))
     (insert current-day-path)
  ))
+
+(defun shdennlin/org-add-clock()
+  (interactive)
+  (insert "CLOCK: ")
+  (org-time-stamp-inactive)
+  (insert "--")
+  (org-time-stamp-inactive)
+  (org-evaluate-time-range)
+  )
+
