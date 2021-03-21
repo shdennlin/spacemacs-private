@@ -36,7 +36,8 @@
 
 (defun shdennlin-open-wiki ()
   (interactive)
-  (spacemacs/counsel-find-file wiki-dir)
+  (dired wiki-dir)
+  (counsel-projectile-find-file)
   )
 
 (defun shdennlin-open-work ()
