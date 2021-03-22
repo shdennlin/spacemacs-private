@@ -109,7 +109,7 @@ values."
      docker
      imenu-list
      lsp
-     ;; pandoc
+     pandoc
      prodigy
      (shell :variables
             shell-default-height 50
@@ -133,6 +133,8 @@ values."
                                       ;; magit
                                       ;; treepy
                                       ;; ghub
+                                      ox-textile
+                                      textile-mode
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -419,8 +421,8 @@ values."
     (dolist (charset '(kana han symbol cjk-misc bopomofo))
       (cond ((display-graphic-p)
              (set-fontset-font (frame-parameter nil 'font)
-                               charset (font-spec :family "jf-openhuninn-1.1"))
-             (setq face-font-rescale-alist '(("jf-openhuninn-1.1" . 1.12)))
+                               charset (font-spec :family "jf open 粉圓 1.1"))
+             (setq face-font-rescale-alist '(("jf open 粉圓 1.1" . 1.12)))
              )))
     )
    ((spacemacs/system-is-mac)
@@ -468,7 +470,7 @@ values."
 
   ;; tramp
   (setq tramp-default-method "ssh")
-  (setq tramp-auto-save-directory "~/tmp/tramp/")
+
   (setq tramp-chunksize 2000)
   (setq nord-region-highlight "snowstorm")
 
