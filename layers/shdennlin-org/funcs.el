@@ -146,7 +146,7 @@ org-file location must to as same as markdown file"
     (insert current-day-path)
  ))
 
-(defun shdennlin/org-add-clock()
+(defun shdennlin/add-clock-log()
   (interactive)
   (insert "CLOCK: ")
   (org-time-stamp-inactive)

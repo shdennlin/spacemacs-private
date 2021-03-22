@@ -10,6 +10,8 @@
 ;;
 ;;; License: GPLv3
 
+(global-unset-key (kbd "C-SPC"))
+
 (spacemacs/set-leader-keys "od" 'occur-dwim)
 (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
 
@@ -22,6 +24,7 @@
 (spacemacs/set-leader-keys "oos" 'shdennlin-save-org-notes-all-file)
 (spacemacs/set-leader-keys "ooj" 'shdennlin-journal-picture)
 (spacemacs/set-leader-keys "ooi" 'shdennlin-journal-insert-picture)
+(spacemacs/set-leader-keys "ooc"  'shdennlin/add-clock-log)
 (spacemacs/set-leader-keys "oc"  'org-capture)
 
 (spacemacs/declare-prefix  "oh"  "Hugo")
