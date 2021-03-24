@@ -77,6 +77,7 @@ values."
      ;; =========== Miscellaneous ===========
      ;; (multiple-cursors :variables multiple-cursors-backend 'evil-mc)
      ;; =========== Programming and markup languages ===========
+     ;; =========== Domain-specific (DSLs) ===========
      csv
      emacs-lisp
      go
@@ -90,7 +91,8 @@ values."
             latex-enable-folding t
             latex-enable-magic t
             magic-latex-enable-inline-image t)
-     markdown
+     (markdown :variables
+               markdown-live-preview-engine 'vmd)
      octave
      php
      (python :variables
@@ -101,6 +103,7 @@ values."
      yaml
      ;; =========== Source control ===========
      git
+     github
      version-control
      ;; =========== themes ===========
      (colors :variables
