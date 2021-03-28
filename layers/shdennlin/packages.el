@@ -17,6 +17,9 @@
 
 (defun shdennlin/init-shdennlin-privacy ()
   "Initialize shdennlin-account"
-  (use-package shdennlin-privacy
-    :init
-    ))
+  (if (file-exists-p "./local/shdennlin-privacy")
+    (use-package shdennlin-privacy
+      :init
+      )
+    )
+  )
