@@ -62,7 +62,8 @@ values."
      ;; tabs
      ;; =========== Filetree ===========
      (treemacs :variables
-               treemacs-use-follow-mode 'tag
+               treemacs-use-follow-mode t
+               treemacs-use-filewatch-mode t
                treemacs-use-all-the-icons-theme t)
      ;; =========== Fun ===========
      emoji

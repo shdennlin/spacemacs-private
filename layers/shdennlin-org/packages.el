@@ -28,6 +28,7 @@
 (defun shdennlin-org/post-init-org ()
   (with-eval-after-load 'org
     (progn
+      (org-toggle-pretty-entities)
       (setq system-time-locale "C") ;; let date language be English
       (setq org-startup-indented t)
 
@@ -85,7 +86,7 @@
       ;; todo-keyword
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
       (setq org-todo-keywords
-            '((sequence "TODO(t)" "ONGOING(o)" "WAIT(w@/!)" "POSTPONED(p@/!)" "STUCK(s@/@)" "DELEGATED(g@/@)" "|"
+            '((sequence "TODO(t)" "ONGOING(o)" "WAIT(w@/!)" "POSTPONED(p@/!)" "STUCK(s@/@)" "DELEGATED(g@/@)" "RESOLVE(r!/@)" "|"
                         "DONE(d!/!)" "CANCELED(c@/!)")))
       (setq org-use-fast-todo-selection t)
 
@@ -96,6 +97,7 @@
               ("POSTPONED" . "mediumpurple")
               ("STUCK" . "chocolate")
               ("DELEGATED" . "deepskyblue")
+              ("RESOLVE" . "#96BF78")
 
               ("DONE" . "green")
               ("CANCELED" . "#7C7C75")
