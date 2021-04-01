@@ -29,7 +29,8 @@ values."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(vimscript
+   '(sql
+     vimscript
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -130,6 +131,7 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
+                                      exec-path-from-shell
                                       org-gcal
                                       org-table-sticky-header
                                       anki-editor
@@ -448,6 +450,7 @@ values."
 
   ;; DO function when start emacs.
   (org-gcal-sync)
+  (exec-path-from-shell-initialize) ;;copy path from shell
 
   (set (make-local-variable 'pangu-spacing-real-insert-separtor) nil)
 
@@ -490,8 +493,6 @@ values."
 
   ;; set variable
   (setq powerline-default-separator 'bar)
-  ;; (setq flycheck-python-flake8-executable "flake8")
-  (setq flycheck-python-pylint-executable "pylint")
 
   ;; (setq dotspacemacs-mode-line-theme '(all-the-icons :separator none))
   ;; (use-package spaceline-all-the-icons
