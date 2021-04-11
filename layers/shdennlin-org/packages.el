@@ -41,9 +41,10 @@
              (("*" bold)
               ("/" italic)
               ("_" underline)
-              ("=" org-code verbatim)
-              ("~" org-code verbatim)
-              ("+" (:strike-through t)))))
+              ("=" (:foreground "khaki1"))
+              ("~" (:foreground "violet"))
+              ("+"
+               (:strike-through t)))))
       (setq org-edit-src-content-indentation 0)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

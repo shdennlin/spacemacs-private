@@ -29,8 +29,7 @@ values."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(sql
-     vimscript
+   '(
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -98,11 +97,18 @@ values."
      octave
      php
      (python :variables
-             python-test-runner '(nose pytest)
-             python-backend 'anaconda)
+             python-test-runner '(pytest nose)
+             python-backend 'anaconda
+             python-formatter 'yapf
+             python-format-on-save t
+             python-fill-column 120
+             python-sort-imports-on-save t
+             )
      ruby
      rust
      yaml
+     sql
+     vimscript
      ;; =========== Source control ===========
      git
      github
@@ -114,6 +120,7 @@ values."
      docker
      imenu-list
      lsp
+     nginx
      pandoc
      prodigy
      (shell :variables
@@ -121,6 +128,7 @@ values."
             shell-default-position 'bottom
             shell-default-shell 'shell
             )
+     systemd
      ;; =========== Web services ===========
      search-engine
      ;; =========== Custom Layer ===========
@@ -135,10 +143,6 @@ values."
                                       org-gcal
                                       org-table-sticky-header
                                       anki-editor
-                                      ;; shackle
-                                      ;; magit
-                                      ;; treepy
-                                      ;; ghub
                                       ox-textile
                                       textile-mode
                                       )
@@ -437,7 +441,6 @@ values."
   ;; (spacemacs//set-monospaced-font  "Consolas" "Source Han Mono" 18 20)
 
   ;; global mode
-  ;; (global-git-commit-mode t)
   (global-flycheck-mode t)
   (global-pangu-spacing-mode 0)
   (global-company-mode)
@@ -493,6 +496,12 @@ values."
 
   ;; set variable
   (setq powerline-default-separator 'bar)
+  (setq python-fill-column 120)
+
+  ;; git layer config
+  (setq-default git-enable-magit-svn-plugin t)
+  (setq-default git-magit-status-fullscreen t)
+
 
   ;; (setq dotspacemacs-mode-line-theme '(all-the-icons :separator none))
   ;; (use-package spaceline-all-the-icons
