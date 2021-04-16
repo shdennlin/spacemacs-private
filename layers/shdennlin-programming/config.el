@@ -18,3 +18,7 @@
 (add-hook 'java-mode-hook #'lsp)
 ;; (add-hook 'lsp-mode-hook #'lsp-lens-mode)
 ;; (add-hook 'java-mode-hook #'lsp-java-boot-lens-mode)
+
+(add-hook 'python-mode-hook
+          (lambda ()
+            (set (make-local-variable 'company-backends) '((company-anaconda company-dabbrev-code) company-dabbrev))))

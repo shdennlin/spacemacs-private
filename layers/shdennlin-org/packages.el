@@ -132,6 +132,7 @@
       ;;                ((org-agenda-view-columns-initially t))))
 
       ;; define the org-agenda refile targets
+      (setq org-agenda-file-nineder-scheduled    (expand-file-name "nineder.org"    org-agenda-dir))
       (setq org-agenda-file-scheduled    (expand-file-name "scheduled.org"    org-agenda-dir))
       (setq org-agenda-file-gtd          (expand-file-name "gtd.org"          org-agenda-dir))
       (setq org-agenda-file-work         (expand-file-name "work.org"         org-agenda-dir))
@@ -210,7 +211,9 @@
     (progn
       (setq org-gcal-client-id shdennlin-org-gcal-client-id
             org-gcal-client-secret shdennlin-org-gcal-client-secret
-            org-gcal-fetch-file-alist `(("shawndennislin@gmail.com" . ,org-agenda-file-scheduled))
+            org-gcal-fetch-file-alist `(("shawndennislin@gmail.com" . ,org-agenda-file-scheduled)
+                                        ("itintern@nineder.com" . ,org-agenda-file-nineder-scheduled)
+                                        )
             org-gcal-recurring-events-mode 'nested)
       )
     )

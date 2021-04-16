@@ -1,3 +1,4 @@
+
 ;; -*- mode: emacs-lisp -*-
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
@@ -438,7 +439,6 @@ values."
    ((spacemacs/system-is-mac)
     )
    )
-  ;; (spacemacs//set-monospaced-font  "Consolas" "Source Han Mono" 18 20)
 
   ;; global mode
   (global-flycheck-mode t)
@@ -451,36 +451,29 @@ values."
   (spacemacs/toggle-mode-line-minor-modes-off)
   (spacemacs/toggle-mode-line-version-control-off)
 
-  ;; DO function when start emacs.
-  (org-gcal-sync)
-  (exec-path-from-shell-initialize) ;;copy path from shell
-
-  (set (make-local-variable 'pangu-spacing-real-insert-separtor) nil)
-
   ;; hook
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
   ;; (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 
   (cond ((eq system-type 'windows-nt)
          ;; workon home
-         ;; (setenv "WORKON_HOME" "C:/ProgramData/Anaconda3/envs/")
          (setenv "WORKON_HOME" "C:/Users/shdennlin/.conda/envs/")
-         ;; (setenv "WORKON_HOME" "~/../../.conda/envs/")
          (pyvenv-mode 1)
 
+         ;; aspell
          (add-to-list 'exec-path "C:/msys64/mingw64/bin/")
          (setq ispell-program-name "aspell")
          (setq ispell-personal-dictionary "c:/msys64/mingw64/lib/aspell-0.60/en_GB")
          )
         ((eq system-type 'gnu/linux)
          (setenv "WORKON_HOME" "~/anaconda3/envs/")
+         (exec-path-from-shell-initialize) ;;copy path from shell
          )
         ((eq system-type 'darwin)
          ))
 
   ;; tramp
   (setq tramp-default-method "ssh")
-
   (setq tramp-chunksize 2000)
   (setq nord-region-highlight "snowstorm")
 
@@ -493,7 +486,6 @@ values."
   (setq default-terminal-coding-system 'utf-8-unix)
   (prefer-coding-system 'utf-8-unix)
 
-
   ;; set variable
   (setq powerline-default-separator 'bar)
   (setq python-fill-column 120)
@@ -502,11 +494,17 @@ values."
   (setq-default git-enable-magit-svn-plugin t)
   (setq-default git-magit-status-fullscreen t)
 
+  ;; DO function when start emacs.
+  (if (package-installed-p 'org-gcal)
+      (progn
+        (org-gcal-fetch)
+        (org-gcal--sync-unlock)
+        (org-gcal-sync)))
 
-  ;; (setq dotspacemacs-mode-line-theme '(all-the-icons :separator none))
-  ;; (use-package spaceline-all-the-icons
-  ;;   :after spaceline
-  ;;   :config (spaceline-all-the-icons-theme))
+
+  ;; UNKNOWN
+  (set (make-local-variable 'pangu-spacing-real-insert-separtor) nil)
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -514,3 +512,10 @@ values."
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
 (load custom-file 'no-error 'no-message)
+
+(defun dotspacemacs/emacs-custom-settings ()
+  "Emacs custom settings.
+This is an auto-generated function, do not modify its content directly, use
+Emacs customize menu instead.
+This function is called at the very end of Spacemacs initialization."
+  )
