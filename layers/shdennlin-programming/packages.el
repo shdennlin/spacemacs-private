@@ -15,6 +15,7 @@
     company
     ipython-notebook
     java
+    python
     )
   )
 
@@ -51,5 +52,9 @@
       (spacemacs|add-company-backends :modes shell-script-mode makefile-bsdmake-mode sh-mode lua-mode nxml-mode conf-unix-mode json-mode graphviz-dot-mode js2-mode js-mode))
 
     ))
+
+(defun shdennlin-programming/post-init-python ()
+  ;; if you use pyton3, then you could comment the following line
+  (setq python-shell-interpreter "python"))
 
 ;;; packages.el ends here
