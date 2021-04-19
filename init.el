@@ -65,7 +65,7 @@ values."
      (treemacs :variables
                treemacs-use-follow-mode t
                treemacs-use-filewatch-mode t
-               treemacs-use-all-the-icons-theme t)
+               )
      ;; =========== Fun ===========
      emoji
      ;; =========== Internationalization ===========
@@ -476,6 +476,8 @@ values."
   ;; tramp
   (setq tramp-default-method "ssh")
   (setq tramp-chunksize 2000)
+
+  ;; theme configuration
   (setq nord-region-highlight "snowstorm")
 
   ;; Use utf-8-unix for all character encoding.
