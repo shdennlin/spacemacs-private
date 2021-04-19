@@ -20,3 +20,7 @@
 
 (add-hook 'org-mode-hook #'shdennlin/org-ispell)
 (add-hook 'org-mode-hook 'org-table-sticky-header-mode)
+
+(setq org-link-abbrev-alist
+      `(("journal-picture-dir"  . ,(concat journal-picture-dir "%s"))
+        ))

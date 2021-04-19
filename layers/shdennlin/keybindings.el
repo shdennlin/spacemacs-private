@@ -22,9 +22,8 @@
 (spacemacs/declare-prefix  "oo"  "org-mode")
 (spacemacs/set-leader-keys "oot" 'org-start-template)
 (spacemacs/set-leader-keys "oos" 'shdennlin-save-org-notes-all-file)
-(spacemacs/set-leader-keys "ooj" 'shdennlin-journal-picture)
 (spacemacs/set-leader-keys "ooi" 'shdennlin-journal-insert-picture)
-(spacemacs/set-leader-keys "ooc"  'shdennlin/add-clock-log)
+(spacemacs/set-leader-keys "ooc" 'shdennlin/add-clock-log)
 (spacemacs/set-leader-keys "oc"  'org-capture)
 
 (spacemacs/declare-prefix  "oh"  "Hugo")

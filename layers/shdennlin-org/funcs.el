@@ -122,27 +122,14 @@ org-file location must to as same as markdown file"
   (spacemacs/delete-window)
   )
 
-(defun shdennlin-journal-picture ()
-  (interactive)
-  (let ((current-day-path (concat org-agenda-dir
-                                  "/journal-picture/"
-                                  (format-time-string "%Y/")
-                                  (format-time-string "%Y-%m-%B/")
-                                  (format-time-string "%Y-%m-%d-%A/"))))
-    (make-directory current-day-path t)
-    (spacemacs/find-file-split current-day-path)
-    (spacemacs/copy-directory-path)
-    (spacemacs/delete-window)
-    ;; (spacemacs/open-file-or-directory-in-external-app (concat current-day-path "."))
-    ))
-
 (defun shdennlin-journal-insert-picture()
   (interactive)
   (let ((current-day-path (concat "[["
-                                  "./journal-picture/"
+                                  "journal-picture-dir:/"
                                   (format-time-string "%Y/")
-                                  (format-time-string "%Y-%m-%B/")
-                                  (format-time-string "%Y-%m-%d-%A"))))
+                                  (format-time-string "%Y-%m-%d-%A")
+                                  ".jpg"
+                                  "]]")))
     (insert current-day-path)
  ))
 
