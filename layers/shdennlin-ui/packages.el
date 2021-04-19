@@ -13,6 +13,7 @@
 (defconst shdennlin-ui-packages
   '(
     (vline :location local)
+    dired
     )
   )
 
@@ -24,4 +25,7 @@
     (set-face-background vline-face "#44475a")
     ))
 
+(defun shdennlin-ui/post-init-dired ()
+  (setq dired-listing-switches "-alh")
+  )
 ;;; packages.el ends here
