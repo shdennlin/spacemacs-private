@@ -450,7 +450,6 @@ values."
   (spacemacs/toggle-display-time-on)
   (spacemacs/toggle-mode-line-major-mode-off)
   (spacemacs/toggle-mode-line-minor-modes-off)
-  (spacemacs/toggle-mode-line-version-control-off)
 
   ;; hook
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
