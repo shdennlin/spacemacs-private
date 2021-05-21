@@ -12,3 +12,4 @@
 
 
 (show-paren-mode t)
+(setq browse-url-browser-function 'browse-url-firefox)

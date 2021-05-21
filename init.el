@@ -499,8 +499,9 @@ values."
   ;; DO function when start emacs.
   (if (package-installed-p 'org-gcal)
       (progn
-        (org-gcal-fetch)
-        (org-gcal--sync-unlock)
+        ;; if have error, use
+        ;; (org-gcal-sync-tokens-clear)
+        ;; (org-gcal-request-token)
         (org-gcal-sync)))
 
 

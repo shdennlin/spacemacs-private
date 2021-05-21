@@ -16,6 +16,7 @@
     ipython-notebook
     java
     python
+    grip-mode
     )
   )
 
@@ -56,5 +57,12 @@
 (defun shdennlin-programming/post-init-python ()
   ;; if you use pyton3, then you could comment the following line
   (setq python-shell-interpreter "python"))
+
+(defun shdennlin-programming/post-init-grip-mode ()
+  (setq grip-github-user "shdennlin")
+  (setq grip-github-password shdennlin-grip-github-password)
+  (setq grip-update-after-change nil)
+  (setq grip-preview-use-webkit t)
+  )
 
 ;;; packages.el ends here

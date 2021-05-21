@@ -1,0 +1,7 @@
+;; my account information link client-secret
+
+(setq shdennlin-org-gcal-client-id "")
+(setq shdennlin-org-gcal-client-secret "")
+(setq shdennlin-grip-github-password "")
+
+(provide 'shdennlin-privacy)
