@@ -361,7 +361,7 @@ values."
    ;; (default nil)
    dotspacemacs-line-numbers '(
                                :relative t
-                               :enabled-for-modes dired-mode prog-mode fundamental-mode text-mode org-agenda-mode
+                               :enabled-for-modes dired-mode prog-mode fundamental-mode text-mode org-agenda-mode conf-mode
                                ;; :size-limit-kb 1000
                                )
    ;; Code folding method. Possible values are `evil' and `origami'.
