@@ -12,4 +12,18 @@
 
 
 (show-paren-mode t)
-(setq browse-url-browser-function 'browse-url-firefox)
+(setq tramp-default-method "ssh")
+
+(cond ((eq system-type 'windows-nt)
+       (setq browse-url-firefox-program "C:/Program Files/Mozilla Firefox/firefox.exe")
+       (setq browse-url-generic-program "C:/Program Files/Mozilla Firefox/firefox.exe"
+             browse-url-browser-function 'browse-url-generic)
+
+       )
+      ((eq system-type 'gnu/linux)
+       (setq browse-url-browser-function 'browse-url-firefox)
+
+       )
+      ((eq system-type 'darwin)
+       (setq browse-url-browser-function 'browse-url-firefox)
+       ))
