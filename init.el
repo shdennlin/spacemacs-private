@@ -133,7 +133,6 @@ values."
      ;; =========== Web services ===========
      search-engine
      ;; =========== Custom Layer ===========
-     fzf
      shdennlin
      )
    ;; List of additional packages that will be installed without being
