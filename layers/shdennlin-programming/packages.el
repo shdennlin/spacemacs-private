@@ -12,6 +12,7 @@
 
 (defconst shdennlin-programming-packages
   '(
+    conda
     company
     ipython-notebook
     java
@@ -64,5 +65,15 @@
   (setq grip-update-after-change nil)
   (setq grip-preview-use-webkit t)
   )
+
+(defun shdennlin-programming/post-init-conda ()
+  (cond ((eq system-type 'windows-nt)
+         )
+        ((eq system-type 'gnu/linux)
+         (setq conda-anaconda-home (expand-file-name "~/anaconda3/")
+               conda-env-home-directory (expand-file-name "~/anaconda3/")
+               conda-env-subdirectory "envs"))
+        ((eq system-type 'darwin)
+         )))
 
 ;;; packages.el ends here

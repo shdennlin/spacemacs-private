@@ -25,6 +25,12 @@
   )
 
 (defun shdennlin-misc/post-init-prodigy()
+  (use-package prodigy
+    :config
+    (progn
+      (evilified-state-evilify prodigy-mode prodigy-mode-map
+        "C" 'prodigy-copy-url)))
+
   (setq my_computer_ipv4_address
         (substring
          (shell-command-to-string "hostname -I | cut -d' ' -f 1")
@@ -34,21 +40,32 @@
     :name "Hugo Personal Blog"
     :command "hugo"
     :args '("server" "-t" "toha" "-w" "-p" "51000")
-    :cwd "~/shdennlin.github.io/"
+    :cwd "~/shdennlin-wiki/blog.shdennlin.com/"
     :tags '(personal)
     :stop-signal 'sigkill
     :kill-process-buffer-on-stop t
-    :url "http://localhost:51000/posts")
+    :url "http://localhost:51000")
 
   (prodigy-define-service
-    :name "Hugo Personal Blog(WSL)"
+    :name "blog.shdennlin.com(WSL)"
     :command "hugo"
-    :args (list "server" "-t" "toha" "-w" "--bind" my_computer_ipv4_address (concat "--baseURL=http://" my_computer_ipv4_address) "-D" "-p" "51000")
-    :cwd "~/shdennlin.github.io/"
+    :args (list "server" "-w" "-p" "51001")
+    :cwd "~/shdennlin-wiki/blog.shdennlin.com/"
     :tags '(personal)
     :stop-signal 'sigkill
     :kill-process-buffer-on-stop t
-    :url (concat "http://" my_computer_ipv4_address ":51000/posts"))
+    :url (concat "http://localhost:51001"))
+
+  (prodigy-define-service
+    :name "leetcode.shdennlin.com(WSL)"
+    :command "hugo"
+    :args (list "server" "-w" "-p" "51002")
+    :cwd "~/shdennlin-wiki/leetcode.shdennlin.com/"
+    :tags '(personal)
+    :stop-signal 'sigkill
+    :kill-process-buffer-on-stop t
+    :url (concat "http://localhost:51002"))
+
   )
 
 (defun shdennlin-misc/post-init-search-engine()

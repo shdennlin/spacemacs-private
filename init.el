@@ -81,6 +81,7 @@ values."
      ;; =========== Programming and markup languages ===========
      ;; =========== Domain-specific (DSLs) ===========
      csv
+     conda
      emacs-lisp
      go
      html
@@ -232,7 +233,7 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Consolas"
-                               :size 18
+                               :size 20
                                :weight normal
                                :width normal
                                :powerline-scale 0.6)
