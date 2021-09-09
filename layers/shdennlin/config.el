@@ -24,29 +24,23 @@
 (cond
  ((spacemacs/system-is-mswindows)
   (setq
-   org-agenda-dir "d:/org-notes"
-   deft-dir "d:/org-notes"
-   blog-admin-dir "~/shdennlin.github.io"
-   wiki-dir "d:/shdennlin-wiki/wiki-note"
-   work-dir "d:/work"
+   org-agenda-dir      "d:/shdennlin-wiki/org-notes"
+   deft-dir            "d:/shdennlin-wiki/org-notes"
+   blog-admin-dir      "d:/shdennlin-wiki/blog.shdennlin.com"
+   wiki-dir            "d:/shdennlin-wiki/wiki-note"
+   work-dir            "d:/work"
    journal-picture-dir "d:/gdrive-ga4567896/journal-picture"
    ))
  ((spacemacs/system-is-linux)
   (setq
-   org-agenda-dir "~/org-notes"
-   deft-dir "~/org-notes"
-   blog-admin-dir "~/shdennlin.github.io"
-   wiki-dir "~/shdennlin-wiki/wiki-note"
-   work-dir "~/work"
+   org-agenda-dir      "~/shdennlin-wiki/org-notes"
+   deft-dir            "~/shdennlin-wiki/org-notes"
+   blog-admin-dir      "~/shdennlin-wiki/blog.shdennlin.com"
+   wiki-dir            "~/shdennlin-wiki/wiki-note"
+   work-dir            "~/work"
    journal-picture-dir "~/gdrive-ga4567896/journal-picture"
    ))
  ((spacemacs/system-is-mac)
   (setq
-   org-agenda-dir "~/org-notes"
-   deft-dir "~/org-notes"
-   blog-admin-dir "~/shdennlin.github.io"
-   wiki-dir "~/shdennlin-wiki/wiki-note"
-   work-dir "~/work"
-   journal-picture-dir "~/gdrive-ga4567896/journal-picture"
    ))
  )

@@ -66,6 +66,15 @@
     :kill-process-buffer-on-stop t
     :url (concat "http://localhost:51002"))
 
+  (prodigy-define-service
+    :name "wiki.shdennlin.com(WSL)"
+    :command "hugo"
+    :args (list "server" "-w" "-p" "51003")
+    :cwd "~/shdennlin-wiki/wiki.shdennlin.com/"
+    :tags '(personal)
+    :stop-signal 'sigkill
+    :kill-process-buffer-on-stop t
+    :url (concat "http://localhost:51003"))
   )
 
 (defun shdennlin-misc/post-init-search-engine()

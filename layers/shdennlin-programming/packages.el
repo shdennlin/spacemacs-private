@@ -67,6 +67,7 @@
   )
 
 (defun shdennlin-programming/post-init-conda ()
+  (conda-env-autoactivate-mode t)
   (cond ((eq system-type 'windows-nt)
          )
         ((eq system-type 'gnu/linux)

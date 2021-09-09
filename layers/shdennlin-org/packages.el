@@ -17,6 +17,7 @@
     org-pomodoro
     org-gcal
     org-agenda
+    (shdennlin-hugo-template :location local)
     )
   )
 
@@ -87,7 +88,7 @@
       ;; todo-keyword
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
       (setq org-todo-keywords
-            '((sequence "TODO(t)" "ONGOING(o)" "WAIT(w@/!)" "POSTPONED(p@/!)" "STUCK(s@/@)" "DELEGATED(g@/@)" "RESOLVE(r!/@)" "|"
+            '((sequence "TODO(t)" "IM-PROGRESS(i)" "WAIT(w@/!)" "POSTPONED(p@/!)" "STUCK(s@/@)" "DELEGATED(g@/@)" "RESOLVE(r!/@)" "|"
                         "DONE(d!/!)" "CANCELED(c@/!)")))
       (setq org-use-fast-todo-selection t)
 
@@ -216,7 +217,6 @@
       (setq org-gcal-client-id shdennlin-org-gcal-client-id
             org-gcal-client-secret shdennlin-org-gcal-client-secret
             org-gcal-fetch-file-alist `(("shawndennislin@gmail.com" . ,org-agenda-file-scheduled)
-                                        ("itintern@nineder.com" . ,org-agenda-file-nineder-scheduled)
                                         )
             org-gcal-recurring-events-mode 'nested)
       )
@@ -225,6 +225,13 @@
 
 (defun shdennlin-org/post-init-org-agenda ()
   (setq org-agenda-window-setup 'current-window)
+  )
+
+(defun shdennlin-org/init-shdennlin-hugo-template ()
+  "Initialize shdennlin-account"
+  (use-package shdennlin-hugo-template
+    :init
+    )
   )
 
 ;;; packages.el ends here

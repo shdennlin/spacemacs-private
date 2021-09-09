@@ -27,10 +27,10 @@
 (spacemacs/set-leader-keys "oc"  'org-capture)
 
 (spacemacs/declare-prefix  "oh"  "Hugo")
-(spacemacs/set-leader-keys "ohs" 'hugo-content-org-start-template)
-(spacemacs/set-leader-keys "ohi" 'hugo-content-index_md-template)
 (spacemacs/set-leader-keys "ohp" 'hugo-org-instert-section-path)
-(spacemacs/set-leader-keys "ohu" 'hugo-copy-service-url-with-current-post)
+(spacemacs/set-leader-keys "ohb" 'blog-start-template)
+(spacemacs/set-leader-keys "ohw" 'wiik-start-template)
+(spacemacs/set-leader-keys "ohl" 'leetcode-start-template)
 
 (spacemacs/declare-prefix  "om"  "MobileOrg")
 (spacemacs/set-leader-keys "omp" 'org-mobile-push)

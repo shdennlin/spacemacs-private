@@ -24,3 +24,5 @@
 (setq org-link-abbrev-alist
       `(("journal-picture-dir"  . ,(concat journal-picture-dir "%s"))
         ))
+
+;(require 'shdennlin-hugo-template)
