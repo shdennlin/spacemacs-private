@@ -40,6 +40,7 @@
 (spacemacs/set-leader-keys "ogs" 'org-gcal-sync)
 (spacemacs/set-leader-keys "ogd" 'org-gcal-delete-at-point)
 (spacemacs/set-leader-keys "ogp" 'org-gcal-post-at-point)
+(spacemacs/set-leader-keys "ogr" 'org-gcal-request-token)
 
 (spacemacs/declare-prefix  "oq"  "quick-file")
 (spacemacs/set-leader-keys "oqu" 'shdennlin-open-UsefulURL)
@@ -58,9 +59,3 @@
 (define-key evil-normal-state-map (kbd "zj") 'evil-unimpaired/insert-space-below)
 
 (global-set-key (kbd "<f9>") 'spacemacs/kill-this-buffer)
-
-(with-eval-after-load 'company
-  (define-key company-active-map (kbd "M-n") nil)
-  (define-key company-active-map (kbd "M-p") nil)
-  (define-key company-active-map (kbd "C-n") #'company-select-next)
-  (define-key company-active-map (kbd "C-p") #'company-select-previous))
