@@ -11,17 +11,6 @@
 ;;; License: GPLv3
 
 ;; Add the relevant packages to the layer
-(setq python-packages
-      '(company
-        (company-anaconda :toggle (configuration-layer/package-usedp 'company))))
-
-(add-hook 'java-mode-hook #'lsp)
-;; (add-hook 'lsp-mode-hook #'lsp-lens-mode)
-;; (add-hook 'java-mode-hook #'lsp-java-boot-lens-mode)
-
-(add-hook 'python-mode-hook
-          (lambda ()
-            (set (make-local-variable 'company-backends) '((company-anaconda company-dabbrev-code) company-dabbrev))))
 
 (add-hook 'python-mode-hook 'anaconda-mode)
 (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
