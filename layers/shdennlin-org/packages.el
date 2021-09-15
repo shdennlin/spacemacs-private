@@ -17,7 +17,7 @@
     org-pomodoro
     org-gcal
     org-agenda
-    (shdennlin-hugo-template :location local)
+    (shdennlin-website-template :location local)
     )
   )
 
@@ -227,9 +227,8 @@
   (setq org-agenda-window-setup 'current-window)
   )
 
-(defun shdennlin-org/init-shdennlin-hugo-template ()
-  "Initialize shdennlin-account"
-  (use-package shdennlin-hugo-template
+(defun shdennlin-org/init-shdennlin-website-template ()
+  (use-package shdennlin-website-template
     :init
     )
   )

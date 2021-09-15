@@ -26,11 +26,11 @@
 (spacemacs/set-leader-keys "ooc" 'shdennlin/add-clock-log)
 (spacemacs/set-leader-keys "oc"  'org-capture)
 
-(spacemacs/declare-prefix  "oh"  "Hugo")
-(spacemacs/set-leader-keys "ohp" 'hugo-org-instert-section-path)
-(spacemacs/set-leader-keys "ohb" 'blog-start-template)
-(spacemacs/set-leader-keys "ohw" 'wiik-start-template)
-(spacemacs/set-leader-keys "ohl" 'leetcode-start-template)
+(spacemacs/declare-prefix  "ow"  "website")
+(spacemacs/set-leader-keys "owp" 'manual-instert-file-path-base-content-directory)
+(spacemacs/set-leader-keys "owb" 'blog-start-template)
+(spacemacs/set-leader-keys "oww" 'wiik-start-template)
+(spacemacs/set-leader-keys "owl" 'leetcode-template)
 
 (spacemacs/declare-prefix  "om"  "MobileOrg")
 (spacemacs/set-leader-keys "omp" 'org-mobile-push)
