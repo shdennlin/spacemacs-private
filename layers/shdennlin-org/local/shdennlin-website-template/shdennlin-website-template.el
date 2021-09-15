@@ -143,8 +143,7 @@ to
 (define-skeleton leetcode-template
   ""
   ""
-  "
-#+STARTUP: content
+  "#+STARTUP: content
 #+OPTIONS: \\n:t
 #+OPTIONS: toc:nil\n"
   "\n"
@@ -153,7 +152,7 @@ to
   "#+TITLE:\tLeetCode " '(leetcode-build-org-title-func) "\n"
   "#+AUTHOR:\tShawn Dennis Lin\n"
   "#+EMAIL:\tShawnDennisLin@gmail.com\n"
-  "#+DATE:\t" '(org-time-stamp-inactive) "\n"
+  "#+DATE:\t" '(shdennlin/insert-current-date-time) "\n"
   "\n"
   "* LeetCode " '(leetcode-build-org-title-func) "\n"
   "\n"
@@ -170,8 +169,3 @@ My Solution Link: " '(leetcode-build-org-solutionlink-func)
   )
 
 (provide 'shdennlin-website-template)
-
-
-(setq test-str "Longest Common Prefix")
-
-(downcase test-str)

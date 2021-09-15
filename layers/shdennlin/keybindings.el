@@ -15,6 +15,9 @@
 (spacemacs/set-leader-keys "od" 'occur-dwim)
 (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
 
+(spacemacs/declare-prefix  "oe"  "engineering")
+(spacemacs/set-leader-keys "oel" 'shdennlin/leetcode-build-environment)
+
 (spacemacs/declare-prefix  "ot"  "Toggle")
 (spacemacs/set-leader-keys "otc" 'vline-mode)
 (spacemacs/set-leader-keys "otC" 'vline-global-mode)

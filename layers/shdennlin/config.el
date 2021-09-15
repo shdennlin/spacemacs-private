@@ -16,8 +16,9 @@
 
 (defvar org-agenda-dir "" "gtd org files location")
 (defvar deft-dir "" "deft org files location")
-(defvar blog-admin-dir "" "blog-admin files location")
+(defvar blog-admin-dir "" "personal blog files location")
 (defvar wiki-dir "" "personal wiki files location")
+(defvar leetcode-dir "" "personal leetcode files location")
 (defvar work-dir "" "personal work note location")
 (defvar journal-picture-dir "" "my journal picture location")
 
@@ -27,7 +28,8 @@
    org-agenda-dir      "d:/shdennlin-wiki/org-notes"
    deft-dir            "d:/shdennlin-wiki/org-notes"
    blog-admin-dir      "d:/shdennlin-wiki/blog.shdennlin.com"
-   wiki-dir            "d:/shdennlin-wiki/wiki-note"
+   wiki-dir            "d:/shdennlin-wiki/wiki.shdennlin.com"
+   leetcode-dir        "d:/shdennlin-wiki/leetcode.shdennlin.com"
    work-dir            "d:/work"
    journal-picture-dir "d:/gdrive-ga4567896/journal-picture"
    ))
@@ -36,7 +38,8 @@
    org-agenda-dir      "~/shdennlin-wiki/org-notes"
    deft-dir            "~/shdennlin-wiki/org-notes"
    blog-admin-dir      "~/shdennlin-wiki/blog.shdennlin.com"
-   wiki-dir            "~/shdennlin-wiki/wiki-note"
+   wiki-dir            "~/shdennlin-wiki/wiki.shdennlin.com"
+   leetcode-dir        "~/shdennlin-wiki/leetcode.shdennlin.com"
    work-dir            "~/work"
    journal-picture-dir "~/gdrive-ga4567896/journal-picture"
    ))

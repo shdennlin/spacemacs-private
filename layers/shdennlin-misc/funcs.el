@@ -45,3 +45,54 @@
   ;; (spacemacs/counsel-find-file (concat work-dir "/work-note.org"))
   (find-file (concat work-dir "/work-note.org"))
   )
+
+(defun shdennlin/insert-current-date-time ()
+  (insert (format-time-string "[%Y-%m-%d %a]" (current-time)))
+  )
+
+(defun shdennlin/leetcode-build-environment (file-name)
+  (interactive "sEnter file name: ")
+  (let*
+      (
+       (q1 (car (split-string file-name "\\.")))
+       (q2 (car (last (split-string file-name "\\.") nil)))
+       (qnumber (string-to-number q1))
+       (q1 (format "%03d" (string-to-number q1)))
+       (file-name (concat q1 q2))
+       (file-name (replace-regexp-in-string " " "_" file-name))
+       (py-file-name (concat file-name ".py"))
+       (py-file-path (concat leetcode-dir "/content/.solution_record/python3/" py-file-name))
+       (org-file-name (concat "." file-name ".org"))
+       (org-file-dir (concat leetcode-dir "/content/"))
+       )
+
+    ;; build org file
+    (kill-new org-file-name)
+    (counsel-find-file "" org-file-dir)
+    (leetcode-template)
+    (save-buffer)
+
+    ;; build py file
+    (spacemacs/find-file-split py-file-path)
+    (spacemacs/toggle-maximize-buffer)
+    (company-mode -1)
+    (flycheck-mode -1)
+    (smartparens-mode -1)
+    (electric-pair-mode -1)
+    (pyvenv-workon "py39")
+    (insert "from typing import List\n\n")
+    (insert "if __name__ == '__main__':\n\ts = Solution()\n\tprint()")
+    (save-buffer)
+    (goto-line 2)
+
+    ;; open leetcode-description buffer
+    (leetcode)
+    (sit-for 10)
+    (quit-window)
+    (sit-for 1)
+    (leetcode-show-problem 30)
+    (sit-for 6)
+
+    ;; back to py file
+    (winum-select-window-1)
+    ))
