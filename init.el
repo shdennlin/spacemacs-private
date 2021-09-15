@@ -455,7 +455,6 @@ values."
 
   ;;toggle mode
   (spacemacs/toggle-display-time-on)
-  (spacemacs/toggle-mode-line-major-mode-off)
   (spacemacs/toggle-mode-line-minor-modes-off)
 
   ;; hook
@@ -474,7 +473,7 @@ values."
          )
         ((eq system-type 'gnu/linux)
          (setenv "WORKON_HOME" "~/anaconda3/envs/")
-         (exec-path-from-shell-initialize) ;;copy path from shell
+         ;; (exec-path-from-shell-initialize) ;;copy path from shell
          )
         ((eq system-type 'darwin)
          ))

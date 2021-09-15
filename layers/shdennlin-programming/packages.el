@@ -12,7 +12,6 @@
 
 (defconst shdennlin-programming-packages
   '(
-    conda
     company
     grip-mode
     python
@@ -41,17 +40,6 @@
     (spacemacs|add-company-backends
       :backends company-anaconda
       :modes python-mode)))
-
-(defun shdennlin-programming/post-init-conda ()
-  (conda-env-autoactivate-mode t)
-  (cond ((eq system-type 'windows-nt)
-         )
-        ((eq system-type 'gnu/linux)
-         (setq conda-anaconda-home (expand-file-name "~/anaconda3/")
-               conda-env-home-directory (expand-file-name "~/anaconda3/")
-               conda-env-subdirectory "envs"))
-        ((eq system-type 'darwin)
-         )))
 
 (defun shdennlin-programming/post-init-grip-mode ()
   (setq grip-github-user "shdennlin")
