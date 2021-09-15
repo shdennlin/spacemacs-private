@@ -111,6 +111,9 @@ values."
      yaml
      sql
      vimscript
+     javascript
+     ;; =========== Readers ===========
+     dash
      ;; =========== Source control ===========
      git
      github
@@ -134,6 +137,9 @@ values."
      ;; =========== Web services ===========
      search-engine
      ;; =========== Custom Layer ===========
+     ;; https://github.com/anmoljagetia/leetcode-emacs-layer
+     ;; git clone https://github.com/anmoljagetia/leetcode-emacs-layer.git ~/.emacs.d/private/myleetcode
+     myleetcode
      shdennlin
      )
    ;; List of additional packages that will be installed without being
@@ -496,6 +502,10 @@ values."
   ;; git layer config
   (setq-default git-enable-magit-svn-plugin t)
   (setq-default git-magit-status-fullscreen t)
+
+  ;; leetcode
+  (setq leetcode-prefer-language "python3")
+  (setq leetcode-prefer-sql "mysql")
 
   ;; DO function when start emacs.
   (if (package-installed-p 'org-gcal)

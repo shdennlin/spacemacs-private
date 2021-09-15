@@ -58,8 +58,8 @@
 
   (prodigy-define-service
     :name "leetcode.shdennlin.com(WSL)"
-    :command "hugo"
-    :args (list "server" "-w" "-p" "51002")
+    :command "gitbook"
+    :args (list "--lrport" "35730" "--port" "51002" "serve")
     :cwd "~/shdennlin-wiki/leetcode.shdennlin.com/"
     :tags '(personal)
     :stop-signal 'sigkill
