@@ -77,8 +77,6 @@
     (spacemacs/toggle-maximize-buffer)
     (company-mode -1)
     (flycheck-mode -1)
-    (smartparens-mode -1)
-    (electric-pair-mode -1)
     (pyvenv-workon "py39")
     (insert "from typing import List\n\n")
     (insert "if __name__ == '__main__':\n\ts = Solution()\n\tprint()")
@@ -90,7 +88,7 @@
     (sit-for 10)
     (quit-window)
     (sit-for 1)
-    (leetcode-show-problem 30)
+    (leetcode-show-problem qnumber)
     (sit-for 6)
 
     ;; back to py file
