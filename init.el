@@ -509,7 +509,8 @@ values."
         ;; if have error, use
         ;; (org-gcal-sync-tokens-clear)
         ;; (org-gcal-request-token)
-        (org-gcal-sync)))
+        ;; (org-gcal-sync)
+        ))
 
 
   ;; UNKNOWN
