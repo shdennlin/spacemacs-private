@@ -17,6 +17,8 @@
 
 (spacemacs/declare-prefix  "oe"  "engineering")
 (spacemacs/set-leader-keys "oel" 'shdennlin/leetcode-build-environment)
+(spacemacs/set-leader-keys "oep" 'shdennlin/leetcode-quick-python)
+
 
 (spacemacs/declare-prefix  "ot"  "Toggle")
 (spacemacs/set-leader-keys "otc" 'vline-mode)

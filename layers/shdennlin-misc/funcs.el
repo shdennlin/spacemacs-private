@@ -94,3 +94,20 @@
     ;; back to py file
     (winum-select-window-1)
     ))
+
+(defun shdennlin/leetcode-quick-python ()
+  (interactive)
+  (let*
+      ((file-name "/tmp/leetcode-temp.py"))
+    ;; ;; build py file
+    (write-region "" nil file-name)
+    (spacemacs/find-file-split file-name)
+    (spacemacs/toggle-maximize-buffer)
+    (company-mode -1)
+    (flycheck-mode -1)
+    (pyvenv-workon "py39")
+    (insert "from typing import List\n\n")
+    (insert "if __name__ == '__main__':\n\ts = Solution()\n\tprint()")
+    (save-buffer)
+    (goto-line 2)
+    ))
