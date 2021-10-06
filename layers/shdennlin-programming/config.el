@@ -14,3 +14,8 @@
 
 (add-hook 'python-mode-hook 'anaconda-mode)
 (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
+
+(spacemacs|add-company-backends
+  :backends company-tabnine
+  :modes python-mode org-mode emacs-lisp-mode
+  )

@@ -46,10 +46,7 @@ values."
                       auto-completion-complete-with-key-sequence-delay 0.08
                       auto-completion-minimum-prefix-length 1
                       auto-completion-enable-sort-by-usage t
-                      auto-completion-use-company-box nil
-                      spacemacs-default-company-backends '(company-tabnine company-bbdb company-semantic company-cmake company-capf company-clang company-files
-                                                                         (company-dabbrev-code company-gtags company-etags company-keywords)
-                                                                         company-oddmuse company-dabbrev))
+                      auto-completion-use-company-box nil)
      helm
      ivy
      ;; =========== Emacs ===========

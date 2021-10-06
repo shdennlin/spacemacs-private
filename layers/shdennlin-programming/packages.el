@@ -19,27 +19,20 @@
   )
 
 (defun shdennlin-programming/post-init-company ()
-  (progn
-    (setq company-dabbrev-code-other-buffers 'all)
-    ;; enable dabbrev-expand in company completion https://emacs-china.org/t/topic/6381
-    (setq company-dabbrev-char-regexp "[\\.0-9a-z-_'/]")
-    ;; Trigger completion immediately.
-    (setq company-idle-delay 0)
-    ;; Number the candidates (use M-1, M-2 etc to select completions).
-    (setq company-show-numbers t)
-
-    (when (configuration-layer/package-usedp 'company)
-      (spacemacs|add-company-backends :modes shell-script-mode makefile-bsdmake-mode sh-mode lua-mode nxml-mode conf-unix-mode json-mode graphviz-dot-mode js2-mode js-mode))
-
-    ))
+  (setq company-dabbrev-code-other-buffers 'all)
+  ;; enable dabbrev-expand in company completion https://emacs-china.org/t/topic/6381
+  (setq company-dabbrev-char-regexp "[\\.0-9a-z-_'/]")
+  ;; Trigger completion immediately.
+  (setq company-idle-delay 0)
+  ;; Number the candidates (use M-1, M-2 etc to select completions).
+  (setq company-show-numbers t)
+  )
 
 (defun shdennlin-programming/post-init-python ()
-  (use-package company-anaconda
-    :defer t
-    :init
-    (spacemacs|add-company-backends
-      :backends company-anaconda
-      :modes python-mode)))
+  (spacemacs|add-company-backends
+    :backends company-anaconda
+    :modes python-mode)
+  )
 
 (defun shdennlin-programming/post-init-grip-mode ()
   (setq grip-github-user "shdennlin")
@@ -48,6 +41,4 @@
   (setq grip-preview-use-webkit t)
   )
 
-;; (defun shdennlin-programming/post-init-company-tabnine ()
-;;   )
 ;;; packages.el ends here
