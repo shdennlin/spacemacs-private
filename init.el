@@ -79,6 +79,17 @@ values."
      ;; =========== Domain-specific (DSLs) ===========
      csv
      conda
+     (c-c++ :variables
+            c-c++-adopt-subprojects t
+            c-c++-backend 'lsp-clangd
+            c-c++-lsp-enable-semantic-highlight 'rainbow
+            c-c++-dap-adapters '(dap-lldb dap-cpptools)
+            c-c++-default-mode-for-headers 'c++-mode
+            c-c++-enable-organize-includes-on-save t
+            c-c++-enable-clang-format-on-save t
+            c-c++-enable-google-style t
+            c-c++-enable-google-newline t
+            c-c++-enable-auto-newline t)
      emacs-lisp
      go
      html
@@ -119,6 +130,7 @@ values."
      (colors :variables
              colors-enable-nyan-cat-progress-bar (display-graphic-p))
      ;; =========== Tools ===========
+     dap
      docker
      imenu-list
      lsp
