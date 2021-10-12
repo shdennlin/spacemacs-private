@@ -111,3 +111,9 @@
     (save-buffer)
     (goto-line 2)
     ))
+
+(defun shdennlin//shell-command-to-buffer (command buffer-name)
+  "Run a `command' and append its output to buffer `buffer-name'."
+  (with-current-buffer (get-buffer-create buffer-name)
+    (goto-char (point-max))
+    (insert (shell-command-to-string command))))
