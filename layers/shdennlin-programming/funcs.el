@@ -18,3 +18,22 @@
 	"\tname = Shawn Dennis Lin\n"
 	"\tusername = shdennlin"
   )
+
+(defun shdennlin/c++-compile&run ()
+  (interactive)
+    (save-buffer)
+    (setq shdennlin-c++-buffer (file-name-base))
+    (add-hook 'compilation-finish-functions 'shdennlin//c++-run)
+    ;; compile
+    (message "INFO: %s" (format "g++ %s.cpp -o %s.out" (file-name-base) (file-name-base)))
+    (compile (format "g++ %s.cpp -o %s.out" (file-name-base) (file-name-base)))
+    )
+
+(defun shdennlin//c++-run (buffer msg)
+  (when (string= msg "finished\n")
+    (message "INFO: compile %s " (format "./%s.out" shdennlin-c++-buffer))
+    (compile (format "./%s.out" shdennlin-c++-buffer))
+    )
+  (remove-hook 'compilation-finish-functions 'shdennlin//c++-run)
+  )
+

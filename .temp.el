@@ -1,6 +1,4 @@
 
-
-(global-set-key (kbd "<f8>") 'shdennlin/temp)
 (defun shdennlin/temp ()
   (interactive)
   (save-buffer)

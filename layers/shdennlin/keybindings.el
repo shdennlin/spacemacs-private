@@ -64,3 +64,7 @@
 (define-key evil-normal-state-map (kbd "zj") 'evil-unimpaired/insert-space-below)
 
 (global-set-key (kbd "<f9>") 'spacemacs/kill-this-buffer)
+(global-set-key (kbd "<f8>") 'shdennlin/temp)
+
+
+(spacemacs/set-leader-keys-for-major-mode 'c++-mode "oc" 'shdennlin/c++-compile&run)
