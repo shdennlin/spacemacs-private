@@ -35,11 +35,11 @@
    ))
  ((spacemacs/system-is-linux)
   (setq
-   org-agenda-dir      "~/shdennlin-wiki/org-notes"
-   deft-dir            "~/shdennlin-wiki/org-notes"
-   blog-admin-dir      "~/shdennlin-wiki/blog.shdennlin.com"
-   wiki-dir            "~/shdennlin-wiki/wiki.shdennlin.com"
-   leetcode-dir        "~/shdennlin-wiki/leetcode.shdennlin.com"
+   org-agenda-dir      "~/shdennlin-wiki/website/org-notes"
+   deft-dir            "~/shdennlin-wiki/website/org-notes"
+   blog-admin-dir      "~/shdennlin-wiki/website/blog.shdennlin.com"
+   wiki-dir            "~/shdennlin-wiki/website/wiki.shdennlin.com"
+   leetcode-dir        "~/shdennlin-wiki/website/leetcode.shdennlin.com"
    work-dir            "~/work"
    journal-picture-dir "~/gdrive-ga4567896/journal-picture"
    ))

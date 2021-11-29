@@ -40,7 +40,7 @@
     :name "Hugo Personal Blog"
     :command "hugo"
     :args '("server" "-t" "toha" "-w" "-p" "51000")
-    :cwd "~/shdennlin-wiki/blog.shdennlin.com/"
+    :cwd "~/shdennlin-wiki/website/blog.shdennlin.com/"
     :tags '(personal)
     :stop-signal 'sigkill
     :kill-process-buffer-on-stop t
@@ -50,7 +50,7 @@
     :name "blog.shdennlin.com(WSL)"
     :command "hugo"
     :args (list "server" "-w" "-p" "51001")
-    :cwd "~/shdennlin-wiki/blog.shdennlin.com/"
+    :cwd "~/shdennlin-wiki/website/blog.shdennlin.com/"
     :tags '(personal)
     :stop-signal 'sigkill
     :kill-process-buffer-on-stop t
@@ -60,7 +60,7 @@
     :name "leetcode.shdennlin.com(WSL)"
     :command "gitbook"
     :args (list "--lrport" "35730" "--port" "51002" "serve")
-    :cwd "~/shdennlin-wiki/leetcode.shdennlin.com/"
+    :cwd "~/shdennlin-wiki/website/leetcode.shdennlin.com/"
     :tags '(personal)
     :stop-signal 'sigkill
     :kill-process-buffer-on-stop t
@@ -70,7 +70,7 @@
     :name "wiki.shdennlin.com(WSL)"
     :command "hugo"
     :args (list "server" "-w" "-p" "51003")
-    :cwd "~/shdennlin-wiki/wiki.shdennlin.com/"
+    :cwd "~/shdennlin-wiki/website/wiki.shdennlin.com/"
     :tags '(personal)
     :stop-signal 'sigkill
     :kill-process-buffer-on-stop t
