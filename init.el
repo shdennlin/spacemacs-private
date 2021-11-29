@@ -78,7 +78,6 @@ values."
      ;; =========== Programming and markup languages ===========
      ;; =========== Domain-specific (DSLs) ===========
      csv
-     conda
      (c-c++ :variables
             c-c++-adopt-subprojects t
             c-c++-backend 'lsp-clangd
@@ -146,9 +145,6 @@ values."
      ;; =========== Web services ===========
      search-engine
      ;; =========== Custom Layer ===========
-     ;; https://github.com/anmoljagetia/leetcode-emacs-layer
-     ;; git clone https://github.com/anmoljagetia/leetcode-emacs-layer.git ~/.emacs.d/private/myleetcode
-     myleetcode
      shdennlin
      )
    ;; List of additional packages that will be installed without being
@@ -163,6 +159,7 @@ values."
                                       ox-textile
                                       textile-mode
                                       company-tabnine
+                                      arduino-mode
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -481,7 +478,7 @@ values."
          (setq ispell-personal-dictionary "c:/msys64/mingw64/lib/aspell-0.60/en_GB")
          )
         ((eq system-type 'gnu/linux)
-         (setenv "WORKON_HOME" "~/anaconda3/envs/")
+         (setenv "WORKON_HOME" "~/.virtualenvs")
          (exec-path-from-shell-initialize) ;;copy path from shell
          )
         ((eq system-type 'darwin)

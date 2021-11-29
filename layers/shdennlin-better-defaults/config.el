@@ -21,6 +21,7 @@
 
        )
       ((eq system-type 'gnu/linux)
+       (setq browse-url-firefox-program "~/app/Firefox/firefox")
        (setq browse-url-browser-function 'browse-url-firefox)
 
        )
