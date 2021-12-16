@@ -66,5 +66,10 @@
 (global-set-key (kbd "<f9>") 'spacemacs/kill-this-buffer)
 (global-set-key (kbd "<f8>") 'shdennlin/temp)
 
+(keymap-unset-key (kbd "M-1") "winum-mode")
+(keymap-unset-key (kbd "M-2") "winum-mode")
+(global-set-key (kbd "M-1") 'spacemacs/tabs-backward)
+(global-set-key (kbd "M-2") 'spacemacs/tabs-forward)
 
 (spacemacs/set-leader-keys-for-major-mode 'c++-mode "oc" 'shdennlin/c++-compile&run)
+

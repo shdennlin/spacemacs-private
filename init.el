@@ -57,7 +57,9 @@ values."
           org-enable-org-journal-support t
           org-enable-hugo-support t
           org-enable-sticky-header t)
-     ;; tabs
+     (tabs :variables
+           tabs-auto-hide t
+           tabs-auto-hide-delay 60)
      ;; =========== Filetree ===========
      (treemacs :variables
                treemacs-use-follow-mode t
@@ -131,6 +133,7 @@ values."
      ;; =========== Tools ===========
      dap
      docker
+     fasd
      imenu-list
      lsp
      nginx
