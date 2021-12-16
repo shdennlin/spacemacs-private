@@ -14,6 +14,21 @@
 ;; org-capture
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(cond
+ ((spacemacs/system-is-mswindows)
+  (defvar website-basedir "d:/shdennlin-wiki/website/")
+  (defvar base-dir "d:/")
+  )
+ ((spacemacs/system-is-linux)
+  (defvar website-basedir "~/shdennlin-wiki/website/")
+  (defvar base-dir "~/")
+  )
+ ((spacemacs/system-is-mac)
+  (defvar website-basedir "~/shdennlin-wiki/website/")
+  (defvar base-dir "~/")
+  )
+ )
+
 (defvar org-agenda-dir "" "gtd org files location")
 (defvar deft-dir "" "deft org files location")
 (defvar blog-admin-dir "" "personal blog files location")
@@ -22,28 +37,11 @@
 (defvar work-dir "" "personal work note location")
 (defvar journal-picture-dir "" "my journal picture location")
 
-(cond
- ((spacemacs/system-is-mswindows)
-  (setq
-   org-agenda-dir      "d:/shdennlin-wiki/org-notes"
-   deft-dir            "d:/shdennlin-wiki/org-notes"
-   blog-admin-dir      "d:/shdennlin-wiki/blog.shdennlin.com"
-   wiki-dir            "d:/shdennlin-wiki/wiki.shdennlin.com"
-   leetcode-dir        "d:/shdennlin-wiki/leetcode.shdennlin.com"
-   work-dir            "d:/work"
-   journal-picture-dir "d:/gdrive-ga4567896/journal-picture"
-   ))
- ((spacemacs/system-is-linux)
-  (setq
-   org-agenda-dir      "~/shdennlin-wiki/website/org-notes"
-   deft-dir            "~/shdennlin-wiki/website/org-notes"
-   blog-admin-dir      "~/shdennlin-wiki/website/blog.shdennlin.com"
-   wiki-dir            "~/shdennlin-wiki/website/wiki.shdennlin.com"
-   leetcode-dir        "~/shdennlin-wiki/website/leetcode.shdennlin.com"
-   work-dir            "~/work"
-   journal-picture-dir "~/gdrive-ga4567896/journal-picture"
-   ))
- ((spacemacs/system-is-mac)
-  (setq
-   ))
+(setq
+ org-agenda-dir      (concat website-basedir "org-notes")
+ blog-dir            (concat website-basedir "blog.shdennlin.com")
+ wiki-dir            (concat website-basedir "wiki.shdennlin.com")
+ leetcode-dir        (concat website-basedir "leetcode.shdennlin.com")
+ work-dir            (concat base-dir        "work")
+ ;; journal-picture-dir "d:/gdrive-ga4567896/journal-picture"
  )
