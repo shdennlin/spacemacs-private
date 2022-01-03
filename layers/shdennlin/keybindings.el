@@ -48,12 +48,9 @@
 (spacemacs/set-leader-keys "ogr" 'org-gcal-request-token)
 
 (spacemacs/declare-prefix  "oq"  "quick-file")
-(spacemacs/set-leader-keys "oqu" 'shdennlin-open-UsefulURL)
-(spacemacs/set-leader-keys "oqo" 'shdennlin-open-org-note)
-(spacemacs/set-leader-keys "oqa" 'shdennlin-open-anki)
 (spacemacs/set-leader-keys "oqw" 'shdennlin-open-wiki)
 (spacemacs/set-leader-keys "oqb" 'shdennlin-open-blog)
-(spacemacs/set-leader-keys "oqk" 'shdennlin-open-work)
+(spacemacs/set-leader-keys "oql" 'shdennlin-open-leetcode)
 
 (spacemacs/declare-prefix  "ov"  "vc")
 (spacemacs/set-leader-keys "ovu" 'git-config-insert-user)

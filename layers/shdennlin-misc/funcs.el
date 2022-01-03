@@ -10,40 +10,22 @@
 ;;
 ;;; License: GPLv3
 
-(defun connect-remote ()
-  (interactive)
-  (dired "/ssh:pi@192.168.12.5:/home/pi/"))
-
-(defun shdennlin-open-blog ()
-  (interactive)
-  (spacemacs/counsel-find-file (concat blog-admin-dir "/content/posts/"))
-  )
-
-(defun shdennlin-open-org-note ()
-  (interactive)
-  (spacemacs/counsel-find-file org-agenda-dir)
-  )
-
-(defun shdennlin-open-UsefulURL ()
-  (interactive)
-  (find-file (concat org-agenda-dir "/UsefulURL.org"))
-  )
-
-(defun shdennlin-open-anki ()
-  (interactive)
-  (spacemacs/counsel-find-file (concat org-agenda-dir "/anki/"))
-  )
-
 (defun shdennlin-open-wiki ()
   (interactive)
   (dired wiki-dir)
   (counsel-projectile-find-file)
   )
 
-(defun shdennlin-open-work ()
+(defun shdennlin-open-blog ()
   (interactive)
-  ;; (spacemacs/counsel-find-file (concat work-dir "/work-note.org"))
-  (find-file (concat work-dir "/work-note.org"))
+  (dired blog-dir)
+  (counsel-projectile-find-file)
+  )
+
+(defun shdennlin-open-leetcode ()
+  (interactive)
+  (dired leetcode-dir)
+  (counsel-projectile-find-file)
   )
 
 (defun shdennlin/insert-current-date-time ()

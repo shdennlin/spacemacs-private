@@ -57,9 +57,7 @@ values."
           org-enable-org-journal-support t
           org-enable-hugo-support t
           org-enable-sticky-header t)
-     (tabs :variables
-           tabs-auto-hide t
-           tabs-auto-hide-delay 60)
+     tabs
      ;; =========== Filetree ===========
      (treemacs :variables
                treemacs-use-follow-mode t
@@ -461,6 +459,7 @@ values."
   (global-flycheck-mode t)
   (global-pangu-spacing-mode 0)
   (global-company-mode)
+  (global-auto-highlight-symbol-mode t)
 
   ;;toggle mode
   (spacemacs/toggle-display-time-on)
