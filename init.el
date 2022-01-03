@@ -161,6 +161,7 @@ values."
                                       textile-mode
                                       company-tabnine
                                       arduino-mode
+                                      highlight-indent-guides
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -467,6 +468,7 @@ values."
 
   ;; hook
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
+  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
   ;; (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 
   (cond ((eq system-type 'windows-nt)

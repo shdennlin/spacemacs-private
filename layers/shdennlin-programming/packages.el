@@ -15,6 +15,7 @@
     company
     grip-mode
     python
+    highlight-indent-guides
     )
   )
 
@@ -41,4 +42,8 @@
   (setq grip-preview-use-webkit t)
   )
 
+(defun shdennlin-programming/pre-init-highlight-indent-guides ()
+  ;; (setq highlight-indent-guides-method 'character)
+  ;; (setq highlight-indent-guides-responsive 'stack)
+  )
 ;;; packages.el ends here
