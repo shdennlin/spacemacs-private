@@ -12,6 +12,8 @@
 
 (global-unset-key (kbd "C-SPC"))
 
+(spacemacs/set-leader-keys "ol" 'shdennlin/open-today-translate-file)
+
 (spacemacs/set-leader-keys "od" 'occur-dwim)
 (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
 

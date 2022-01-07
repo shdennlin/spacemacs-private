@@ -99,3 +99,9 @@
   (with-current-buffer (get-buffer-create buffer-name)
     (goto-char (point-max))
     (insert (shell-command-to-string command))))
+
+(defun shdennlin/open-today-translate-file ()
+  (interactive)
+  (let ((file-path (concat daily-translate-basedir (format-time-string "%Y-%m-%d" (time-add (current-time) (* 60 60 4))) ".csv")))
+    (find-file file-path))
+  )
