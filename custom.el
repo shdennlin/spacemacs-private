@@ -12,14 +12,3 @@
  '(sh-indent-after-continuation nil)
  '(sh-indent-for-continuation 0)
  '(truncate-lines nil))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ml/hhuge ((t (:height 1.7))))
- '(ml/huge ((t (:height 1.55))))
- '(ml/title ((t (:inherit font-lock-function-name-face :height 1.3))))
- '(show-paren-match ((t (:background "red" :foreground "#8be9fd" :weight bold))))
- '(variable-pitch ((t (:family "Consolas")))))
-

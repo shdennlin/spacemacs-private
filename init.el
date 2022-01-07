@@ -229,8 +229,9 @@ values."
    ;; List sizes may be nil, in which case
    ;; `spacemacs-buffer-startup-lists-length' takes effect.
    dotspacemacs-startup-lists '((projects . 20)
+                                (recents . 50)
                                 (bookmarks . 10)
-                                (recents . 15))
+                                )
    ;; True if the home buffer should respond to resize events.
    dotspacemacs-startup-buffer-responsive t
    ;; Default major mode of the scratch buffer (default `text-mode')
@@ -468,7 +469,6 @@ values."
 
   ;; hook
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
-  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
   ;; (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 
   (cond ((eq system-type 'windows-nt)
@@ -543,3 +543,17 @@ This is an auto-generated function, do not modify its content directly, use
 Emacs customize menu instead.
 This function is called at the very end of Spacemacs initialization."
   )
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ahs-face ((t (:underline "magenta"))))
+ '(ahs-plugin-whole-buffer-face ((t (:box (:line-width 1 :color "magenta" :style released-button)))))
+ '(ml/hhuge ((t (:height 1.7))))
+ '(ml/huge ((t (:height 1.55))))
+ '(ml/title ((t (:inherit font-lock-function-name-face :height 1.3))))
+ '(show-paren-match ((t (:background "red" :foreground "#8be9fd" :weight bold))))
+ '(variable-pitch ((t (:family "Consolas")))))
+
