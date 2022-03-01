@@ -91,10 +91,12 @@ values."
             c-c++-enable-auto-newline t)
      emacs-lisp
      go
-     html
+     (html :variables web-fmt-tool 'web-beautify)
      ipython-notebook
      (java :variables java-backend 'meghanada)
-     javascript
+     (javascript :variables
+                 javascript-backend 'tern
+                 javascript-fmt-tool 'web-beautify)
      (latex :variables
             latex-build-command "LaTeX"
             latex-enable-magic t
@@ -108,17 +110,19 @@ values."
      (python :variables
              python-test-runner '(pytest nose)
              python-backend 'anaconda
+             ;; python-backend 'lsp python-lsp-server 'mspyls
+             python-fill-column 120
              python-formatter 'yapf
              python-format-on-save t
-             python-fill-column 120
-             python-sort-imports-on-save t
+             ;; python-sort-imports-on-save t
              )
      ruby
      rust
      yaml
      sql
+     tern
      vimscript
-     javascript
+     web-beautify
      ;; =========== Readers ===========
      dash
      ;; =========== Source control ===========
