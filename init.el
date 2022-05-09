@@ -479,10 +479,7 @@ values."
          (pyvenv-mode 1)
 
          ;; hunspell
-         (setq ispell-program-name "d:/application/hunspell-1.3.2-3-w32-bin/bin/hunspell.exe")
-         ;; (add-to-list 'exec-path "C:/msys64/mingw64/bin/")
-         ;; (setq ispell-program-name "aspell")
-         ;; (setq ispell-personal-dictionary "c:/msys64/mingw64/lib/aspell-0.60/en_GB")
+         (setq ispell-program-name "~/.spacemacs.d/assets/hunspell-1.3.2-3-w32-bin/bin/hunspell.exe")
          )
         ((eq system-type 'gnu/linux)
          (setenv "WORKON_HOME" "~/.virtualenvs")
