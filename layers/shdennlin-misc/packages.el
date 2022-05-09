@@ -37,44 +37,34 @@
          0 -1))
 
   (prodigy-define-service
-    :name "Hugo Personal Blog"
+    :name "blog.shdennlin.com"
     :command "hugo"
-    :args '("server" "-t" "toha" "-w" "-p" "51000")
-    :cwd "~/shdennlin-wiki/website/blog.shdennlin.com/"
+    :args (list "server" "-w" "-p" "51000")
+    :cwd blog-dir
     :tags '(personal)
     :stop-signal 'sigkill
     :kill-process-buffer-on-stop t
-    :url "http://localhost:51000")
+    :url (concat "http://localhost:51000"))
 
   (prodigy-define-service
-    :name "blog.shdennlin.com(WSL)"
+    :name "wiki.shdennlin.com"
     :command "hugo"
     :args (list "server" "-w" "-p" "51001")
-    :cwd "~/shdennlin-wiki/website/blog.shdennlin.com/"
+    :cwd wiki-dir
     :tags '(personal)
     :stop-signal 'sigkill
     :kill-process-buffer-on-stop t
     :url (concat "http://localhost:51001"))
 
   (prodigy-define-service
-    :name "leetcode.shdennlin.com(WSL)"
+    :name "leetcode.shdennlin.com"
     :command "gitbook"
     :args (list "--lrport" "35730" "--port" "51002" "serve")
-    :cwd "~/shdennlin-wiki/website/leetcode.shdennlin.com/"
+    :cwd leetcode-dir
     :tags '(personal)
     :stop-signal 'sigkill
     :kill-process-buffer-on-stop t
     :url (concat "http://localhost:51002"))
-
-  (prodigy-define-service
-    :name "wiki.shdennlin.com(WSL)"
-    :command "hugo"
-    :args (list "server" "-w" "-p" "51003")
-    :cwd "~/shdennlin-wiki/website/wiki.shdennlin.com/"
-    :tags '(personal)
-    :stop-signal 'sigkill
-    :kill-process-buffer-on-stop t
-    :url (concat "http://localhost:51003"))
   )
 
 (defun shdennlin-misc/post-init-search-engine()

@@ -28,7 +28,7 @@
 
 (defvar org-agenda-dir "" "gtd org files location")
 (defvar deft-dir "" "deft org files location")
-(defvar blog-admin-dir "" "personal blog files location")
+(defvar blog-dir "" "personal blog files location")
 (defvar wiki-dir "" "personal wiki files location")
 (defvar leetcode-dir "" "personal leetcode files location")
 (defvar work-dir "" "personal work note location")

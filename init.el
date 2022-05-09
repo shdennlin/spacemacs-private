@@ -127,6 +127,7 @@ values."
      dash
      ;; =========== Source control ===========
      git
+     github
      version-control
      ;; =========== themes ===========
      (colors :variables

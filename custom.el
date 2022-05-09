@@ -21,6 +21,7 @@
  ;; If there is more than one, they won't work right.
  '(ahs-face ((t (:underline "magenta"))))
  '(ahs-plugin-whole-buffer-face ((t (:box (:line-width 1 :color "magenta" :style released-button)))))
+ '(highlight-parentheses-highlight ((nil (:weight ultra-bold))))
  '(ml/hhuge ((t (:height 1.7))))
  '(ml/huge ((t (:height 1.55))))
  '(ml/title ((t (:inherit font-lock-function-name-face :height 1.3))))
