@@ -127,7 +127,6 @@ values."
      dash
      ;; =========== Source control ===========
      git
-     github
      version-control
      ;; =========== themes ===========
      (colors :variables
@@ -476,13 +475,14 @@ values."
 
   (cond ((eq system-type 'windows-nt)
          ;; workon home
-         (setenv "WORKON_HOME" "C:/Users/shdennlin/.conda/envs/")
+         (setenv "WORKON_HOME" "c:/Users/shdennlin/.virtualenvs")
          (pyvenv-mode 1)
 
-         ;; aspell
-         (add-to-list 'exec-path "C:/msys64/mingw64/bin/")
-         (setq ispell-program-name "aspell")
-         (setq ispell-personal-dictionary "c:/msys64/mingw64/lib/aspell-0.60/en_GB")
+         ;; hunspell
+         (setq ispell-program-name "d:/application/hunspell-1.3.2-3-w32-bin/bin/hunspell.exe")
+         ;; (add-to-list 'exec-path "C:/msys64/mingw64/bin/")
+         ;; (setq ispell-program-name "aspell")
+         ;; (setq ispell-personal-dictionary "c:/msys64/mingw64/lib/aspell-0.60/en_GB")
          )
         ((eq system-type 'gnu/linux)
          (setenv "WORKON_HOME" "~/.virtualenvs")

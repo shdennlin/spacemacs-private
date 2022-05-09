@@ -32,6 +32,14 @@
   (spacemacs|add-company-backends
     :backends company-anaconda
     :modes python-mode)
+  (cond
+   ((spacemacs/system-is-mswindows)
+    (setq python-shell-unbuffered nil)
+    (setq python-shell-prompt-detect-failure-warning nil)
+    (setq python-shell-prompt-detect-enabled nil)
+    )
+   ((or (spacemacs/system-is-linux) (spacemacs/system-is-mac))
+    ))
   )
 
 (defun shdennlin-programming/post-init-grip-mode ()
