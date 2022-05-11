@@ -14,13 +14,16 @@
 
 (spacemacs/set-leader-keys "ol" 'shdennlin/open-today-translate-file)
 
-(spacemacs/set-leader-keys "od" 'occur-dwim)
+;; (spacemacs/set-leader-keys "od" 'occur-dwim)
 (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
+
+(spacemacs/declare-prefix  "ok"  "occur")
+(spacemacs/set-leader-keys "oko" 'occur-dwim)
+(spacemacs/set-leader-keys "okm" 'multi-occur-dwim)
 
 (spacemacs/declare-prefix  "oe"  "engineering")
 (spacemacs/set-leader-keys "oel" 'shdennlin/leetcode-build-environment)
 (spacemacs/set-leader-keys "oep" 'shdennlin/leetcode-quick-python)
-
 
 (spacemacs/declare-prefix  "ot"  "Toggle")
 (spacemacs/set-leader-keys "otc" 'vline-mode)
@@ -39,9 +42,9 @@
 (spacemacs/set-leader-keys "oww" 'wiik-start-template)
 (spacemacs/set-leader-keys "owl" 'leetcode-template)
 
-(spacemacs/declare-prefix  "om"  "MobileOrg")
-(spacemacs/set-leader-keys "omp" 'org-mobile-push)
-(spacemacs/set-leader-keys "omf" 'org-mobile-pull)
+;; (spacemacs/declare-prefix  "om"  "MobileOrg")
+;; (spacemacs/set-leader-keys "omp" 'org-mobile-push)
+;; (spacemacs/set-leader-keys "omf" 'org-mobile-pull)
 
 (spacemacs/declare-prefix  "og"  "org-gcal")
 (spacemacs/set-leader-keys "ogs" 'org-gcal-sync)
@@ -54,8 +57,11 @@
 (spacemacs/set-leader-keys "oqb" 'shdennlin-open-blog)
 (spacemacs/set-leader-keys "oql" 'shdennlin-open-leetcode)
 
-(spacemacs/declare-prefix  "ov"  "vc")
+(spacemacs/declare-prefix  "ov"  "virsion-control")
 (spacemacs/set-leader-keys "ovu" 'git-config-insert-user)
+
+;; batter default
+(spacemacs/set-leader-keys "sp" 'spacemacs/search-project-auto-dwim)
 
 (define-key evil-normal-state-map (kbd "<RET>") 'spacemacs/evil-search-clear-highlight)
 
